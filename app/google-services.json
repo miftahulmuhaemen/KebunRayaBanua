@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "425369959884",
+    "firebase_url": "https://kebunrayabanua-cb516.firebaseio.com",
+    "project_id": "kebunrayabanua-cb516",
+    "storage_bucket": "kebunrayabanua-cb516.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425369959884:android:3aa1336f37c2fc24",
+        "android_client_info": {
+          "package_name": "com.example.kebunrayabanua"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425369959884-oe9o2m97cvn5tcu8s5g1nsmml8cd8fsl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kebunrayabanua",
+            "certificate_hash": "6eaad6cb5b39df17101ff130cb986eefab973d4f"
+          }
+        },
+        {
+          "client_id": "425369959884-i92kcgdmcuibn615kdjdl0t9u6smhvbh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxlbeIJPyx-KYiYQ_1qgnTkrcrOxbAohU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425369959884-i92kcgdmcuibn615kdjdl0t9u6smhvbh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
