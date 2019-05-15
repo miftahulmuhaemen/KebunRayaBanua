@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KebunRayaBanua</string>
+    <string name="facebook_application_id" translatable="false">2407779299506711</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb2407779299506711</string>
 </resources>
