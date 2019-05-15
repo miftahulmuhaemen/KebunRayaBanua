@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#F2F2F2"
+        tools:context=".MainActivity">
+
+<LinearLayout android:layout_centerInParent="true" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <ImageView android:id="@+id/img_logo" android:layout_width="250dp" android:layout_height="250dp"
+               android:layout_centerInParent="true"
+               android:layout_gravity="center"
+               android:paddingBottom="20dp"
+               android:layout_marginBottom="16dp"/>
+
+    <LinearLayout android:layout_below="@id/img_logo" android:layout_marginBottom="32dp" android:orientation="horizontal" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <TextView android:layout_width="150dp"
+                  android:layout_height="wrap_content"
+                  android:text="Sign In with Google"
+                  android:textSize="16sp"
+                  android:textStyle="bold"
+                  android:gravity="center"
+                  android:padding="16dp"
+                  android:textColor="@color/colorPrimary"
+                  android:background="@drawable/btn_round_border"
+                  android:id="@+id/google_signIn"
+        />
+
+        <TextView android:layout_width="150dp"
+                  android:layout_height="wrap_content"
+                  android:text="Sign In with Facebook"
+                  android:textSize="16sp"
+                  android:textStyle="bold"
+                  android:gravity="center"
+                  android:padding="16dp"
+                  android:textColor="@android:color/white"
+                  android:background="@drawable/btn_round_fill"
+                  android:layout_marginLeft="16dp"
+                  android:id="@+id/facebook_signIn"
+        />
+    </LinearLayout>
+</LinearLayout>
+</RelativeLayout>
