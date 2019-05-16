@@ -14,7 +14,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 //        buildConfigField "String", "BASE_URL", "\"https://www.thesportsdb.com/\""
-//        7:xH"}aB={'}'L$(
+//        m5G34FHjDNDfB3vN1MeJ9sl
     }
     buildTypes {
         release {
@@ -24,6 +24,11 @@ android {
     }
     androidExtensions {
         experimental = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -42,6 +47,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.9'
     implementation 'com.google.firebase:firebase-auth:17.0.0'
     implementation 'com.facebook.android:facebook-android-sdk:5.0.0'
+    implementation 'com.twitter.sdk.android:twitter-core:3.2.0'
     implementation('com.github.thekhaeng:pushdown-anim-click:1.1.1') {
         exclude group: 'com.android.support'
     }

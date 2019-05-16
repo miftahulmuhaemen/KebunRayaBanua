@@ -1,23 +1,26 @@
-package com.example.kebunrayabanua.LoginActivity.LoginActivity
+package com.example.kebunrayabanua.LoginActivity.loginActivity
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
-import com.example.kebunrayabanua.LoginActivity.MainActivity.MainActivity
+import com.example.kebunrayabanua.LoginActivity.util.util.FACEBOOK_PROVIDER
+import com.example.kebunrayabanua.LoginActivity.util.util.GOOGLE_PROVIDER
+import com.example.kebunrayabanua.LoginActivity.util.util.RC_SIGN_IN
+import com.example.kebunrayabanua.LoginActivity.util.util.TWITTER_PROVIDER
+import com.example.kebunrayabanua.LoginActivity.util.util.USERNAME
 import com.example.kebunrayabanua.R
 import org.jetbrains.anko.*
 import com.example.kebunrayabanua.R.layout.activity_login
 import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.thekhaeng.pushdownanim.PushDownAnim
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
-    val RC_SIGN_IN: Int = 1
-    val GOOGLE_PROVIDER = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
-    val FACEBOOK_PROVIDER = arrayListOf(AuthUI.IdpConfig.FacebookBuilder().build())
 
     override fun onStart() {
         super.onStart()
@@ -39,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
                     )
                 else
                     startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
-                        .setAvailableProviders(FACEBOOK_PROVIDER)
+                        .setAvailableProviders(TWITTER_PROVIDER)
                         .build(), RC_SIGN_IN
                     )
             }
@@ -50,8 +53,9 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             RC_SIGN_IN -> {
-                val user = FirebaseAuth.getInstance().currentUser
-                user?.displayName?.let { toast(it) }
+                val userName = FirebaseAuth.getInstance().currentUser
+                userName?.displayName.let { toast(it + "sssss") }
+
             }
         }
     }
