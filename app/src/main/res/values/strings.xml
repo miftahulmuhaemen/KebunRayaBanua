@@ -5,4 +5,17 @@
 
     <string name="twitter_consumer_key" translatable="false">6YBuu3FcbntSL0tMz9JmoSuOs </string>
     <string name="twitter_consumer_secret" translatable="false">ZNi2F5aLJgTCQpCucmxnU2orDPBvQOiKLEW43GwWdARJPAmigz </string>
+
+
+    <string-array name="highlight_text">
+        <item>English Premier League</item>
+        <item>French Ligue</item>
+        <item>German Bundesliga</item>
+    </string-array>
+
+    <array name="highlight_images">
+        <item>@drawable/header_1</item>
+        <item>@drawable/header_2</item>
+        <item>@drawable/header_3</item>
+    </array>
 </resources>

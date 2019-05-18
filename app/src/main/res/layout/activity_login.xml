@@ -2,45 +2,46 @@
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="#F2F2F2"
         tools:context=".LoginActivity.loginActivity.LoginActivity">
 
-<LinearLayout android:layout_centerInParent="true" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
 
-    <ImageView android:id="@+id/img_logo" android:layout_width="250dp" android:layout_height="250dp"
-               android:layout_centerInParent="true"
+    <ImageView android:layout_centerInParent="true" android:layout_above="@id/mazeView" android:id="@+id/img_logo"
+               android:layout_width="200dp" android:layout_height="200dp"
                android:layout_gravity="center"
-               android:paddingBottom="20dp"
-               android:layout_marginBottom="16dp"/>
+               tools:src="@drawable/logo"
+               android:layout_marginBottom="16dp" tools:ignore="ContentDescription"/>
 
-    <LinearLayout android:layout_below="@id/img_logo" android:layout_marginBottom="32dp" android:orientation="horizontal" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:visibility="gone" android:id="@+id/buttons" android:layout_marginBottom="64dp" android:orientation="horizontal"
+                  android:gravity="center"
+                  android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:layout_alignParentBottom="true">
 
         <TextView android:layout_width="150dp"
                   android:layout_height="wrap_content"
-                  android:text="Sign In with Google"
-                  android:textSize="16sp"
-                  android:textStyle="bold"
                   android:gravity="center"
                   android:padding="16dp"
                   android:textColor="@color/colorPrimary"
-                  android:background="@drawable/btn_round_border"
+                  android:background="@drawable/logoogle"
                   android:id="@+id/google_signIn"
         />
 
         <TextView android:layout_width="150dp"
                   android:layout_height="wrap_content"
-                  android:text="Sign In with Facebook"
-                  android:textSize="16sp"
-                  android:textStyle="bold"
                   android:gravity="center"
                   android:padding="16dp"
                   android:textColor="@android:color/white"
-                  android:background="@drawable/btn_round_fill"
-                  android:layout_marginLeft="16dp"
+                  android:background="@drawable/logtwit"
+                  android:layout_marginStart="16dp"
                   android:id="@+id/facebook_signIn"
         />
     </LinearLayout>
-</LinearLayout>
+
+    <ImageView android:id="@+id/mazeView" android:layout_width="match_parent"
+               android:layout_height="wrap_content" tools:src="@drawable/maze" android:layout_alignParentBottom="true"
+               android:translationY="100dp" tools:ignore="ContentDescription"/>
+
 </RelativeLayout>
