@@ -2,10 +2,22 @@
     <string name="app_name">KebunRayaBanua</string>
     <string name="facebook_application_id" translatable="false">2407779299506711</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb2407779299506711</string>
+    <string name="twitter_consumer_key" translatable="false">6YBuu3FcbntSL0tMz9JmoSuOs</string>
+    <string name="twitter_consumer_secret" translatable="false">ZNi2F5aLJgTCQpCucmxnU2orDPBvQOiKLEW43GwWdARJPAmigz
+    </string>
 
-    <string name="twitter_consumer_key" translatable="false">6YBuu3FcbntSL0tMz9JmoSuOs </string>
-    <string name="twitter_consumer_secret" translatable="false">ZNi2F5aLJgTCQpCucmxnU2orDPBvQOiKLEW43GwWdARJPAmigz </string>
+    /* Icon */
+    <string name="scan_me">Scan Me</string>
+    <string name="where_i_am">Where I Am</string>
+    <string name="tree_data">Tree Data</string>
+    <string name="login_with_google">Login With Google</string>
+    <string name="login_with_twitter">Login With Twitter</string>
+    <string name="highlight">Highlight</string>
+    <string name="event">Event</string>
+    <string name="notification">Notification</string>
+    <string name="logout">Logout</string>
 
+    /* Mocked Viewflipper */
 
     <string-array name="highlight_text">
         <item>English Premier League</item>
@@ -18,4 +30,6 @@
         <item>@drawable/header_2</item>
         <item>@drawable/header_3</item>
     </array>
+
+
 </resources>

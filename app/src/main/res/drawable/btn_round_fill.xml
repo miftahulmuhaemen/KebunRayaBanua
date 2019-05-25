@@ -9,11 +9,7 @@
     />
 
     <corners
-            android:bottomLeftRadius="10dp"
-            android:bottomRightRadius="30dp"
-            android:radius="20dp"
-            android:topLeftRadius="30dp"
-            android:topRightRadius="10dp" />
+            android:radius="30dp" />
 
     <solid android:color="#90C23E" />
 
@@ -26,6 +22,5 @@
     <size
             android:height="60dp"
             android:width="270dp" />
-
 
 </shape>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context=".main.mainActivity.scanMeActivity.ScanMeActivity">
+
+    <FrameLayout
+            android:id="@+id/frame_layout_camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="50dp"
+              android:padding="16dp"
+              android:background="@drawable/btn_round_fill"
+              android:id="@+id/google_signIn"
+              android:text="Arahkan kamera pada tanda khusus pohonnya!"
+              android:textColor="@color/tw__solid_white"
+              android:textStyle="bold"
+
+              android:layout_centerHorizontal="true"
+              android:layout_marginTop="64dp"
+    />
+
+
+</RelativeLayout>
