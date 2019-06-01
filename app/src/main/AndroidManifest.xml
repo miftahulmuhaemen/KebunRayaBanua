@@ -14,16 +14,18 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".main.mainActivity.scanMeActivity.ScanMeActivity">
+        <activity android:name=".main.main.detailTree.DetailTreeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".main.mainActivity.MainActivity">
+        <activity android:name=".main.main.scanMe.ScanMeActivity">
         </activity>
-        <activity android:name=".main.loginActivity.LoginActivity">
+        <activity android:name=".main.main.MainActivity">
+        </activity>
+        <activity android:name=".main.login.LoginActivity">
         </activity>
 
         <meta-data

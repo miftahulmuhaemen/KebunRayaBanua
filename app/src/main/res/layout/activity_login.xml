@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F2F2F2"
-        tools:context=".main.loginActivity.LoginActivity">
+        tools:context=".main.login.LoginActivity">
 
     <ImageView android:id="@+id/background" android:layout_width="match_parent" android:layout_height="match_parent"
                tools:src="@drawable/bg_spouse" android:scaleType="centerCrop"/>

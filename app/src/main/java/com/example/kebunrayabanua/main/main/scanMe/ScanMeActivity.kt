@@ -1,4 +1,4 @@
-package com.example.kebunrayabanua.main.mainActivity.scanMeActivity
+package com.example.kebunrayabanua.main.main.scanMe
 
 import android.Manifest
 import android.content.pm.PackageManager

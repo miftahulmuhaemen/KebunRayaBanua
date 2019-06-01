@@ -1,12 +1,13 @@
-package com.example.kebunrayabanua.main.mainActivity
+package com.example.kebunrayabanua.main.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.example.kebunrayabanua.main.loginActivity.LoginActivity
+import com.example.kebunrayabanua.main.login.LoginActivity
 import com.example.kebunrayabanua.main.model.Highlight
 import com.example.kebunrayabanua.R
+import com.example.kebunrayabanua.main.main.scanMe.ScanMeActivity
 import com.firebase.ui.auth.AuthUI
 import com.thekhaeng.pushdownanim.PushDownAnim
 import kotlinx.android.synthetic.main.activity_main.*
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity(), MainActivityView {
                         }
                     }
                     scan->{
-
+                        startActivity<ScanMeActivity>()
                     }
                     location->{
 

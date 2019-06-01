@@ -1,4 +1,4 @@
-package com.example.kebunrayabanua.main.loginActivity
+package com.example.kebunrayabanua.main.login
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -15,7 +15,7 @@ import com.thekhaeng.pushdownanim.PushDownAnim
 import kotlinx.android.synthetic.main.activity_login.*
 import android.transition.TransitionManager
 import android.view.View
-import com.example.kebunrayabanua.main.mainActivity.MainActivity
+import com.example.kebunrayabanua.main.main.MainActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay

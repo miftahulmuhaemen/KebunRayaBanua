@@ -1,4 +1,4 @@
-package com.example.kebunrayabanua.main.mainActivity
+package com.example.kebunrayabanua.main.main
 
 import com.example.kebunrayabanua.main.model.Highlight
 
