@@ -15,22 +15,22 @@
                      android:inAnimation="@anim/fui_slide_in_right"
                      android:outAnimation="@anim/fui_slide_out_left"
                      android:background="@color/colorPrimary"
-                     android:flipInterval="2000" android:layout_width="match_parent" android:layout_height="300dp"/>
+                     android:flipInterval="2000" android:layout_width="match_parent" android:layout_height="@dimen/viewFlipperSize"/>
 
         <RelativeLayout android:id="@+id/first_icon_menu" android:layout_marginTop="32dp" android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:paddingEnd="64dp" android:paddingStart="64dp">
+                        android:layout_height="wrap_content" android:paddingEnd="@dimen/paddingIcon" android:paddingStart="@dimen/paddingIcon">
 
             <ImageView android:id="@+id/scan" android:src="@drawable/ic_scan"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
+                       android:layout_width="@dimen/IconSize"
+                       android:layout_height="@dimen/IconSize"
                        android:layout_alignParentStart="true"/>
             <ImageView android:id="@+id/location" android:src="@drawable/ic_where"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
+                       android:layout_width="@dimen/IconSize"
+                       android:layout_height="@dimen/IconSize"
                        android:layout_centerInParent="true"/>
             <ImageView android:id="@+id/database" android:src="@drawable/ic_data"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
+                       android:layout_width="@dimen/IconSize"
+                       android:layout_height="@dimen/IconSize"
                        android:layout_alignParentEnd="true"/>
 
             <TextView android:layout_alignStart="@id/scan" android:layout_alignEnd="@id/scan"
@@ -53,7 +53,7 @@
         </RelativeLayout>
 
         <RelativeLayout android:id="@+id/second_icon_menu" android:layout_marginTop="20dp" android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:paddingEnd="64dp" android:paddingStart="64dp">
+                        android:layout_height="wrap_content" android:paddingEnd="@dimen/paddingIcon" android:paddingStart="@dimen/paddingIcon">
 
             <ImageView android:id="@+id/event" android:src="@drawable/ic_event"
                        android:layout_width="@dimen/IconSize"
@@ -90,6 +90,8 @@
 
         <TextView android:layout_marginTop="32dp" android:textSize="18sp" android:layout_marginStart="32dp"
                   android:layout_width="wrap_content"
+                  android:textStyle="bold"
+                  android:textAllCaps="true"
                   android:layout_height="wrap_content" android:text="@string/highlight"/>
 
         <android.support.v7.widget.RecyclerView
@@ -98,8 +100,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:clipToPadding="false"
-                android:paddingStart="16dp"
+                android:paddingStart="32dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager"
                 tools:listitem="@layout/activity_main_highlight_item"
         />

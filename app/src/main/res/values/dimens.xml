@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="IconName">11sp</dimen>
-    <dimen name="IconSize">80dp</dimen>
+    <dimen name="IconSize">100dp</dimen>
+    <dimen name="paddingIcon">32dp</dimen>
+    <dimen name="viewFlipperSize">200dp</dimen>
 </resources>
