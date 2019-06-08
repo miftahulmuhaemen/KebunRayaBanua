@@ -10,11 +10,11 @@ import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.main.scanMe.ScanMeActivity
 import com.firebase.ui.auth.AuthUI
 import com.thekhaeng.pushdownanim.PushDownAnim
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
-class MainActivity : AppCompatActivity(), MainActivityView {
+class MainActivity : AppCompatActivity(), MainView {
 
     override fun highlightItem(item: List<Highlight>) {
         highlightItem.clear()
@@ -31,13 +31,13 @@ class MainActivity : AppCompatActivity(), MainActivityView {
         }
     }
 
-    private lateinit var mainPresenter : MainActivityPresenter
+    private lateinit var mainPresenter : MainPresenter
     private var highlightItem: MutableList<Highlight> = mutableListOf()
-    private lateinit var mAdapter: MainActivityListAdapter
+    private lateinit var mAdapter: MainListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_activity)
 
         PushDownAnim.setPushDownAnimTo(logout, scan, location, database, event, notification)
             .setOnClickListener {
@@ -66,12 +66,12 @@ class MainActivity : AppCompatActivity(), MainActivityView {
                 }
             }
 
-        mAdapter = MainActivityListAdapter(this, highlightItem) {
+        mAdapter = MainListAdapter(this, highlightItem) {
             toast(it.name.toString())
         }
         recylerviewMain.adapter = mAdapter
 
-        mainPresenter = MainActivityPresenter(this)
+        mainPresenter = MainPresenter(this)
         mainPresenter.headerImage()
         mainPresenter.highlightItem()
 

@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.kebunrayabanua.R
 import com.google.zxing.Result
-import kotlinx.android.synthetic.main.activity_scan_me.*
+import kotlinx.android.synthetic.main.scan_me_activity.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import org.jetbrains.anko.toast
 
@@ -29,7 +29,7 @@ class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scan_me)
+        setContentView(R.layout.scan_me_activity)
         initScanView()
     }
 

@@ -6,7 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MainActivityPresenter(private val activity : MainActivity) {
+class MainPresenter(private val activity : MainActivity) {
 
         fun headerImage(){
             GlobalScope.launch(Dispatchers.Main){

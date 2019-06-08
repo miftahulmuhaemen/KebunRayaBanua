@@ -9,13 +9,13 @@ import com.bumptech.glide.Glide
 import com.example.kebunrayabanua.main.model.Highlight
 import com.example.kebunrayabanua.R
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.activity_main_highlight_item.*
+import kotlinx.android.synthetic.main.main_highlight_item.*
 
-class MainActivityListAdapter(private val context : Context, private val highlightList: List<Highlight>, private val listener: (Highlight) -> Unit) :
+class MainListAdapter(private val context : Context, private val highlightList: List<Highlight>, private val listener: (Highlight) -> Unit) :
     RecyclerView.Adapter<TeamViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
-        return TeamViewHolder(LayoutInflater.from(context).inflate(R.layout.activity_main_highlight_item, parent, false), context)
+        return TeamViewHolder(LayoutInflater.from(context).inflate(R.layout.main_highlight_item, parent, false), context)
     }
 
     override fun onBindViewHolder(holder: TeamViewHolder, position: Int) {

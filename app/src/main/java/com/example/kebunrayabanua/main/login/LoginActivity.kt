@@ -8,11 +8,11 @@ import com.example.kebunrayabanua.main.util.Util.GOOGLE_PROVIDER
 import com.example.kebunrayabanua.main.util.Util.RC_SIGN_IN
 import com.example.kebunrayabanua.main.util.Util.TWITTER_PROVIDER
 import com.example.kebunrayabanua.R.drawable.*
-import com.example.kebunrayabanua.R.layout.activity_login
+import com.example.kebunrayabanua.R.layout.login_activity
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.thekhaeng.pushdownanim.PushDownAnim
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.login_activity.*
 import android.transition.TransitionManager
 import android.view.View
 import com.example.kebunrayabanua.main.main.MainActivity
@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(activity_login)
+        setContentView(login_activity)
 
         Glide.with(this).load(bg_spouse).into(background)
         Glide.with(this).load(ic_logo).into(img_logo)
