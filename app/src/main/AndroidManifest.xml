@@ -5,6 +5,9 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
             android:allowBackup="true"
@@ -14,18 +17,22 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".main.main.treeData.TreeDataActivity">
-        </activity>
-        <activity android:name=".main.main.detailTree.DetailTreeActivity">
+        <activity android:name=".main.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".main.main.scanMe.ScanMeActivity">
+        <activity android:name=".main.main.profile.ProfileActivity">
         </activity>
-        <activity android:name=".main.main.MainActivity">
+        <activity android:name=".main.main.whereIam.WhereIamActivity">
+        </activity>
+        <activity android:name=".main.main.treeData.TreeDataActivity">
+        </activity>
+        <activity android:name=".main.main.detailTree.DetailTreeActivity">
+        </activity>
+        <activity android:name=".main.main.scanMe.ScanMeActivity">
         </activity>
         <activity android:name=".main.login.LoginActivity">
         </activity>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_header_height"
+        android:background="@color/softGreen"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_gravity="center"
+                  android:layout_margin="24dp"
+    >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_profil"
+        />
+
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/organization_profile"
+                android:layout_gravity="center"
+                android:layout_marginStart="24sp"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+        />
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="30dp"
+                  android:gravity="bottom"
+                  android:layout_gravity="bottom"
+                  android:background="@color/softGreenDarker"
+    />
+
+
+</LinearLayout>

@@ -1,27 +1,29 @@
 package com.example.kebunrayabanua.main.main.detailTree
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
-import android.support.transition.Visibility
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.bumptech.glide.Glide
 import com.example.kebunrayabanua.R
+import com.example.kebunrayabanua.main.util.gone
+import com.example.kebunrayabanua.main.util.visible
 import kotlinx.android.synthetic.main.detail_tree_activity.*
-import kotlinx.android.synthetic.main.detail_tree_activity.appbar
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.dip
-import org.jetbrains.anko.toast
-import org.jetbrains.anko.verbose
 
-class DetailTreeActivity : AppCompatActivity(), AnkoLogger, AppBarLayout.OnOffsetChangedListener {
+class DetailTreeActivity : AppCompatActivity(), AnkoLogger, AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
 
-    override fun onOffsetChanged(p0: AppBarLayout?, verticalOffset: Int) {
+    override fun onClick(v: View?) {
+        when (v) {
+            backBtn -> finish()
+        }
+    }
+
+    override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
         if(verticalOffset <= -55)
-            title_bar.visibility = View.VISIBLE
+            title_bar.visible()
         else
-            title_bar.visibility = View.GONE
+            title_bar.gone()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +31,7 @@ class DetailTreeActivity : AppCompatActivity(), AnkoLogger, AppBarLayout.OnOffse
         setContentView(R.layout.detail_tree_activity)
         Glide.with(this).load(R.drawable.header_2).into(header_img)
         appbar.addOnOffsetChangedListener(this)
+        backBtn.setOnClickListener(this)
     }
 
 }

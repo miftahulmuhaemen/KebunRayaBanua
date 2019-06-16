@@ -5,13 +5,21 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.example.kebunrayabanua.R
+import com.example.kebunrayabanua.main.util.Permission.SCAN
 import com.google.zxing.Result
 import kotlinx.android.synthetic.main.scan_me_activity.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import org.jetbrains.anko.toast
 
-class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
+class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClickListener {
+
+    override fun onClick(v: View?) {
+        when(v){
+            backBtn -> finish()
+        }
+    }
 
     override fun handleResult(rawResult: Result?) {
         rawResult?.text?.let { toast(it) }
@@ -23,7 +31,7 @@ class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         mScannerView.startCamera()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-                requestPermissions(arrayOf(Manifest.permission.CAMERA), 100)
+                requestPermissions(arrayOf(Manifest.permission.CAMERA), SCAN)
         super.onStart()
     }
 
@@ -31,6 +39,7 @@ class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.scan_me_activity)
         initScanView()
+        backBtn.setOnClickListener(this)
     }
 
     override fun onResume() {
@@ -47,7 +56,7 @@ class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
-            100 -> {
+            SCAN -> {
                 initScanView()
             }
             else -> {

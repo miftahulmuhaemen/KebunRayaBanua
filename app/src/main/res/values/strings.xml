@@ -16,6 +16,7 @@
     <string name="event">Event</string>
     <string name="notification">Notification</string>
     <string name="logout">Logout</string>
+    <string name="profile">Profile</string>
 
     /* Mocked Viewflipper */
 
@@ -30,6 +31,18 @@
         <item>@drawable/header_2</item>
         <item>@drawable/header_3</item>
     </array>
+
+    /* Drawer Navbar */
+    <string name="navigation_drawer_open">/</string>
+    <string name="navigation_drawer_close">/.</string>
+
+    <string name="badan_kebun_kebun_bunga_2019">Badan Kebun-Kebun Bunga 2019</string>
+    <string name="profil_pimpinan">Profil Pimpinan</string>
+    <string name="head_profile">Head Profile</string>
+    <string name="vision_and_mission">Vision and Mission</string>
+    <string name="goal">Goal</string>
+    <string name="organization_structure">Organization Structure</string>
+    <string name="organization_profile">Organization Profile</string>
 
 
 </resources>

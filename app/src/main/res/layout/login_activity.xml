@@ -40,7 +40,7 @@
                   android:padding="16dp"
                   android:background="@drawable/btn_round_border"
                   android:layout_marginStart="16dp"
-                  android:id="@+id/facebook_signIn"
+                  android:id="@+id/twitter_signIn"
                   android:text="@string/login_with_twitter"
                   android:textColor="@color/colorPrimary"
                   android:textStyle="bold"

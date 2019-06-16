@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".main.main.scanMe.ScanMeActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
-    <RelativeLayout
-            android:id="@+id/appBar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/appBarHeight">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="@dimen/appBarHeight">
         <TextView
                 android:id="@+id/titleText"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@id/rightNonExistIcon"
-                android:text="@string/scan_me"
+                android:layout_toLeftOf="@id/rightNonExistIcon"
+                android:text="@string/where_i_am"
                 android:lines="1"
                 android:textAllCaps="true"
-                android:paddingEnd="16dp"
-                android:paddingStart="0dp"
+                android:paddingRight="16dp"
                 android:textSize="24sp"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
@@ -62,15 +59,7 @@
         />
 
     </RelativeLayout>
-
-    <FrameLayout
-            android:id="@+id/frame_layout_camera"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/appBar"
-    />
-
-
-
-
-</RelativeLayout>
+    <org.osmdroid.views.MapView android:id="@+id/map"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+</LinearLayout>

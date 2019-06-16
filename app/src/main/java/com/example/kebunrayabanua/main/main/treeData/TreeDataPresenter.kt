@@ -1,7 +1,6 @@
 package com.example.kebunrayabanua.main.main.treeData
 
 import com.example.kebunrayabanua.R
-import com.example.kebunrayabanua.main.main.MainActivity
 import com.example.kebunrayabanua.main.model.Highlight
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/profile"
+                android:icon="@drawable/ic_profil"
+                android:checked="true"
+                android:title="@string/profile"/>
+        <item
+                android:id="@+id/visionmission"
+                android:icon="@drawable/ic_visimisi"
+                android:title="@string/vision_and_mission"/>
+        <item
+                android:id="@+id/goal"
+                android:icon="@drawable/ic_tujuan"
+                android:title="@string/goal"/>
+        <item
+                android:id="@+id/structure"
+                android:icon="@drawable/ic_struktur"
+                android:title="@string/organization_structure"/>
+        <item
+                android:id="@+id/headprofile"
+                android:icon="@drawable/ic_pemimpin"
+                android:title="@string/head_profile"/>
+    </group>
+
+</menu>

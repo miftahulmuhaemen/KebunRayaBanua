@@ -10,7 +10,7 @@ class MainPresenter(private val activity : MainActivity) {
 
         fun headerImage(){
             GlobalScope.launch(Dispatchers.Main){
-                val images = intArrayOf(R.drawable.header_1, R.drawable.header_2, R.drawable.header_3)
+                val images = intArrayOf(R.drawable.header_0, R.drawable.header_3)
                 activity.headerImages(images)
             }
         }

@@ -82,6 +82,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
             android:layout_below="@id/appbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -105,7 +106,8 @@
                     android:orientation="vertical"
             >
 
-                <TextView android:layout_width="wrap_content"
+                <TextView android:id="@+id/title_main"
+                        android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Pohon Rambutan"
                           android:textAllCaps="true"
@@ -125,7 +127,8 @@
                            android:layout_marginBottom="8dp"/>
 
 
-                <TextView android:layout_width="wrap_content"
+                <TextView android:id="@+id/sub_title_main"
+                        android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Pohon Rambutan"
                           android:textStyle="italic"

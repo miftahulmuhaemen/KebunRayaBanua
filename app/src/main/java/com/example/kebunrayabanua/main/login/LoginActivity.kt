@@ -11,11 +11,12 @@ import com.example.kebunrayabanua.R.drawable.*
 import com.example.kebunrayabanua.R.layout.login_activity
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
-import com.thekhaeng.pushdownanim.PushDownAnim
 import kotlinx.android.synthetic.main.login_activity.*
 import android.transition.TransitionManager
 import android.view.View
 import com.example.kebunrayabanua.main.main.MainActivity
+import com.example.kebunrayabanua.main.util.gone
+import com.example.kebunrayabanua.main.util.visible
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -23,7 +24,20 @@ import kotlinx.coroutines.launch
 import org.jetbrains.anko.startActivity
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), View.OnClickListener {
+
+    override fun onClick(v: View?) {
+        when(v){
+            google_signIn -> startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
+                .setAvailableProviders(GOOGLE_PROVIDER)
+                .build(), RC_SIGN_IN
+            )
+            twitter_signIn -> startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
+                .setAvailableProviders(TWITTER_PROVIDER)
+                .build(), RC_SIGN_IN
+            )
+        }
+    }
 
     override fun onStart() {
         super.onStart()
@@ -41,27 +55,15 @@ class LoginActivity : AppCompatActivity() {
         Glide.with(this).load(ic_logo).into(img_logo)
         Glide.with(this).load(ic_labirin).into(mazeView)
 
-        PushDownAnim.setPushDownAnimTo(google_signIn, facebook_signIn)
-            .setOnClickListener {
-                if (google_signIn == it)
-                    startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
-                        .setAvailableProviders(GOOGLE_PROVIDER)
-                        .build(), RC_SIGN_IN
-                    )
-                else
-                    startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
-                        .setAvailableProviders(TWITTER_PROVIDER)
-                        .build(), RC_SIGN_IN
-                    )
-            }
-
         GlobalScope.launch(Dispatchers.Main) {
             delay(1200)
             TransitionManager.beginDelayedTransition(container)
-            mazeView.visibility = if(mazeView.visibility == View.GONE) View.VISIBLE else View.GONE
-            buttons.visibility = if(buttons.visibility == View.GONE) View.VISIBLE else View.GONE
+            if(mazeView.visibility == View.GONE) mazeView.visible() else mazeView.gone()
+            if(buttons.visibility == View.GONE) buttons.visible() else buttons.gone()
         }
 
+        google_signIn.setOnClickListener(this)
+        twitter_signIn.setOnClickListener(this)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
