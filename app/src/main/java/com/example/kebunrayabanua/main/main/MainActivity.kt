@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
             scan -> startActivity<ScanMeActivity>()
             location -> startActivity<WhereIamActivity>()
             database -> startActivity<TreeDataActivity>()
-            event -> {}
             profile -> startActivity<ProfileActivity>()
+            event -> {}
         }
     }
 
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
         }
         recylerviewMain.adapter = mAdapter
 
-        mainPresenter = MainPresenter(this)
+        mainPresenter = MainPresenter(this, this)
         mainPresenter.headerImage()
         mainPresenter.highlightItem()
 

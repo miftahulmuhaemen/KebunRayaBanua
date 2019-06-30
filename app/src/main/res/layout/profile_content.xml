@@ -1,12 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/profile_app_bar"
-        tools:context=".main.main.profile.ProfileActivity">
+>
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+    >
+
+        <TextView android:id="@+id/title_main"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Pohon Rambutan"
+                  android:textAllCaps="true"
+                  android:textSize="24sp"
+                  android:textColor="@color/colorPrimary"
+                  android:textStyle="bold"
+                  android:layout_marginStart="32dp"
+                  android:layout_marginTop="24dp"
+        />
+
+        <ImageView android:layout_width="match_parent"
+                   android:layout_height="5dp"
+                   android:src="@color/colorGray"
+                   android:layout_marginLeft="32dp"
+                   android:layout_marginRight="32dp"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginBottom="8dp"/>
+
+
+        <TextView android:id="@+id/sub_title_main"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Pohon Rambutan"
+                  android:textStyle="italic"
+                  android:layout_marginStart="32dp"
+                  android:layout_marginBottom="32dp"
+        />
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:padding="32dp"
+                      android:background="@color/colorGray"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Pohon berdaun hijau sepanjang tahun, menyukai suhu tropika hangat (suhu rata-rata 25 derajat Celsius), tinggi dapat mencapai 8m namun biasanya tajuknya melebar hingga jari-jari 4m. Daun majemuk menyirip dengan anak daun 5 hingga 9, berbentuk bulat telur, dengan variasi tergantung umur, posisi pada pohon, dan ras lokal.
+
+Pertumbuhan rambutan dipengaruhi oleh ketersediaan air. Setelah masa berbuah selesai, pohon rambutan akan merona (flushing) menghasilkan cabang dan daun baru. Tahap ini sangat jelas teramati dengan warna pohon yang hijau muda karena didominasi oleh daun muda. Pertumbuhan ini akan berhenti ketika ketersediaan air terbatas dan tumbuhan beristirahat tumbuh."
+            />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:padding="32dp"
+                      android:layout_height="wrap_content">
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Pohon berdaun hijau sepanjang tahun, menyukai suhu tropika hangat (suhu rata-rata 25 derajat Celsius), tinggi dapat mencapai 8m namun biasanya tajuknya melebar hingga jari-jari 4m. Daun majemuk menyirip dengan anak daun 5 hingga 9, berbentuk bulat telur, dengan variasi tergantung umur, posisi pada pohon, dan ras lokal.
+
+Pertumbuhan rambutan dipengaruhi oleh ketersediaan air. Setelah masa berbuah selesai, pohon rambutan akan merona (flushing) menghasilkan cabang dan daun baru. Tahap ini sangat jelas teramati dengan warna pohon yang hijau muda karena didominasi oleh daun muda. Pertumbuhan ini akan berhenti ketika ketersediaan air terbatas dan tumbuhan beristirahat tumbuh."
+            />
+        </LinearLayout>
+
+        <ImageView android:layout_width="match_parent"
+                   android:layout_height="5dp"
+                   android:src="@color/colorGray"
+                   android:layout_marginLeft="32dp"
+                   android:layout_marginRight="32dp"
+                   android:layout_marginBottom="32dp"/>
+
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:text="Jumlah pohon yang ditanam"
+                  android:textAllCaps="true"
+                  android:layout_marginBottom="8dp"
+        />
+
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:text="100"
+                  android:textAllCaps="true"
+                  android:paddingEnd="16dp"
+                  android:textSize="24sp"
+                  android:textColor="@color/colorPrimary"
+                  android:textStyle="bold"
+                  android:layout_marginBottom="32dp"
+        />
+
+    </LinearLayout>
+
+
+
+</ScrollView>

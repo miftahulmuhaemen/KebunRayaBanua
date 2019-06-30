@@ -35,38 +35,31 @@ class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, View
         super.onStart()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.scan_me_activity)
-        initScanView()
-        backBtn.setOnClickListener(this)
-    }
-
     override fun onResume() {
         mScannerView.startCamera()
         super.onResume()
-    }
-
-    private fun initScanView(){
-        mScannerView = ZXingScannerView(this)
-        mScannerView.setAutoFocus(true)
-        mScannerView.setResultHandler(this)
-        frame_layout_camera.addView(mScannerView)
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        when (requestCode) {
-            SCAN -> {
-                initScanView()
-            }
-            else -> {
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-            }
-        }
     }
 
     override fun onPause() {
         mScannerView.stopCamera()
         super.onPause()
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.scan_me_activity)
+        mScannerView = ZXingScannerView(this)
+        mScannerView.setAutoFocus(true)
+        mScannerView.setResultHandler(this)
+        frame_layout_camera.addView(mScannerView)
+        backBtn.setOnClickListener(this)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode) {
+            SCAN -> frame_layout_camera.addView(mScannerView)
+            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
+    }
+
 }

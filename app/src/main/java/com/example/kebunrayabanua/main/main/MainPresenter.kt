@@ -6,12 +6,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MainPresenter(private val activity : MainActivity) {
+class MainPresenter(private val activity : MainActivity, private val view : MainView) {
 
         fun headerImage(){
             GlobalScope.launch(Dispatchers.Main){
                 val images = intArrayOf(R.drawable.header_0, R.drawable.header_3)
-                activity.headerImages(images)
+                view.headerImages(images)
             }
         }
 
@@ -31,7 +31,7 @@ class MainPresenter(private val activity : MainActivity) {
                     )
                 }
                 image.recycle()
-                activity.highlightItem(item)
+                view.highlightItem(item)
             }
         }
 

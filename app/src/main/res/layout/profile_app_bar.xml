@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -7,6 +7,7 @@
         tools:context=".main.main.profile.ProfileActivity">
 
     <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
             android:layout_height="@dimen/appBarHeight"
             android:layout_width="match_parent"
             android:background="@color/tw__solid_white"
@@ -70,6 +71,11 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/profile_content"/>
+    <WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appbar"
+    />
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:apps="http://schemas.android.com/tools"
+        android:id="@+id/box_item"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="0dp"
+        app:cardCornerRadius="10dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+    >
+
+        <TextView
+                android:id="@+id/item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:lines="1"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/colorPrimary"
+                apps:text="Rambutan"
+        />
+
+        <TextView
+                android:id="@+id/item_latin_name"
+                android:layout_marginStart="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:textSize="12sp"
+                android:lines="1"
+                android:gravity="start"
+                android:textColor="@android:color/darker_gray"
+                apps:text="Nephelium Radiolium"
+        />
+
+        <ImageView android:layout_width="match_parent"
+                   android:layout_height="5dp"
+                   android:src="@color/colorGray"
+                   android:layout_marginStart="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginBottom="8dp"
+        />
+
+        <TextView
+                android:id="@+id/item_desc"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:textSize="12sp"
+                android:gravity="start"
+                android:textColor="@android:color/darker_gray"
+                apps:text="asdasdasdas asdasdasdsadas dasdsa dasdasd asdhsadhakjs hdjkasdh asdhaskdhashdkasdh"
+        />
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
