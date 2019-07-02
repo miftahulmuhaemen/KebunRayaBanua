@@ -1,10 +1,8 @@
 package com.example.kebunrayabanua.main.main
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
-import android.widget.ImageView
-import com.bumptech.glide.Glide
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.login.LoginActivity
 import com.example.kebunrayabanua.main.main.profile.ProfileActivity
@@ -42,12 +40,8 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
     }
 
     override fun headerImages(images: IntArray) {
-        for (image in images) {
-            val imageView = ImageView(this)
-            imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-            Glide.with(this).load(image).into(imageView)
-            viewFlipperMain.addView(imageView)
-        }
+        viewPagerMain.adapter = MainViewPagerAdapter(this, images)
+        mainPresenter.viewPagerAutoScroll(images.count())
     }
 
     private lateinit var mainPresenter: MainPresenter
@@ -61,7 +55,6 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
             toast(it.name.toString())
         }
         recylerviewMain.adapter = mAdapter
-
         mainPresenter = MainPresenter(this, this)
         mainPresenter.headerImage()
         mainPresenter.highlightItem()

@@ -6,14 +6,16 @@ import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.Environment
-import android.support.v4.view.GravityCompat
+import androidx.core.view.GravityCompat
 import android.view.MenuItem
-import android.support.design.widget.NavigationView
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.webkit.*
 import com.example.kebunrayabanua.R
+import com.example.kebunrayabanua.main.util.gone
+import com.example.kebunrayabanua.main.util.visible
 import kotlinx.android.synthetic.main.profile_activity.*
 import kotlinx.android.synthetic.main.profile_app_bar.*
 import kotlinx.android.synthetic.main.profile_app_bar.backBtn
@@ -39,17 +41,12 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         webview.webViewClient = WebClient()
         webview.settings.javaScriptEnabled = true
+        webview.settings.loadsImagesAutomatically = true
+        webview.settings.domStorageEnabled = true
+        webview.settings.allowFileAccess = true
+        webview.settings.setAppCacheEnabled(true)
         webview.scrollBarSize = View.SCROLLBARS_INSIDE_OVERLAY
         webview.loadUrl("http://simari.ulm.ac.id")
-
-//        webview.settings.loadsImagesAutomatically = true
-//        webview.settings.domStorageEnabled = true
-//        webview.settings.allowFileAccess = true
-//        webview.settings.setAppCachePath(Environment.getDataDirectory().absolutePath + File.separator + "Archive")
-//        webview.settings.setAppCacheEnabled(true)
-//        if(!isNetworkAvailable())
-//            webview.loadUrl(Environment.getDataDirectory().absolutePath + File.separator + "Archive")
-//        else
 
         nav_view.setNavigationItemSelectedListener(this)
         backBtn.setOnClickListener(this)
@@ -82,33 +79,28 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
             }
         }
-
         drawer_layout.closeDrawer(drawerPosition)
         return true
     }
 
-//    private fun isNetworkAvailable(): Boolean {
-//        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-//        return connectivityManager.activeNetworkInfo?.isConnected ?: false
-//    }
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        return connectivityManager.activeNetworkInfo?.isConnected ?: false
+    }
 
+    inner class WebClient : WebViewClient() {
+
+        override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+            super.onPageStarted(view, url, favicon)
+            progress_circular.visible()
+        }
+
+        override fun onPageFinished(view: WebView, url: String?) {
+            super.onPageFinished(view, url)
+            progress_circular.gone()
+        }
+
+    }
 }
 
-
-private class WebClient : WebViewClient() {
-
-    override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-        super.onPageStarted(view, url, favicon)
-    }
-
-    override fun onPageFinished(view: WebView, url: String?) {
-        super.onPageFinished(view, url)
-//        view.saveWebArchive(  Environment.getDataDirectory().absolutePath + File.separator + "Archive")
-    }
-
-    override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
-        super.onReceivedError(view, request, error)
-    }
-
-}
 

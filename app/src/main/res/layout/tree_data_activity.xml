@@ -6,7 +6,7 @@
         android:layout_width="match_parent" android:layout_height="match_parent"
         tools:context=".main.main.treeData.TreeDataActivity">
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_changemode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
             app:backgroundTint="@color/tw__solid_white"
     />
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -66,7 +66,7 @@
                        android:layout_centerVertical="true"
                        android:background="@drawable/btn_search"/>
 
-            <android.support.v7.widget.SearchView
+            <androidx.appcompat.widget.SearchView
                     android:id="@+id/searchView"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
@@ -77,15 +77,15 @@
             />
 
         </RelativeLayout>
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_below="@id/appbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recylerviewMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                 tools:listitem="@layout/tree_data_grid_item"
         />
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </RelativeLayout>

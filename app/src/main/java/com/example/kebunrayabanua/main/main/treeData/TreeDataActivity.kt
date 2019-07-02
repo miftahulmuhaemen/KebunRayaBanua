@@ -1,11 +1,12 @@
 package com.example.kebunrayabanua.main.main.treeData
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.widget.SearchView
 import android.view.View
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.main.detailTree.DetailTreeActivity
@@ -58,12 +59,12 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView,  AnkoLogger, View.On
     private fun changeAdapterLayout(){
         if(isGridViewAttach){
             recylerviewMain.adapter = TreeDataGridAdapter(this, highlightItem) { startActivity<DetailTreeActivity>() }
-            recylerviewMain.layoutManager = GridLayoutManager(this, 2)
+            recylerviewMain.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 2)
             fab_changemode.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_grid_view))
         }
         else {
             recylerviewMain.adapter = TreeDataListAdapter(this, highlightItem) { startActivity<DetailTreeActivity>() }
-            recylerviewMain.layoutManager = LinearLayoutManager(this)
+            recylerviewMain.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
             fab_changemode.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_list_view))
         }
         isGridViewAttach = !isGridViewAttach

@@ -1,7 +1,7 @@
 package com.example.kebunrayabanua.main.login
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.kebunrayabanua.main.util.Util.GOOGLE_PROVIDER
@@ -58,8 +58,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         GlobalScope.launch(Dispatchers.Main) {
             delay(1200)
             TransitionManager.beginDelayedTransition(container)
-            if(mazeView.visibility == View.GONE) mazeView.visible() else mazeView.gone()
-            if(buttons.visibility == View.GONE) buttons.visible() else buttons.gone()
+            mazeView.gone()
+            buttons.visible()
         }
 
         google_signIn.setOnClickListener(this)
