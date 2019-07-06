@@ -14,6 +14,11 @@ object Permission {
     const val WHEREIAM = 100
 }
 
+object IntervalTime {
+    val UPDATE_INTERVAL: Long = 100 * 1000
+    val FASTEST_INTERVAL: Long = 5000
+}
+
 fun View.visible() {
     visibility = View.VISIBLE
 }
