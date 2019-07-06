@@ -23,6 +23,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.startActivity
 
+/*
+
+TODO Kotlin DSL Depedency, Network Module, Maps Module, Dagger
+
+ */
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 

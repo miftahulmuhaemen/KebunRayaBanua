@@ -5,28 +5,25 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.os.Environment
-import androidx.core.view.GravityCompat
 import android.view.MenuItem
-import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.app.AppCompatActivity
-import android.util.Log
 import android.view.View
-import android.webkit.*
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.util.gone
 import com.example.kebunrayabanua.main.util.visible
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.profile_activity.*
 import kotlinx.android.synthetic.main.profile_app_bar.*
-import kotlinx.android.synthetic.main.profile_app_bar.backBtn
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
-import java.io.File
 
-class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, AnkoLogger {
+class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener,
+    AnkoLogger {
 
     override fun onClick(view: View?) {
-        when(view){
+        when (view) {
             overflowMenu -> drawer_layout.openDrawer(drawerPosition)
             backBtn -> finish()
         }

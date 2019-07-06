@@ -1,13 +1,11 @@
 package com.example.kebunrayabanua.main.main.treeData
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.appcompat.widget.SearchView
-import android.view.View
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.main.detailTree.DetailTreeActivity
 import com.example.kebunrayabanua.main.model.Highlight
@@ -18,10 +16,10 @@ import kotlinx.android.synthetic.main.tree_data_activity.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.startActivity
 
-class TreeDataActivity : AppCompatActivity(), TreeDataView,  AnkoLogger, View.OnClickListener{
+class TreeDataActivity : AppCompatActivity(), TreeDataView, AnkoLogger, View.OnClickListener {
 
     override fun onClick(v: View?) {
-        when(v){
+        when (v) {
             backBtn -> finish()
             fab_changemode -> changeAdapterLayout()
         }
@@ -33,16 +31,16 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView,  AnkoLogger, View.On
         recylerviewMain.adapter?.notifyDataSetChanged()
     }
 
-    private lateinit var mainPresenter : TreeDataPresenter
+    private lateinit var mainPresenter: TreeDataPresenter
     private var highlightItem: MutableList<Highlight> = mutableListOf()
-    private var isGridViewAttach : Boolean = true
+    private var isGridViewAttach: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tree_data_activity)
 
         changeAdapterLayout()
-        mainPresenter = TreeDataPresenter(this,this)
+        mainPresenter = TreeDataPresenter(this, this)
         mainPresenter.getItem()
 
         backBtn.setOnClickListener(this)
@@ -56,16 +54,15 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView,  AnkoLogger, View.On
         }
     }
 
-    private fun changeAdapterLayout(){
-        if(isGridViewAttach){
+    private fun changeAdapterLayout() {
+        if (isGridViewAttach) {
             recylerviewMain.adapter = TreeDataGridAdapter(this, highlightItem) { startActivity<DetailTreeActivity>() }
-            recylerviewMain.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, 2)
-            fab_changemode.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_grid_view))
-        }
-        else {
+            recylerviewMain.layoutManager = GridLayoutManager(this, 2)
+            fab_changemode.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_grid_view))
+        } else {
             recylerviewMain.adapter = TreeDataListAdapter(this, highlightItem) { startActivity<DetailTreeActivity>() }
-            recylerviewMain.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
-            fab_changemode.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_list_view))
+            recylerviewMain.layoutManager = LinearLayoutManager(this)
+            fab_changemode.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_list_view))
         }
         isGridViewAttach = !isGridViewAttach
     }
