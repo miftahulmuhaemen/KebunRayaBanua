@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
 import android.os.Bundle
-import android.os.Looper
 import android.preference.PreferenceManager
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -13,22 +12,20 @@ import androidx.core.content.ContextCompat
 import com.example.kebunrayabanua.BuildConfig
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.util.Permission.WHEREIAM
-import com.google.android.gms.common.ConnectionResult
-import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.location.*
-import com.google.android.gms.location.LocationServices.getFusedLocationProviderClient
 import kotlinx.android.synthetic.main.where_iam_activity.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
 
 class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView, AnkoLogger {
 
     override fun onLocationChanged(location: Location?) {
-        info(location?.latitude)
+        val point = location?.latitude?.let { GeoPoint(it, location.longitude) }
+        map.controller.setCenter(point)
     }
 
     override fun onClick(v: View?) {
@@ -66,11 +63,12 @@ class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView
 
         map.setTileSource(TileSourceFactory.MAPNIK)
         map.setMultiTouchControls(true)
-        map.controller.setZoom(17.0)
+        map.controller.setZoom(19.0)
         map.controller.setCenter(startPoint)
 
-        val permission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-        info(permission)
+        val overlay = MyLocationNewOverlay(GpsMyLocationProvider(this), map)
+        overlay.enableMyLocation()
+        map.overlays.add(overlay)
 
         backBtn.setOnClickListener(this)
     }
