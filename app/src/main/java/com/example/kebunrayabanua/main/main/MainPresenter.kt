@@ -1,16 +1,16 @@
 package com.example.kebunrayabanua.main.main
 
+import android.content.Context
+import androidx.viewpager.widget.ViewPager
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.model.Highlight
-import kotlinx.android.synthetic.main.main_activity.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import java.util.*
 
-class MainPresenter(private val activity: MainActivity, private val view: MainView) : AnkoLogger {
+class MainPresenter(private val context: Context, private val view: MainView) : AnkoLogger {
 
     fun headerImage() {
         GlobalScope.launch(Dispatchers.Main) {
@@ -22,8 +22,8 @@ class MainPresenter(private val activity: MainActivity, private val view: MainVi
     fun highlightItem() {
         GlobalScope.launch(Dispatchers.Main) {
             val item: MutableList<Highlight> = mutableListOf()
-            val name = activity.resources.getStringArray(R.array.highlight_text)
-            val image = activity.resources.obtainTypedArray(R.array.highlight_images)
+            val name = context.resources.getStringArray(R.array.highlight_text)
+            val image = context.resources.obtainTypedArray(R.array.highlight_images)
 
             item.clear()
             for (i in name.indices) {
@@ -40,11 +40,11 @@ class MainPresenter(private val activity: MainActivity, private val view: MainVi
     }
 
     fun viewPagerAutoScroll(imageCount: Int) {
-        GlobalScope.launch(Dispatchers.Main){
+        GlobalScope.launch(Dispatchers.Main) {
             Timer().schedule(object : TimerTask() {
                 override fun run() {
-                    val viewPager = activity.viewPagerMain
-                    if(viewPager.currentItem == imageCount - 1)
+                    val viewPager = ViewPager(context)
+                    if (viewPager.currentItem == imageCount - 1)
                         viewPager.currentItem = 0
                     else
                         viewPager.currentItem++
