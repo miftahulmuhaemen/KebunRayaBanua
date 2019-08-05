@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
         mainPresenter = MainPresenter(this, this)
         mainPresenter.headerImage()
         mainPresenter.highlightItem()
+        mainPresenter.firebaseSubscribeTopic()
 
         logout.setOnClickListener(this)
         scan.setOnClickListener(this)

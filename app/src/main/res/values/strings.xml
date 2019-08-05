@@ -43,6 +43,8 @@
     <string name="goal">Goal</string>
     <string name="organization_structure">Organization Structure</string>
     <string name="organization_profile">Organization Profile</string>
+    <string name="ongoing">On Going</string>
+    <string name="comingsoon">Coming Soon</string>
 
 
 </resources>

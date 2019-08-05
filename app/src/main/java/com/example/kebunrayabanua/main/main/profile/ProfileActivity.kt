@@ -43,7 +43,7 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         webview.settings.allowFileAccess = true
         webview.settings.setAppCacheEnabled(true)
         webview.scrollBarSize = View.SCROLLBARS_INSIDE_OVERLAY
-        webview.loadUrl("http://simari.ulm.ac.id")
+        webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/profil")
 
         nav_view.setNavigationItemSelectedListener(this)
         backBtn.setOnClickListener(this)
@@ -61,18 +61,19 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         when (item.itemId) {
             R.id.profile -> {
-
+                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/profil")
             }
             R.id.visionmission -> {
-
+                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/visimisi")
             }
             R.id.goal -> {
-
+                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/tujuan")
             }
             R.id.structure -> {
-
+                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/struktur")
             }
             R.id.headprofile -> {
+                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/pimpinan")
 
             }
         }

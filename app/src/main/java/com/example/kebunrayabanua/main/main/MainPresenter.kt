@@ -4,10 +4,12 @@ import android.content.Context
 import androidx.viewpager.widget.ViewPager
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.model.Highlight
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import java.util.*
 
 class MainPresenter(private val context: Context, private val view: MainView) : AnkoLogger {
@@ -51,5 +53,17 @@ class MainPresenter(private val context: Context, private val view: MainView) : 
                 }
             }, 3000, 3000)
         }
+    }
+
+    fun firebaseSubscribeTopic(){
+        FirebaseMessaging.getInstance().subscribeToTopic("event")
+            .addOnCompleteListener { task ->
+                var msg = "Success"
+//                    getString(R.string.msg_subscribed)
+                if (!task.isSuccessful) {
+                    msg = "Not Success"
+                }
+                info(msg)
+            }
     }
 }

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:apps="http://schemas.android.com/tools"
+        android:id="@+id/box_item"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_height="200dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="32dp"
+        app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/img_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                apps:src="@color/colorPrimary"
+                android:scaleType="centerCrop"/>
+
+        <ImageView android:id="@+id/backgroundText"
+                   android:layout_width="match_parent"
+                   android:layout_height="70dp"
+                   android:layout_alignParentBottom="true"
+                   android:src="@color/tw__solid_white"
+        />
+
+        <ImageView
+                android:id="@+id/status_event_bg"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_round_fill"
+                android:layout_alignTop="@id/backgroundText"
+                android:layout_alignBottom="@id/backgroundText"
+                android:layout_alignEnd="@id/backgroundText"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+        />
+
+
+        <TextView
+                android:id="@+id/status_event_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                apps:text="@string/ongoing"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/tw__solid_white"
+                android:gravity="center"
+                android:layout_alignTop="@id/status_event_bg"
+                android:layout_alignBottom="@id/status_event_bg"
+                android:layout_alignStart="@id/status_event_bg"
+                android:layout_alignEnd="@id/status_event_bg"
+        />
+
+        <TextView
+                android:id="@+id/item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                apps:text="Rambutan"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:lines="1"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="16dp"
+                android:layout_alignTop="@id/backgroundText"/>
+
+        <TextView
+                android:id="@+id/item_latin_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                apps:text="Nephelium Radiolium"
+                android:textStyle="italic"
+                android:textSize="12sp"
+                android:lines="1"
+                android:gravity="start"
+                android:layout_alignLeft="@id/item_name"
+                android:layout_below="@id/item_name"
+        />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
