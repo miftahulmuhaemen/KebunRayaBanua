@@ -32,6 +32,13 @@
         <item>@drawable/header_3</item>
     </array>
 
+    <array name="dummy_array">
+        <item><b>What</b> <i>the</i> <u>Html</u></item>
+        <item>@string/dummy_tree_text</item>
+        <item>@string/dummy_tree_text</item>
+        <item>@string/dummy_tree_text</item>
+    </array>
+
     /* Drawer Navbar */
     <string name="navigation_drawer_open">/</string>
     <string name="navigation_drawer_close">/.</string>
@@ -46,6 +53,7 @@
     <string name="ongoing">On Going</string>
     <string name="comingsoon">Coming Soon</string>
     <string name="see_more">See More ...</string>
+    <string name="dummy_tree_text">Pohon berdaun hijau sepanjang tahun, menyukai suhu tropika hangat (suhu rata-rata 25 derajat Celsius), tinggi dapat mencapai 8m namun biasanya tajuknya melebar hingga jari-jari 4m. Daun majemuk menyirip dengan anak daun 5 hingga 9, berbentuk bulat telur, dengan variasi tergantung umur, posisi pada pohon, dan ras lokal. Pertumbuhan rambutan dipengaruhi oleh ketersediaan air. Setelah masa berbuah selesai, pohon rambutan akan merona (flushing) menghasilkan cabang dan daun baru. Tahap ini sangat jelas teramati dengan warna pohon yang hijau muda karena didominasi oleh daun muda. Pertumbuhan ini akan berhenti ketika ketersediaan air terbatas dan tumbuhan beristirahat tumbuh.</string>
 
 
 </resources>

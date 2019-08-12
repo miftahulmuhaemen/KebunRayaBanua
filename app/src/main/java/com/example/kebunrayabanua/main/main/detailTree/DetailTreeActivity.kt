@@ -1,5 +1,9 @@
 package com.example.kebunrayabanua.main.main.detailTree
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -44,29 +48,40 @@ class DetailTreeActivity : AppCompatActivity(), AnkoLogger, AppBarLayout.OnOffse
         backBtn.setOnClickListener(this)
         seeMore.setOnClickListener(this)
 
-        arraySeeMore = resources.getStringArray(R.array.highlight_text)
+        arraySeeMore = resources.getStringArray(R.array.dummy_array)
     }
 
     private fun seeMoreAlert() {
+//        val alert : Dialog =
         alert {
             customView {
                 verticalLayout {
-                    padding = dip(16)
-                    viewpager = viewPager().lparams(matchParent,dip(400)){
-                        bottomMargin = dip(16)
+                    padding = dip(32)
+//                    backgroundDrawable = GradientDrawable().apply {
+//                        shape = GradientDrawable.RECTANGLE
+//                        cornerRadius = 15f
+//                        setColor(Color.WHITE)
+//                    }
+                    viewpager = viewPager().lparams(matchParent,dip(300)){
+                        bottomMargin = dip(32)
                     }
                     pageIndicator = textView {
+                        text = "1/${arraySeeMore.size}"
                         width = matchParent
                         gravity = Gravity.CENTER
                     }
                 }
             }
-        }.show()
+        }
+//        .build() as Dialog
+//        alert.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//        alert
+        .show()
+
 
         viewpager.adapter = DetailTreeViewPagerAdapter(this, arraySeeMore)
         viewpager.onPageChangeListener {
             onPageSelected { pageIndicator.text = "${viewpager.currentItem + 1}/${arraySeeMore.size}" }
-            pageIndicator.text = "${viewpager.currentItem + 1}/${arraySeeMore.size}"
         }
     }
 }
