@@ -6,7 +6,6 @@ plugins {
     kotlin("kapt")
 }
 
-
 android {
     compileSdkVersion(28)
     defaultConfig {
@@ -40,6 +39,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31")
     implementation("org.jetbrains.anko:anko-commons:0.10.8")
+    implementation("org.jetbrains.anko:anko:0.10.8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0-M2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0-M2")
 

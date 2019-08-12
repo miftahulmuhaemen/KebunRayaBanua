@@ -1,10 +1,11 @@
 package com.example.kebunrayabanua.main.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.login.LoginActivity
+import com.example.kebunrayabanua.main.main.event.EventActivity
 import com.example.kebunrayabanua.main.main.profile.ProfileActivity
 import com.example.kebunrayabanua.main.main.scanMe.ScanMeActivity
 import com.example.kebunrayabanua.main.main.treeData.TreeDataActivity
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
             location -> startActivity<WhereIamActivity>()
             database -> startActivity<TreeDataActivity>()
             profile -> startActivity<ProfileActivity>()
-            event -> {}
+            event -> startActivity<EventActivity>()
         }
     }
 
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
     private lateinit var mAdapter: MainListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         mAdapter = MainListAdapter(this, highlightItem) {

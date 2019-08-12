@@ -148,14 +148,24 @@ Pertumbuhan rambutan dipengaruhi oleh ketersediaan air. Setelah masa berbuah sel
                 </LinearLayout>
 
                 <LinearLayout android:layout_width="match_parent"
-                              android:padding="32dp"
-                              android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="32dp">
+
                     <TextView android:layout_width="wrap_content"
                               android:layout_height="wrap_content"
                               android:text="Pohon berdaun hijau sepanjang tahun, menyukai suhu tropika hangat (suhu rata-rata 25 derajat Celsius), tinggi dapat mencapai 8m namun biasanya tajuknya melebar hingga jari-jari 4m. Daun majemuk menyirip dengan anak daun 5 hingga 9, berbentuk bulat telur, dengan variasi tergantung umur, posisi pada pohon, dan ras lokal.
-
 Pertumbuhan rambutan dipengaruhi oleh ketersediaan air. Setelah masa berbuah selesai, pohon rambutan akan merona (flushing) menghasilkan cabang dan daun baru. Tahap ini sangat jelas teramati dengan warna pohon yang hijau muda karena didominasi oleh daun muda. Pertumbuhan ini akan berhenti ketika ketersediaan air terbatas dan tumbuhan beristirahat tumbuh."
                     />
+
+                    <TextView
+                        android:id="@+id/seeMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="@string/see_more"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <ImageView android:layout_width="match_parent"
@@ -173,7 +183,6 @@ Pertumbuhan rambutan dipengaruhi oleh ketersediaan air. Setelah masa berbuah sel
                           android:textAllCaps="true"
                           android:layout_marginBottom="8dp"
                 />
-
 
                 <TextView android:layout_width="match_parent"
                           android:layout_height="wrap_content"
