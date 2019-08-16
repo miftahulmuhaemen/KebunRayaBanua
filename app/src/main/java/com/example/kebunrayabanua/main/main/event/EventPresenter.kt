@@ -3,9 +3,9 @@ package com.example.kebunrayabanua.main.main.event
 
 import com.example.kebunrayabanua.main.api.ApiRepository
 import com.example.kebunrayabanua.main.model.DataEvent
-import com.example.kebunrayabanua.main.model.DataEventResponse
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.AnkoLogger
@@ -19,11 +19,9 @@ class EventPresenter(private val view: EventView,
 
     fun getItem(){
         GlobalScope.launch(context.main) {
-            val data = gson.fromJson(apiRepository.doRequestAsync(ApiRepository.EventAPI.getEvents("0")).await(),
-                    DataEventResponse::class.java)
-
-                info(data.events[0].eventDeskripsi)
-//            view.showItems(data.events)
+            val data = gson.fromJson<List<DataEvent>>(apiRepository.doRequestAsync(ApiRepository.EventAPI.getEvents("0")).await(),
+                    object : TypeToken<List<DataEvent>>(){}.type)
+            view.showItems(data)
 
 //            val item : MutableList<Highlight> = mutableListOf()
 //            val name = context.resources.getStringArray(R.array.highlight_text)

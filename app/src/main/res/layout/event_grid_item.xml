@@ -19,7 +19,7 @@
                 android:id="@+id/img_item"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                apps:src="@color/colorPrimary"
+                android:src="@color/colorPrimary"
                 android:scaleType="centerCrop"/>
 
         <ImageView android:id="@+id/backgroundText"
@@ -74,7 +74,7 @@
                 android:layout_alignTop="@id/backgroundText"/>
 
         <TextView
-                android:id="@+id/item_latin_name"
+                android:id="@+id/item_duration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 apps:text="Nephelium Radiolium"

@@ -1,3 +1,14 @@
 package com.example.kebunrayabanua.main.model
 
-data class DataEvent(val eventKode: String?, val eventNama: String?, val eventDeskripsi: String?, val eventMulai: String?, val eventSelesai: String?, val eventPoster: String?)
+import com.google.gson.annotations.SerializedName
+import java.time.LocalDate
+import java.util.*
+
+data class DataEvent(
+        @SerializedName("eventKode") var eventKode: String?,
+        @SerializedName("eventNama") var eventNama: String?,
+        @SerializedName("eventDeskripsi") var eventDeskripsi: String?,
+        @SerializedName("eventMulai") var eventMulai: String?,
+        @SerializedName("eventSelesai") var eventSelesai: String?,
+        @SerializedName("eventPoster") var eventPoster: List<String>?
+)
