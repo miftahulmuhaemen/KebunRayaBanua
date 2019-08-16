@@ -1,8 +1,6 @@
 package com.example.kebunrayabanua.main.model
 
 import com.google.gson.annotations.SerializedName
-import java.time.LocalDate
-import java.util.*
 
 data class DataEvent(
         @SerializedName("eventKode") var eventKode: String?,
