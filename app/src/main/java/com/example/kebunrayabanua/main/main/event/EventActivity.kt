@@ -7,10 +7,12 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kebunrayabanua.R
+import com.example.kebunrayabanua.main.api.ApiRepository
 import com.example.kebunrayabanua.main.main.detailTree.DetailTreeActivity
 import com.example.kebunrayabanua.main.model.Highlight
 import com.example.kebunrayabanua.main.util.gone
 import com.example.kebunrayabanua.main.util.visible
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.tree_data_activity.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.startActivity
@@ -39,7 +41,9 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         setContentView(R.layout.event_activity)
 
         changeAdapterLayout()
-        mainPresenter = EventPresenter(this, this)
+        val apiRepository = ApiRepository()
+        val gson = Gson()
+        mainPresenter = EventPresenter(this, apiRepository, gson)
         mainPresenter.getItem()
 
         backBtn.setOnClickListener(this)

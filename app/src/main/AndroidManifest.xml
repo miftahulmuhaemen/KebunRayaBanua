@@ -33,15 +33,15 @@
         <activity android:name=".main.main.treeData.TreeDataActivity">
         </activity>
         <activity android:name=".main.main.detailTree.DetailTreeActivity">
+        </activity>
+        <activity android:name=".main.main.scanMe.ScanMeActivity">
+        </activity>
+        <activity android:name=".main.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity android:name=".main.main.scanMe.ScanMeActivity">
-        </activity>
-        <activity android:name=".main.login.LoginActivity">
         </activity>
 
         <service

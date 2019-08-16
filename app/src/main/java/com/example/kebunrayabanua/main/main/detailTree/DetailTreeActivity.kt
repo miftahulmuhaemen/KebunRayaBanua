@@ -1,9 +1,5 @@
 package com.example.kebunrayabanua.main.main.detailTree
 
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -52,16 +48,10 @@ class DetailTreeActivity : AppCompatActivity(), AnkoLogger, AppBarLayout.OnOffse
     }
 
     private fun seeMoreAlert() {
-//        val alert : Dialog =
         alert {
             customView {
                 verticalLayout {
                     padding = dip(32)
-//                    backgroundDrawable = GradientDrawable().apply {
-//                        shape = GradientDrawable.RECTANGLE
-//                        cornerRadius = 15f
-//                        setColor(Color.WHITE)
-//                    }
                     viewpager = viewPager().lparams(matchParent,dip(300)){
                         bottomMargin = dip(32)
                     }
@@ -72,16 +62,13 @@ class DetailTreeActivity : AppCompatActivity(), AnkoLogger, AppBarLayout.OnOffse
                     }
                 }
             }
-        }
-//        .build() as Dialog
-//        alert.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//        alert
-        .show()
-
+        }.show()
 
         viewpager.adapter = DetailTreeViewPagerAdapter(this, arraySeeMore)
         viewpager.onPageChangeListener {
-            onPageSelected { pageIndicator.text = "${viewpager.currentItem + 1}/${arraySeeMore.size}" }
+            onPageSelected {
+                pageIndicator.text = "${viewpager.currentItem + 1}/${arraySeeMore.size}"
+            }
         }
     }
 }

@@ -2,6 +2,8 @@ package com.example.kebunrayabanua.main.util
 
 import android.view.View
 import com.firebase.ui.auth.AuthUI
+import kotlinx.coroutines.Dispatchers
+import kotlin.coroutines.CoroutineContext
 
 object Util {
     const val RC_SIGN_IN: Int = 1
@@ -25,4 +27,8 @@ fun View.visible() {
 
 fun View.gone() {
     visibility = View.GONE
+}
+
+open class CoroutineContextProvider {
+    open val main: CoroutineContext by lazy { Dispatchers.Main }
 }

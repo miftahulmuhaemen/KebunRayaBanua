@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.model.Highlight
+import jp.wasabeef.glide.transformations.GrayscaleTransformation
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.main_highlight_item.box_item
 import kotlinx.android.synthetic.main.main_highlight_item.img_item
@@ -42,7 +44,9 @@ class TeamViewGridHolder(override val containerView: View, private val context: 
     fun bindItem(item: Highlight, listener: (Highlight) -> Unit) {
         item_name.text = item.name
         item_latin_name.text = item.name
-        item.img?.let { Glide.with(context).load(it).into(img_item) }
+        item.img?.let { Glide.with(context).load(it)
+                .transform(GrayscaleTransformation())
+                .into(img_item) }
         box_item.setOnClickListener { listener(item) }
     }
 
