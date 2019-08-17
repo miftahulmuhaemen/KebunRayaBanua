@@ -15,7 +15,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String","BASE_URL","\"http://103.81.100.228/kebunraya/index.php/api/\"")
+        buildConfigField("String","BASE_URL","\"http://103.81.100.228/kebunraya/\"")
         buildConfigField("String","API_KEY","\"aad8d43db4ace8de270bd4a525df63df\"")
     }
     buildTypes {

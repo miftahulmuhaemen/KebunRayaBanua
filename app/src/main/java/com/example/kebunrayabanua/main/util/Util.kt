@@ -17,8 +17,13 @@ object Permission {
 }
 
 object IntervalTime {
-    val UPDATE_INTERVAL: Long = 100 * 1000
-    val FASTEST_INTERVAL: Long = 5000
+    const val UPDATE_INTERVAL: Long = 100 * 1000
+    const val FASTEST_INTERVAL: Long = 5000
+}
+
+object RecylerviewViewIdentifier {
+    const val GRID_VIEW = 1
+    const val LIST_VIEW = 2
 }
 
 fun View.visible() {
