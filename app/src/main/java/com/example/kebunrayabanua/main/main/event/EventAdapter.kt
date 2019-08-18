@@ -18,7 +18,6 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.event_grid_item.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.image
-import org.jetbrains.anko.info
 import java.text.DateFormat.getDateInstance
 import java.util.*
 
@@ -32,7 +31,7 @@ class EventGridAdapter(
     private val originalItem: List<DataEvent> = items
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewGridHolder {
-              return  TeamViewGridHolder(LayoutInflater.from(context).inflate(R.layout.event_grid_item, parent, false), context)
+        return TeamViewGridHolder(LayoutInflater.from(context).inflate(R.layout.event_grid_item, parent, false), context)
     }
 
     override fun onBindViewHolder(gridHolder: TeamViewGridHolder, position: Int) {
@@ -73,11 +72,9 @@ class TeamViewGridHolder(override val containerView: View, private val context: 
 
     @SuppressLint("SetTextI18n")
     fun bindItem(item: DataEvent, listener: (DataEvent) -> Unit) {
-
         item_name.text = item.eventNama
         item_duration.text = "${item.eventMulai} - ${item.eventSelesai}"
         img_item.image = context.getDrawable(R.color.colorPrimary)
-
         if(isExpired(item.eventSelesai.toString())){
             status_event_bg.backgroundTintList = ContextCompat.getColorStateList(context,R.color.tw__light_gray)
             status_event_text.text = context.getString(R.string.expired)
@@ -108,6 +105,5 @@ class TeamViewGridHolder(override val containerView: View, private val context: 
     private fun getThumbnail(name: String?): String {
         return BuildConfig.BASE_URL + "uploads/" + name
     }
-
 
 }

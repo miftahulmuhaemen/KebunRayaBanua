@@ -3,7 +3,6 @@ package com.example.kebunrayabanua.main.main.event
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,7 +25,6 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
     override fun onClick(v: View?) {
         when (v) {
             backBtn -> finish()
-            fab_changemode -> changeAdapterLayout()
         }
     }
 
@@ -51,22 +49,21 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
 
     private lateinit var mainPresenter: EventPresenter
     private lateinit var gridAdapter: EventGridAdapter
-    private lateinit var listAdapter: EventListAdapter
     private var items: MutableList<DataEvent> = mutableListOf()
-    private var isGridViewAttach: Boolean = true
     private var isRequestEnd: Boolean = false
     private var pageNumber: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.event_activity)
-
-        changeAdapterLayout()
         mainPresenter = EventPresenter(this, ApiRepository(), Gson())
+
+        gridAdapter = EventGridAdapter(this, items) { startActivity<DetailTreeActivity>() }
+        recylerviewMain.adapter = gridAdapter
+        recylerviewMain.layoutManager = GridLayoutManager(this, 1)
         mainPresenter.getItem(pageNumber)
 
         backBtn.setOnClickListener(this)
-        fab_changemode.setOnClickListener(this)
         searchView.setOnSearchClickListener {
             titleText.gone()
         }
@@ -74,11 +71,7 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
             titleText.visible(); false
         }
         searchView.onQueryTextListener {
-            onQueryTextChange { query ->
-                if (!isGridViewAttach)
-                    gridAdapter.filter.filter(query)
-                false
-            }
+            onQueryTextChange { query -> gridAdapter.filter.filter(query); false }
         }
         swipe.onRefresh {
             pageNumber = 0; mainPresenter.getItem(pageNumber)
@@ -92,22 +85,6 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
                 }
             }
         })
-    }
-
-
-    private fun changeAdapterLayout() {
-        if (isGridViewAttach) {
-            gridAdapter = EventGridAdapter(this, items) { startActivity<DetailTreeActivity>() }
-            recylerviewMain.adapter = gridAdapter
-            recylerviewMain.layoutManager = GridLayoutManager(this, 1)
-            fab_changemode.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_grid_view))
-        } else {
-            listAdapter = EventListAdapter(this, items) { startActivity<DetailTreeActivity>() }
-            recylerviewMain.adapter = listAdapter
-            recylerviewMain.layoutManager = LinearLayoutManager(this)
-            fab_changemode.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_list_view))
-        }
-        isGridViewAttach = !isGridViewAttach
     }
 
 }
