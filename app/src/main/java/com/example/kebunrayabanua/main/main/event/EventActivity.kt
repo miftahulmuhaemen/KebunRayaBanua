@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.api.ApiRepository
 import com.example.kebunrayabanua.main.main.detailTree.DetailTreeActivity
@@ -17,8 +18,8 @@ import kotlinx.android.synthetic.main.detail_event_activity.backBtn
 import kotlinx.android.synthetic.main.event_activity.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.appcompat.v7.coroutines.onQueryTextListener
-import org.jetbrains.anko.sdk27.coroutines.onScrollChange
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.onRefresh
 
 class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, AnkoLogger {
 
@@ -29,10 +30,22 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         }
     }
 
-    override fun showItems(item: List<DataEvent>) {
-        items.clear()
+    override fun initialItems(item: List<DataEvent>) {
+        if(items.first() !== item.first()){
+            items.clear()
+            items.addAll(item)
+            recylerviewMain.adapter?.notifyDataSetChanged()
+        }
+    }
+
+    override fun addItems(item: List<DataEvent>) {
         items.addAll(item)
         recylerviewMain.adapter?.notifyDataSetChanged()
+    }
+
+    override fun closedRequest() {
+        if (items.isNotEmpty())
+            isRequestEnd = true
     }
 
     private lateinit var mainPresenter: EventPresenter
@@ -40,6 +53,8 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
     private lateinit var listAdapter: EventListAdapter
     private var items: MutableList<DataEvent> = mutableListOf()
     private var isGridViewAttach: Boolean = true
+    private var isRequestEnd: Boolean = false
+    private var pageNumber: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +64,7 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         val apiRepository = ApiRepository()
         val gson = Gson()
         mainPresenter = EventPresenter(this, apiRepository, gson)
-        mainPresenter.getItem()
+        mainPresenter.getItem(pageNumber)
 
         backBtn.setOnClickListener(this)
         fab_changemode.setOnClickListener(this)
@@ -70,12 +85,19 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
                 false
             }
         }
-
-        recylerviewMain.onScrollChange { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-            if(scrollY > 0){
-                
-            }
+        swipe.onRefresh {
+            pageNumber = 0
+            mainPresenter.getItem(pageNumber)
         }
+        recylerviewMain.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
+                if (linearLayoutManager!!.itemCount <= linearLayoutManager.findLastVisibleItemPosition() + 5 && !isRequestEnd) {
+                    pageNumber += 15
+                    mainPresenter.getItem(pageNumber)
+                }
+            }
+        })
     }
 
 

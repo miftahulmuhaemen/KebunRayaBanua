@@ -24,7 +24,6 @@ import java.util.*
 class EventGridAdapter(
         private val context: Context,
         private var items: List<DataEvent>,
-        private val adapterType: Int = 1,
         private val listener: (DataEvent) -> Unit
 ) :
         RecyclerView.Adapter<TeamViewGridHolder>(), Filterable, AnkoLogger {
@@ -32,17 +31,7 @@ class EventGridAdapter(
     private val originalItem: List<DataEvent> = items
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewGridHolder {
-//        return when (adapterType) {
-//            GRID_VIEW -> {
               return  TeamViewGridHolder(LayoutInflater.from(context).inflate(R.layout.event_grid_item, parent, false), context)
-//            }
-//            LIST_VIEW -> {
-//                TeamViewGridHolder(LayoutInflater.from(context).inflate(R.layout.event_list_item, parent, false), context)
-//            }
-//            else -> {
-//                TeamViewGridHolder(LayoutInflater.from(context).inflate(R.layout.app_loading_item, parent, false), context)
-//            }
-//        }
     }
 
     override fun onBindViewHolder(gridHolder: TeamViewGridHolder, position: Int) {

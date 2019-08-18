@@ -4,5 +4,7 @@ import com.example.kebunrayabanua.main.model.DataEvent
 
 
 interface EventView {
-    fun showItems(item: List<DataEvent>)
+    fun addItems(item: List<DataEvent>)
+    fun initialItems(item: List<DataEvent>)
+    fun closedRequest()
 }
