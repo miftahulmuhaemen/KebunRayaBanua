@@ -15,12 +15,12 @@
   <component name="ChangeListManager">
     <list default="true" id="308f8f6d-ce61-4375-913c-4fe1939d7e8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/api/ApiRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/api/ApiRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventGridAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventGridAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventPresenter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/event_activity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/event_activity.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,29 +52,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventPresenter.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="-544">
+              <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+              <folding>
+                <element signature="e#52#1019#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventView.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventPresenter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="3">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventGridAdapter.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1479">
+              <caret line="107" column="53" lean-forward="true" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
+              <folding>
+                <element signature="e#3631#3665#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,7 +107,6 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/detail_tree_activity.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/detail_tree_seemore.xml" />
-        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/service/FirebaseMessagingService.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/detailTree/DetailTreeActivity.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/model/Highlight.kt" />
@@ -112,11 +117,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventListAdapter.kt" />
         <option value="$PROJECT_DIR$/src/main/res/layout/app_loading_item.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/util/Util.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventGridAdapter.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/api/ApiRepository.kt" />
         <option value="$PROJECT_DIR$/src/main/res/layout/event_activity.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventView.kt" />
+        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/api/ApiRepository.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventPresenter.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventGridAdapter.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventActivity.kt" />
       </list>
     </option>
@@ -138,6 +144,11 @@
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
@@ -187,6 +198,13 @@
               <item name="main" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="treeData" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="main" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
@@ -333,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566064021454</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Pagination V2.">
+      <created>1566140497284</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1566140497284</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -347,7 +372,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22012103" />
@@ -359,14 +383,14 @@
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.5188216" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="1" sideWeight="0.49924356" visible="true" weight="0.3371522" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.67266774" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50075644" side_tool="true" weight="0.5188216" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.31914893" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.3289689" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -407,7 +431,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="pagination on the way" />
-    <option name="LAST_COMMIT_MESSAGE" value="pagination on the way" />
+    <MESSAGE value="Pagination V2." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pagination V2." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -473,14 +498,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -534,13 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/model/DataEvent.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/MainPresenter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -585,13 +595,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/res/drawable/btn_round_fill.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventListAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/MainViewPagerAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -620,23 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventGridAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#52#1015#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/api/ApiRepository.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="45" lean-forward="true" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/event_grid_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
@@ -655,22 +641,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventView.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="102">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventActivity.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/ic_grid_view.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+        <state relative-caret-position="130">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventListAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.40/682cd7821872d1a3c1e8a3e6bdaabd17f2b71004/kotlin-stdlib-common-1.3.40-sources.jar!/generated/_Collections.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/api/ApiRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="e#45#215#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/model/DataEvent.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="66" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventPresenter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state relative-caret-position="3">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventGridAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="107" column="53" lean-forward="true" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
+          <folding>
+            <element signature="e#3631#3665#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/kebunrayabanua/main/main/event/EventActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding>
+            <element signature="e#52#1019#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

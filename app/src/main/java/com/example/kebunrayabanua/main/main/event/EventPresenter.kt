@@ -22,8 +22,7 @@ class EventPresenter(private val view: EventView,
                     object : TypeToken<List<DataEvent>>(){}.type)
             when {
                 data.isEmpty() -> view.closedRequest()
-                pageNumber == 0 -> view.initialItems(data)
-                else -> view.addItems(data)
+                else -> view.showItems(data)
             }
         }
     }

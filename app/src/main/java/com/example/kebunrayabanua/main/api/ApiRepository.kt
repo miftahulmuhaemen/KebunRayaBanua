@@ -8,7 +8,7 @@ import java.net.URL
 
 class ApiRepository {
     object EventAPI {
-        fun getEvents(pageNumber: Int, rowNumber: Int = 15): String {
+        fun getEvents(pageNumber: Int, rowNumber: Int = 5): String {
             return BuildConfig.BASE_URL + "index.php/api/event/data/all/" + "$pageNumber/$rowNumber?" + "key=" + BuildConfig.API_KEY
         }
     }

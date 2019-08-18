@@ -30,22 +30,23 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         }
     }
 
-    override fun initialItems(item: List<DataEvent>) {
-        if(items.first() !== item.first()){
-            items.clear()
+    override fun showItems(item: List<DataEvent>) {
+        if (!swipe.isRefreshing) {
             items.addAll(item)
             recylerviewMain.adapter?.notifyDataSetChanged()
+        } else {
+            if (items.first() != item.first()) {
+                isRequestEnd = false
+                items.clear()
+                items.addAll(item)
+                recylerviewMain.adapter?.notifyDataSetChanged()
+            }
+            swipe.isRefreshing = false
         }
     }
 
-    override fun addItems(item: List<DataEvent>) {
-        items.addAll(item)
-        recylerviewMain.adapter?.notifyDataSetChanged()
-    }
-
     override fun closedRequest() {
-        if (items.isNotEmpty())
-            isRequestEnd = true
+        isRequestEnd = true
     }
 
     private lateinit var mainPresenter: EventPresenter
@@ -61,9 +62,7 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         setContentView(R.layout.event_activity)
 
         changeAdapterLayout()
-        val apiRepository = ApiRepository()
-        val gson = Gson()
-        mainPresenter = EventPresenter(this, apiRepository, gson)
+        mainPresenter = EventPresenter(this, ApiRepository(), Gson())
         mainPresenter.getItem(pageNumber)
 
         backBtn.setOnClickListener(this)
@@ -72,28 +71,23 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
             titleText.gone()
         }
         searchView.setOnCloseListener {
-            titleText.visible()
-            false
+            titleText.visible(); false
         }
         searchView.onQueryTextListener {
             onQueryTextChange { query ->
                 if (!isGridViewAttach)
                     gridAdapter.filter.filter(query)
-//                else
-//                    listAdapter.filter.filter(query)
-
                 false
             }
         }
         swipe.onRefresh {
-            pageNumber = 0
-            mainPresenter.getItem(pageNumber)
+            pageNumber = 0; mainPresenter.getItem(pageNumber)
         }
         recylerviewMain.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
-                if (linearLayoutManager!!.itemCount <= linearLayoutManager.findLastVisibleItemPosition() + 5 && !isRequestEnd) {
-                    pageNumber += 15
+                if (linearLayoutManager!!.itemCount <= linearLayoutManager.findLastVisibleItemPosition() + 1 && !isRequestEnd) {
+                    pageNumber += 5
                     mainPresenter.getItem(pageNumber)
                 }
             }

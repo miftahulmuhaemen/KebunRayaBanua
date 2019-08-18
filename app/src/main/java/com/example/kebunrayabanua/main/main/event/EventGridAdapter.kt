@@ -17,6 +17,8 @@ import jp.wasabeef.glide.transformations.GrayscaleTransformation
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.event_grid_item.*
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.image
+import org.jetbrains.anko.info
 import java.text.DateFormat.getDateInstance
 import java.util.*
 
@@ -25,8 +27,7 @@ class EventGridAdapter(
         private val context: Context,
         private var items: List<DataEvent>,
         private val listener: (DataEvent) -> Unit
-) :
-        RecyclerView.Adapter<TeamViewGridHolder>(), Filterable, AnkoLogger {
+) : RecyclerView.Adapter<TeamViewGridHolder>(), Filterable, AnkoLogger {
 
     private val originalItem: List<DataEvent> = items
 
@@ -67,25 +68,31 @@ class EventGridAdapter(
 }
 
 class TeamViewGridHolder(override val containerView: View, private val context: Context) :
-    RecyclerView.ViewHolder(containerView),
-    LayoutContainer, AnkoLogger {
+    RecyclerView.ViewHolder(containerView), AnkoLogger,
+    LayoutContainer {
 
     @SuppressLint("SetTextI18n")
     fun bindItem(item: DataEvent, listener: (DataEvent) -> Unit) {
+
         item_name.text = item.eventNama
         item_duration.text = "${item.eventMulai} - ${item.eventSelesai}"
+        img_item.image = context.getDrawable(R.color.colorPrimary)
+
         if(isExpired(item.eventSelesai.toString())){
             status_event_bg.backgroundTintList = ContextCompat.getColorStateList(context,R.color.tw__light_gray)
             status_event_text.text = context.getString(R.string.expired)
             if (item.eventPoster?.isNotEmpty()!!)
                 Glide.with(context)
-                        .load(getThumbnail(item.eventPoster?.first().toString()))
+                        .load(getThumbnail(item.eventPoster?.first()))
                         .transform(GrayscaleTransformation())
                         .into(img_item)
+
         } else {
+            status_event_bg.backgroundTintList = ContextCompat.getColorStateList(context,R.color.colorPrimary)
+            status_event_text.text = context.getString(R.string.active)
             if (item.eventPoster?.isNotEmpty()!!)
                 Glide.with(context)
-                        .load(getThumbnail(item.eventPoster?.first().toString()))
+                        .load(getThumbnail(item.eventPoster?.first()))
                         .into(img_item)
         }
         box_item.setOnClickListener { listener(item) }
@@ -95,10 +102,10 @@ class TeamViewGridHolder(override val containerView: View, private val context: 
         val current = Calendar.getInstance().time
         val formatter = getDateInstance()
         val date = formatter.parse(itemDate)
-        return current >= date
+        return current > date
     }
 
-    private fun getThumbnail(name: String): String? {
+    private fun getThumbnail(name: String?): String {
         return BuildConfig.BASE_URL + "uploads/" + name
     }
 

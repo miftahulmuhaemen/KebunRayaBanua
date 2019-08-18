@@ -23,6 +23,11 @@
         <activity android:name=".main.main.detailEvent.DetailEventActivity">
         </activity>
         <activity android:name=".main.main.event.EventActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".main.main.MainActivity">
         </activity>
@@ -37,11 +42,6 @@
         <activity android:name=".main.main.scanMe.ScanMeActivity">
         </activity>
         <activity android:name=".main.login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <service
