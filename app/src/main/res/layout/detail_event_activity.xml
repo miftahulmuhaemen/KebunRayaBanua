@@ -1,78 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
-            android:layout_width="match_parent"
-            android:layout_height="256dp"
-            android:fitsSystemWindows="true">
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@android:color/white"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPagerEvent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                app:contentScrim="@android:color/white"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                tools:background="@color/tw__blue_default" />
 
-            <ImageView android:id="@+id/header_img"
-                       android:layout_width="match_parent"
-                       tools:src="@drawable/header_1"
-                       android:scaleType="centerCrop"
-                       android:layout_height="match_parent"/>
+            <com.rd.PageIndicatorView
+                android:id="@+id/dots"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom|center_horizontal"
+                app:piv_dynamicCount="true"
+                app:piv_interactiveAnimation="true"
+                app:piv_viewPager="@id/viewPagerEvent" />
 
             <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:contentInsetStart="0dp"
-                    app:layout_scrollFlags="scroll"
-                    app:layout_collapseMode="pin">
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll">
 
                 <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-
-                    <ImageView android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:layout_alignRight="@id/backBtn"
-                               android:layout_alignParentLeft="true"
-                               android:layout_centerVertical="true"
-                               android:backgroundTint="@android:color/white"
-                               android:background="@drawable/btn_back"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
 
                     <ImageView
-                            android:id="@+id/backBtn"
-                            android:src="@drawable/ic_btnkembali"
-                            android:layout_centerVertical="true"
-                            android:paddingRight="16dp"
-                            android:paddingLeft="16dp"
-                            android:tint="@color/colorPrimary"
-                            android:layout_marginEnd="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/backBtn"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/btn_back"
+                        android:backgroundTint="@android:color/white" />
+
+                    <ImageView
+                        android:id="@+id/backBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:src="@drawable/ic_btnkembali"
+                        android:tint="@color/colorPrimary" />
 
                     <TextView
-                            android:id="@+id/title_bar"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@id/backBtn"
-                            android:text="POHON RAMBUTAN"
-                            android:lines="1"
-                            android:textAllCaps="true"
-                            android:paddingRight="16dp"
-                            android:textSize="24sp"
-                            android:textColor="@color/colorPrimary"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        android:id="@+id/item_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/backBtn"
+                        android:maxLines="2"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="16dp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="POHON RAMBUTAN" />
 
                 </RelativeLayout>
             </androidx.appcompat.widget.Toolbar>
@@ -82,53 +93,52 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
-            android:layout_below="@id/appbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:behavior_overlapTop="40dp"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        app:behavior_overlapTop="40dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.cardview.widget.CardView
-                android:id="@+id/box_item"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="10dp">
+            android:id="@+id/box_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="Pohon Rambutan"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-            >
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorGray"
+                    android:padding="32dp">
 
-                <TextView android:id="@+id/title_main"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Pohon Rambutan"
-                          android:textAllCaps="true"
-                          android:textSize="24sp"
-                          android:textColor="@color/colorPrimary"
-                          android:textStyle="bold"
-                          android:layout_marginStart="32dp"
-                          android:layout_marginTop="24dp"
-                          android:layout_marginBottom="8dp"
-                />
-
-
-                <LinearLayout android:layout_width="match_parent"
-                              android:padding="32dp"
-                              android:background="@color/colorGray"
-                              android:layout_height="wrap_content">
-                    <TextView android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:text="Pohon berdaun hijau sepanjang tahun, menyukai suhu tropika hangat (suhu rata-rata 25 derajat Celsius), tinggi dapat mencapai 8m namun biasanya tajuknya melebar hingga jari-jari 4m. Daun majemuk menyirip dengan anak daun 5 hingga 9, berbentuk bulat telur, dengan variasi tergantung umur, posisi pada pohon, dan ras lokal.
-
-Pertumbuhan rambutan dipengaruhi oleh ketersediaan air. Setelah masa berbuah selesai, pohon rambutan akan merona (flushing) menghasilkan cabang dan daun baru. Tahap ini sangat jelas teramati dengan warna pohon yang hijau muda karena didominasi oleh daun muda. Pertumbuhan ini akan berhenti ketika ketersediaan air terbatas dan tumbuhan beristirahat tumbuh."
-                    />
+                    <TextView
+                        android:id="@+id/item_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dummy_tree_text" />
                 </LinearLayout>
 
 

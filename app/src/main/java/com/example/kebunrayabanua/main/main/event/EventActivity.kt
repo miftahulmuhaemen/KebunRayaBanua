@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.api.ApiRepository
+import com.example.kebunrayabanua.main.main.detailEvent.DetailEventActivity
 import com.example.kebunrayabanua.main.main.detailTree.DetailTreeActivity
 import com.example.kebunrayabanua.main.model.DataEvent
 import com.example.kebunrayabanua.main.util.gone
@@ -58,7 +59,7 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         setContentView(R.layout.event_activity)
         mainPresenter = EventPresenter(this, ApiRepository(), Gson())
 
-        gridAdapter = EventGridAdapter(this, items) { startActivity<DetailTreeActivity>() }
+        gridAdapter = EventGridAdapter(this, items) { startActivity<DetailEventActivity>(DetailEventActivity.DETAIL_EVENT to it) }
         recylerviewMain.adapter = gridAdapter
         recylerviewMain.layoutManager = GridLayoutManager(this, 1)
         mainPresenter.getItem(pageNumber)
