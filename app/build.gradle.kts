@@ -53,10 +53,15 @@ dependencies {
 
     //network
     implementation("com.google.code.gson:gson:2.8.5")
+    implementation ("com.squareup.retrofit2:retrofit:2.6.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.6.0")
+    implementation("com.squareup.okhttp3:okhttp:3.12.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:3.12.0")
 
     //Extras
     implementation("org.osmdroid:osmdroid-android:6.1.0")
     implementation("de.hdodenhof:circleimageview:3.0.0")
+    implementation("com.github.chrisbanes:PhotoView:2.3.0")
     implementation("com.github.bumptech.glide:glide:4.9.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.9.0")
     implementation("com.romandanylyk:pageindicatorview:1.0.2")

@@ -1,15 +1,9 @@
 package com.example.kebunrayabanua.main.util
 
 import android.view.View
-import com.firebase.ui.auth.AuthUI
 import kotlinx.coroutines.Dispatchers
+import java.io.IOException
 import kotlin.coroutines.CoroutineContext
-
-object Util {
-    const val RC_SIGN_IN: Int = 1
-    val GOOGLE_PROVIDER = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
-    val TWITTER_PROVIDER = arrayListOf(AuthUI.IdpConfig.TwitterBuilder().build())
-}
 
 object Permission {
     const val SCAN = 100
@@ -36,4 +30,19 @@ fun View.gone() {
 
 open class CoroutineContextProvider {
     open val main: CoroutineContext by lazy { Dispatchers.Main }
+}
+
+fun isOnline(): Boolean {
+    val runtime = Runtime.getRuntime()
+    try {
+        val ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8")
+        val exitValue = ipProcess.waitFor()
+        return exitValue == 0
+    } catch (e: IOException) {
+        e.printStackTrace()
+    } catch (e: InterruptedException) {
+        e.printStackTrace()
+    }
+
+    return false
 }

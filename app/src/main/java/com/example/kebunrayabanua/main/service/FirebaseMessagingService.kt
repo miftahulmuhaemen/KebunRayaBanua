@@ -1,36 +1,62 @@
 package com.example.kebunrayabanua.main.service
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.os.Build
+import androidx.core.app.NotificationCompat
+import androidx.core.app.TaskStackBuilder
+import com.example.kebunrayabanua.R
+import com.example.kebunrayabanua.main.main.detailEvent.DetailEventActivity
+import com.example.kebunrayabanua.main.service.FirebaseMessagingService.FirebaseNotification.CHANNEL_ID
+import com.example.kebunrayabanua.main.service.FirebaseMessagingService.FirebaseNotification.CHANNEL_NAME
+import com.example.kebunrayabanua.main.service.FirebaseMessagingService.FirebaseNotification.NOTIFICATION_ID
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
+
 
 class FirebaseMessagingService : FirebaseMessagingService(), AnkoLogger {
 
+    object FirebaseNotification {
+        const val NOTIFICATION_ID = 1
+        var CHANNEL_ID = "channel_01"
+        var CHANNEL_NAME: CharSequence = "event"
+    }
+
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
 
-        // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
-        info("From: ${remoteMessage?.from}")
-
-        // Check if message contains a data payload.
-        remoteMessage?.data?.isNotEmpty()?.let {
-            info("Message data payload: " + remoteMessage.data)
-
-            if (/* Check if data needs to be processed by long running job */ true) {
-                // For long-running tasks (10 seconds or more) use WorkManager.
-
-            } else {
-                // Handle message within 10 seconds
-
-            }
+        val resultIntent = Intent(this, DetailEventActivity::class.java)
+        val resultPendingIntent: PendingIntent? = TaskStackBuilder.create(this).run {
+            addNextIntentWithParentStack(resultIntent)
+            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
         }
 
-        // Check if message contains a notification payload.
-        remoteMessage?.notification?.let {
-            info("Message Notification Body: ${it.body}")
+        val bigPictureStyle = NotificationCompat.BigPictureStyle()
+        bigPictureStyle.bigPicture(BitmapFactory.decodeResource(resources, R.drawable.event_stock_image)).build()
+
+        val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val mBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_logo)
+                .setContentTitle(remoteMessage?.notification?.title)
+                .setContentIntent(resultPendingIntent)
+                .setStyle(bigPictureStyle)
+                .setAutoCancel(true)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(CHANNEL_ID,
+                    CHANNEL_NAME,
+                    NotificationManager.IMPORTANCE_DEFAULT)
+            mBuilder.setChannelId(CHANNEL_ID)
+            mNotificationManager.createNotificationChannel(channel)
         }
 
-        // Also if you intend on generating your own notifications as a result of a received FCM
-        // message, here is where that should be initiated. See sendNotification method below.
+        val notification = mBuilder.build()
+        mNotificationManager.notify(NOTIFICATION_ID, notification)
+
     }
+
 }

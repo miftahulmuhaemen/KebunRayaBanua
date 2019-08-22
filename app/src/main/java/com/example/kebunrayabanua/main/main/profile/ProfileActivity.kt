@@ -1,9 +1,7 @@
 package com.example.kebunrayabanua.main.main.profile
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Bitmap
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -11,6 +9,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import com.example.kebunrayabanua.BuildConfig
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.util.gone
 import com.example.kebunrayabanua.main.util.visible
@@ -61,29 +60,24 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         when (item.itemId) {
             R.id.profile -> {
-                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/profil")
+                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/profil")
             }
             R.id.visionmission -> {
-                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/visimisi")
+                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/visimisi")
             }
             R.id.goal -> {
-                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/tujuan")
+                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/tujuan")
             }
             R.id.structure -> {
-                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/struktur")
+                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/struktur")
             }
             R.id.headprofile -> {
-                webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/pimpinan")
+                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/pimpinan")
 
             }
         }
         drawer_layout.closeDrawer(drawerPosition)
         return true
-    }
-
-    private fun isNetworkAvailable(): Boolean {
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        return connectivityManager.activeNetworkInfo?.isConnected ?: false
     }
 
     inner class WebClient : WebViewClient() {

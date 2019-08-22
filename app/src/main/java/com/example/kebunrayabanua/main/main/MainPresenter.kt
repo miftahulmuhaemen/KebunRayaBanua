@@ -59,10 +59,8 @@ class MainPresenter(private val context: Context, private val view: MainView) : 
         FirebaseMessaging.getInstance().subscribeToTopic("event")
             .addOnCompleteListener { task ->
                 var msg = "Success"
-//                    getString(R.string.msg_subscribed)
-                if (!task.isSuccessful) {
+                if (!task.isSuccessful)
                     msg = "Not Success"
-                }
                 info(msg)
             }
     }
