@@ -1,4 +1,4 @@
-package com.example.kebunrayabanua.main.main.detailEvent
+package com.example.kebunrayabanua.main.util
 
 import android.content.Context
 import android.view.View
@@ -6,15 +6,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
-import com.example.kebunrayabanua.BuildConfig
-import com.example.kebunrayabanua.main.main.detailEvent.DetailEventViewpagerAdapter.Type.DEFAULT
-import com.example.kebunrayabanua.main.main.detailEvent.DetailEventViewpagerAdapter.Type.DIALOG
+import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter.Type.DEFAULT
+import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter.Type.DIALOG
 import com.github.chrisbanes.photoview.PhotoView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.viewPager
 
-class DetailEventViewpagerAdapter(private val type: Int, private val context: Context, private val images: List<String>) : PagerAdapter(), AnkoLogger {
+class DetailViewpagerAdapter (private val type: Int, private val context: Context, private val images: List<String>) : PagerAdapter(), AnkoLogger {
 
     object Type {
         const val DEFAULT = 0
@@ -43,7 +42,7 @@ class DetailEventViewpagerAdapter(private val type: Int, private val context: Co
                     customView {
                         verticalLayout {
                             viewPager {
-                                adapter = DetailEventViewpagerAdapter(DIALOG, context, images)
+                                adapter = DetailViewpagerAdapter(DIALOG, context, images)
                                 currentItem = position
                             }
                         }
@@ -59,8 +58,5 @@ class DetailEventViewpagerAdapter(private val type: Int, private val context: Co
         return imageView
     }
 
-    private fun getThumbnail(name: String?): String {
-        return BuildConfig.BASE_URL + "uploads/" + name
-    }
 
 }

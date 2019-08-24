@@ -1,6 +1,7 @@
 package com.example.kebunrayabanua.main.main.event
 
 
+import com.example.kebunrayabanua.main.api.RetrofitFactory
 import com.example.kebunrayabanua.main.api.RetrofitService
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
 import com.example.kebunrayabanua.main.util.isOnline
@@ -10,9 +11,8 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import retrofit2.HttpException
 
-
 class EventPresenter(private val view: EventView,
-                     private val service: RetrofitService,
+                     private val service: RetrofitService = RetrofitFactory.makeRetrofitService(),
                      private val context: CoroutineContextProvider = CoroutineContextProvider()) : AnkoLogger{
 
     fun getItem(pageNumber: Int) {
@@ -20,7 +20,7 @@ class EventPresenter(private val view: EventView,
             if (!isOnline()) {
                 view.errorRequest()
             } else {
-                val response = service.getPosts(pageNumber)
+                val response = service.getEvents(pageNumber)
                 try {
                     if (response.isSuccessful) {
                         if (response.body()!!.isEmpty())
@@ -30,9 +30,9 @@ class EventPresenter(private val view: EventView,
                     } else {
                         view.errorRequest()
                     }
-                } catch (e: HttpException) {
-                    info(e.message)
                 } catch (e: Throwable) {
+                    info(e.message)
+                } catch (e: HttpException) {
                     info(e.message)
                 }
             }

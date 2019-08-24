@@ -1,9 +1,9 @@
 package com.example.kebunrayabanua.main.main
 
-import com.example.kebunrayabanua.main.model.Highlight
+import com.example.kebunrayabanua.main.model.DataEvent
 
 
 interface MainView {
     fun headerImages(images : IntArray)
-    fun highlightItem(item : List<Highlight>)
+    fun highlightItem(item: List<DataEvent>)
 }

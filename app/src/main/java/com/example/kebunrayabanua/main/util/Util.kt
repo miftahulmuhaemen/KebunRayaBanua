@@ -1,6 +1,7 @@
 package com.example.kebunrayabanua.main.util
 
 import android.view.View
+import com.example.kebunrayabanua.BuildConfig
 import kotlinx.coroutines.Dispatchers
 import java.io.IOException
 import kotlin.coroutines.CoroutineContext
@@ -45,4 +46,8 @@ fun isOnline(): Boolean {
     }
 
     return false
+}
+
+fun getThumbnail(name: String?): String {
+    return BuildConfig.BASE_URL + "uploads/" + name
 }

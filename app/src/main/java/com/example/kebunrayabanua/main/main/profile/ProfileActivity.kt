@@ -42,7 +42,7 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         webview.settings.allowFileAccess = true
         webview.settings.setAppCacheEnabled(true)
         webview.scrollBarSize = View.SCROLLBARS_INSIDE_OVERLAY
-        webview.loadUrl("http://103.81.100.229/kebunraya/index.php/profil/organisasi/profil")
+        webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/profil")
 
         nav_view.setNavigationItemSelectedListener(this)
         backBtn.setOnClickListener(this)
@@ -73,7 +73,6 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             }
             R.id.headprofile -> {
                 webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/pimpinan")
-
             }
         }
         drawer_layout.closeDrawer(drawerPosition)

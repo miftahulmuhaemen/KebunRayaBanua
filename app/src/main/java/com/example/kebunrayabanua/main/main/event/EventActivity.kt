@@ -17,8 +17,10 @@ import kotlinx.android.synthetic.main.detail_event_activity.backBtn
 import kotlinx.android.synthetic.main.event_activity.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.appcompat.v7.coroutines.onQueryTextListener
+import org.jetbrains.anko.info
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
+import org.jetbrains.anko.toast
 
 class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, AnkoLogger {
 
@@ -39,9 +41,9 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
                 items.addAll(item)
                 recylerviewMain.adapter?.notifyDataSetChanged()
             }
-            network_down.gone()
-            swipe.isRefreshing = false
         }
+        network_down.gone()
+        swipe.isRefreshing = false
     }
 
     override fun closedRequest() {
@@ -50,7 +52,11 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
 
     override fun errorRequest() {
         swipe.isRefreshing = false
-        network_down.visible()
+        if(items.isEmpty()){
+            network_down.visible()
+        } else {
+            toast("Terjadi masalah.")
+        }
     }
 
     private lateinit var eventPresenter: EventPresenter
@@ -63,8 +69,7 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         super.onCreate(savedInstanceState)
         setContentView(R.layout.event_activity)
 
-        val service: RetrofitService = RetrofitFactory.makeRetrofitService()
-        eventPresenter = EventPresenter(this, service)
+        eventPresenter = EventPresenter(this)
 
         gridAdapter = EventGridAdapter(this, items) { startActivity<DetailEventActivity>(DetailEventActivity.DETAIL_EVENT to it) }
         recylerviewMain.adapter = gridAdapter
@@ -88,6 +93,7 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
                 if (linearLayoutManager!!.itemCount <= linearLayoutManager.findLastVisibleItemPosition() + 1 && !isRequestEnd) {
+                    info(pageNumber)
                     pageNumber += 5
                     eventPresenter.getItem(pageNumber)
                 }

@@ -13,13 +13,13 @@ import com.bumptech.glide.Glide
 import com.example.kebunrayabanua.BuildConfig
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.model.DataEvent
+import com.example.kebunrayabanua.main.util.getThumbnail
 import jp.wasabeef.glide.transformations.GrayscaleTransformation
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.event_grid_item.*
 import org.jetbrains.anko.AnkoLogger
 import java.text.DateFormat.getDateInstance
 import java.util.*
-
 
 class EventGridAdapter(
         private val context: Context,
@@ -105,10 +105,6 @@ class TeamViewGridHolder(override val containerView: View, private val context: 
         val formatter = getDateInstance()
         val date = formatter.parse(itemDate)
         return current > date
-    }
-
-    private fun getThumbnail(name: String?): String {
-        return BuildConfig.BASE_URL + "uploads/" + name
     }
 
 }

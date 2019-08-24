@@ -5,13 +5,15 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import com.example.kebunrayabanua.R
-import com.example.kebunrayabanua.main.main.detailEvent.DetailEventViewpagerAdapter.Type.DEFAULT
 import com.example.kebunrayabanua.main.model.DataEvent
+import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter
+import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter.Type.DEFAULT
 import com.example.kebunrayabanua.main.util.gone
 import com.example.kebunrayabanua.main.util.visible
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.detail_event_activity.*
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 
 class DetailEventActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedListener, View.OnClickListener,
     AnkoLogger {
@@ -43,7 +45,7 @@ class DetailEventActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedLis
         item_title.text = data.eventNama
         item_duration.text = "${data.eventMulai} - ${data.eventSelesai}"
         item_desc.text = HtmlCompat.fromHtml(data.eventDeskripsi.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
-        viewPagerEvent.adapter = data.eventPoster?.let { DetailEventViewpagerAdapter(DEFAULT, this, it) }
+        viewPagerEvent.adapter = data.eventPoster?.let { DetailViewpagerAdapter(DEFAULT, this, it) }
 
         appbar.addOnOffsetChangedListener(this)
         backBtn.setOnClickListener(this)

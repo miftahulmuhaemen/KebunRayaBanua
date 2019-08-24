@@ -5,16 +5,16 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.login.LoginActivity
+import com.example.kebunrayabanua.main.main.detailEvent.DetailEventActivity
 import com.example.kebunrayabanua.main.main.event.EventActivity
 import com.example.kebunrayabanua.main.main.profile.ProfileActivity
 import com.example.kebunrayabanua.main.main.scanMe.ScanMeActivity
 import com.example.kebunrayabanua.main.main.treeData.TreeDataActivity
 import com.example.kebunrayabanua.main.main.whereIam.WhereIamActivity
-import com.example.kebunrayabanua.main.model.Highlight
+import com.example.kebunrayabanua.main.model.DataEvent
 import com.firebase.ui.auth.AuthUI
 import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
 
@@ -34,27 +34,27 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
         }
     }
 
-    override fun highlightItem(item: List<Highlight>) {
-        highlightItem.clear()
-        highlightItem.addAll(item)
+    override fun highlightItem(item: List<DataEvent>) {
+        mainItem.clear()
+        mainItem.addAll(item)
         mAdapter.notifyDataSetChanged()
     }
 
     override fun headerImages(images: IntArray) {
         viewPagerMain.adapter = MainViewPagerAdapter(this, images)
-        mainPresenter.viewPagerAutoScroll(images.count())
+        mainPresenter.viewPagerAutoScroll(images.count(), viewPagerMain)
     }
 
     private lateinit var mainPresenter: MainPresenter
-    private var highlightItem: MutableList<Highlight> = mutableListOf()
+    private var mainItem: MutableList<DataEvent> = mutableListOf()
     private lateinit var mAdapter: MainListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        mAdapter = MainListAdapter(this, highlightItem) {
-            toast(it.name.toString())
+        mAdapter = MainListAdapter(this, mainItem) {
+            startActivity<DetailEventActivity>(DetailEventActivity.DETAIL_EVENT to it)
         }
         recylerviewMain.adapter = mAdapter
         mainPresenter = MainPresenter(this, this)

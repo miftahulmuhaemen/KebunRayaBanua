@@ -8,5 +8,7 @@ import retrofit2.http.Path
 
 interface RetrofitService {
     @GET("event/data/all/{pageNumber}/5?key=$API_KEY")
-    suspend fun getPosts(@Path("pageNumber") pageNumber: Int): Response<List<DataEvent>>
+    suspend fun getEvents(@Path("pageNumber") pageNumber: Int): Response<List<DataEvent>>
+
+
 }
