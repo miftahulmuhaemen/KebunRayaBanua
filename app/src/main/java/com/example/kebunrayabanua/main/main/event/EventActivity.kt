@@ -59,6 +59,7 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         }
     }
 
+
     private lateinit var eventPresenter: EventPresenter
     private lateinit var gridAdapter: EventGridAdapter
     private var items: MutableList<DataEvent> = mutableListOf()
@@ -93,8 +94,7 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
                 if (linearLayoutManager!!.itemCount <= linearLayoutManager.findLastVisibleItemPosition() + 1 && !isRequestEnd) {
-                    info(pageNumber)
-                    pageNumber += 5
+                    pageNumber += 15
                     eventPresenter.getItem(pageNumber)
                 }
             }

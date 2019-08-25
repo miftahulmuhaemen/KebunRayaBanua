@@ -49,11 +49,13 @@
                 apps:text="Nephelium Radiolium"
                 android:textStyle="italic"
                 android:textSize="12sp"
+                android:ellipsize="end"
                 android:lines="1"
                 android:gravity="start"
                 android:textColor="@android:color/white"
                 android:layout_alignLeft="@id/item_name"
                 android:layout_below="@id/item_name"
+            android:layout_marginEnd="16dp"
         />
     </RelativeLayout>
 

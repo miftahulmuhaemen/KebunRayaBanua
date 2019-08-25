@@ -1,22 +1,23 @@
 package com.example.kebunrayabanua.main.main.detailTree
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.example.kebunrayabanua.R
+import com.example.kebunrayabanua.main.main.treeData.TreeDataView
+import com.example.kebunrayabanua.main.model.DataTree
 import com.example.kebunrayabanua.main.util.gone
 import com.example.kebunrayabanua.main.util.visible
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.detail_tree_activity.*
 import org.jetbrains.anko.*
-import org.jetbrains.anko.support.v4.onPageChangeListener
-import org.jetbrains.anko.support.v4.viewPager
 
-class DetailTreeActivity : AppCompatActivity(), AnkoLogger, AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
+class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
+
+    companion object {
+        const val TREE_DETAIL = "TREE_DETAIL"
+    }
 
     override fun onClick(v: View?) {
         when (v) {
@@ -27,24 +28,47 @@ class DetailTreeActivity : AppCompatActivity(), AnkoLogger, AppBarLayout.OnOffse
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
         if(verticalOffset <= -55)
-            title_bar.visible()
+            item_name.visible()
         else
-            title_bar.gone()
+            item_name.gone()
     }
 
-    private lateinit var arraySeeMore: Array<String>
-    private lateinit var viewpager: ViewPager
-    private lateinit var pageIndicator: TextView
+
+    override fun showItems(item: List<DataTree>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun errorRequest() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun closedRequest() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onLoad() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun finishLoad() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private lateinit var presenter: DetailTreePresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detail_tree_activity)
+
+        presenter = DetailTreePresenter(this)
+        val kode = intent?.getStringExtra(TREE_DETAIL)
+        presenter.getItem(kode.toString())
+
         Glide.with(this).load(R.drawable.header_2).into(header_img)
+
         appbar.addOnOffsetChangedListener(this)
         backBtn.setOnClickListener(this)
         seeMore.setOnClickListener(this)
-
-        arraySeeMore = resources.getStringArray(R.array.dummy_array)
     }
 
     private fun seeMoreAlert() {
@@ -52,23 +76,9 @@ class DetailTreeActivity : AppCompatActivity(), AnkoLogger, AppBarLayout.OnOffse
             customView {
                 verticalLayout {
                     padding = dip(32)
-                    viewpager = viewPager().lparams(matchParent,dip(300)){
-                        bottomMargin = dip(32)
-                    }
-                    pageIndicator = textView {
-                        text = "1/${arraySeeMore.size}"
-                        width = matchParent
-                        gravity = Gravity.CENTER
-                    }
+
                 }
             }
         }.show()
-
-        viewpager.adapter = DetailTreeViewPagerAdapter(this, arraySeeMore)
-        viewpager.onPageChangeListener {
-            onPageSelected {
-                pageIndicator.text = "${viewpager.currentItem + 1}/${arraySeeMore.size}"
-            }
-        }
     }
 }

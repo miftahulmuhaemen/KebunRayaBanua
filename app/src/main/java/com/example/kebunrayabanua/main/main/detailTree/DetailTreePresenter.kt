@@ -1,7 +1,8 @@
-package com.example.kebunrayabanua.main.main.treeData
+package com.example.kebunrayabanua.main.main.detailTree
 
 import com.example.kebunrayabanua.main.api.RetrofitFactory
 import com.example.kebunrayabanua.main.api.RetrofitService
+import com.example.kebunrayabanua.main.main.treeData.TreeDataView
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
 import com.example.kebunrayabanua.main.util.isOnline
 import com.google.firebase.auth.FirebaseAuth
@@ -11,20 +12,19 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import retrofit2.HttpException
 
+class DetailTreePresenter (private val view: DetailTreeView,
+                           private val service: RetrofitService = RetrofitFactory.makeRetrofitService(),
+                           private val context: CoroutineContextProvider = CoroutineContextProvider()) : AnkoLogger {
 
-class TreeDataPresenter(private val view: TreeDataView,
-                        private val service: RetrofitService = RetrofitFactory.makeRetrofitService(),
-                        private val context: CoroutineContextProvider = CoroutineContextProvider()) : AnkoLogger {
-
-    fun getItem(pageNumber: Int, find: String) {
+    fun getItem(treeNumber: String) {
         GlobalScope.launch(context.main) {
+            view.onLoad()
             if (!isOnline()) {
                 view.errorRequest()
             } else {
-                val response = service.getTrees(
-                        pageNumber,
-                        FirebaseAuth.getInstance().currentUser?.email.toString(),
-                        find
+                val response = service.getTree(
+                        treeNumber,
+                        FirebaseAuth.getInstance().currentUser?.email.toString()
                 )
                 try {
                     if (response.isSuccessful) {
@@ -40,6 +40,7 @@ class TreeDataPresenter(private val view: TreeDataView,
                     info { e.message }
                 }
             }
+            view.finishLoad()
         }
     }
 
