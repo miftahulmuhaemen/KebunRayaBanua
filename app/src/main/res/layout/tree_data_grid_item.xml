@@ -1,62 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:apps="http://schemas.android.com/tools"
-        android:id="@+id/box_item"
-        android:layout_width="160dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="250dp"
-        android:layout_marginBottom="24dp"
-        app:cardCornerRadius="10dp">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:apps="http://schemas.android.com/tools"
+    android:id="@+id/box_item"
+    android:layout_width="160dp"
+    android:layout_height="250dp"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="24dp"
+    app:cardCornerRadius="10dp">
 
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
-                android:id="@+id/img_item"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"/>
+            android:id="@+id/img_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
 
-        <ImageView android:id="@+id/backgroundText"
-                android:layout_width="match_parent"
-                   android:layout_height="60dp"
-                   android:layout_alignParentBottom="true"
-                   android:background="@color/colorPrimaryDarkTransparent"/>
+        <ImageView
+            android:id="@+id/backgroundWhiteText"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_above="@id/backgroundText"
+            android:background="@color/colorWhiteTransparent" />
 
-        <TextView
-                android:id="@+id/item_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                apps:text="Rambutan"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:lines="1"
-                android:layout_marginEnd="16dp"
-                android:ellipsize="end"
-                android:gravity="start"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
-                android:textColor="@android:color/white"
-                android:layout_alignTop="@id/backgroundText"/>
 
         <TextView
-                android:id="@+id/item_latin_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                apps:text="Nephelium Radiolium"
-                android:textStyle="italic"
-                android:textSize="12sp"
-                android:ellipsize="end"
-                android:lines="1"
-                android:gravity="start"
-                android:textColor="@android:color/white"
-                android:layout_alignLeft="@id/item_name"
-                android:layout_below="@id/item_name"
+            android:id="@+id/item_asal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_alignTop="@id/backgroundWhiteText"
+            android:layout_alignBottom="@id/backgroundWhiteText"
+            android:lines="1"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textSize="7sp"
+            apps:ignore="SmallSp"
+            apps:text="Nephelium Radiolium" />
+
+        <TextView
+            android:id="@+id/item_tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_alignTop="@id/backgroundWhiteText"
+            android:layout_alignBottom="@id/backgroundWhiteText"
+            android:layout_alignParentEnd="true"
+            android:gravity="end|center_vertical"
+            android:textStyle="bold"
+            android:lines="1"
+            android:textSize="7sp"
+            apps:ignore="SmallSp"
+            apps:text="Nephelium Radiolium" />
+
+        <ImageView
+            android:id="@+id/backgroundText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimaryDarkTransparent" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/backgroundText"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            apps:text="Rambutan" />
+
+        <TextView
+            android:id="@+id/item_latin_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_name"
+            android:layout_alignLeft="@id/item_name"
+            android:layout_alignRight="@id/item_name"
+            android:gravity="center"
+            android:lines="1"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="italic"
+            apps:ignore="SmallSp"
+            apps:text="Nephelium Radiolium" />
+
+        <TextView
+            android:id="@+id/item_family_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_latin_name"
+            android:layout_alignLeft="@id/item_name"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
-        />
+            android:lines="1"
+            android:textColor="@android:color/white"
+            android:textSize="7sp"
+            apps:ignore="SmallSp"
+            apps:text="Nephelium Radiolium" />
+
+        <TextView
+            android:id="@+id/item_origin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_latin_name"
+            android:layout_marginTop="4dp"
+            android:layout_alignRight="@id/item_name"
+            android:gravity="end"
+            android:lines="1"
+            android:textColor="@android:color/white"
+            android:textSize="7sp"
+            apps:ignore="SmallSp"
+            apps:text="Nephelium Radiolium" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

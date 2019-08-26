@@ -1,12 +1,9 @@
 package com.example.kebunrayabanua.main.util
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.view.View
-import androidx.core.content.ContextCompat.getSystemService
 import com.example.kebunrayabanua.BuildConfig
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.IOException
 import kotlin.coroutines.CoroutineContext
 
@@ -31,21 +28,6 @@ fun View.gone() {
 open class CoroutineContextProvider {
     open val main: CoroutineContext by lazy { Dispatchers.Main }
 }
-
-//private suspend fun online(): Boolean = withContext(Dispatchers.Default) { isOnline() }
-//fun isOnline(): Boolean {
-//    val runtime = Runtime.getRuntime()
-//    try {
-//        val ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8")
-//        val exitValue = ipProcess.waitFor()
-//        return exitValue == 0
-//    } catch (e: IOException) {
-//        e.printStackTrace()
-//    } catch (e: InterruptedException) {
-//        e.printStackTrace()
-//    }
-//    return false
-//}
 
 suspend fun isOnline(): Boolean = withContext(Dispatchers.Default) {
     val runtime = Runtime.getRuntime()

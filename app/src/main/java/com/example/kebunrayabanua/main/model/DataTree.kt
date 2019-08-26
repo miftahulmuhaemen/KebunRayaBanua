@@ -11,5 +11,7 @@ data class DataTree(
         @SerializedName("tanamNamaLatin") var tanamNamaLatin: String?,
         @SerializedName("famNama") var famNama: String?,
         @SerializedName("itemLokasi") var itemLokasi: String?,
+        @SerializedName("itemAsal") var itemAsal: String?,
+        @SerializedName("itemTglPenanaman") var itemTglPenanaman: String?,
         @SerializedName("tanamFoto") var tanamFoto: String?
 ) : Parcelable

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.main.detailTree.DetailTreeActivity
+import com.example.kebunrayabanua.main.main.detailTree.DetailTreeActivity.Companion.IS_FROM_SCANME
 import com.example.kebunrayabanua.main.main.detailTree.DetailTreeActivity.Companion.TREE_DETAIL
 import com.example.kebunrayabanua.main.main.treeData.TreeDataGridAdapter.Companion.GRID_VIEW
 import com.example.kebunrayabanua.main.main.treeData.TreeDataGridAdapter.Companion.LIST_VIEW
@@ -104,7 +105,7 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView, AnkoLogger, View.OnC
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
                 if (linearLayoutManager!!.itemCount <= linearLayoutManager.findLastVisibleItemPosition() + 1 && !isRequestEnd) {
-                    pageNumber += 5
+                    pageNumber += 15
                     treePresenter.getItem(pageNumber, findAll)
                 }
             }
@@ -113,11 +114,21 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView, AnkoLogger, View.OnC
 
     private fun changeAdapterLayout() {
         if (!isGridViewAttach) {
-            recylerviewMain.adapter = TreeDataGridAdapter(this, items, GRID_VIEW) { startActivity<DetailTreeActivity>(TREE_DETAIL to it.itemKode) }
+            recylerviewMain.adapter = TreeDataGridAdapter(this, items, GRID_VIEW) {
+                startActivity<DetailTreeActivity>(
+                        TREE_DETAIL to it.itemKode,
+                        IS_FROM_SCANME to 0
+                )
+            }
             recylerviewMain.layoutManager = GridLayoutManager(this, 2)
             fab_changemode.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_grid_view))
         } else {
-            recylerviewMain.adapter = TreeDataGridAdapter(this, items, LIST_VIEW) { startActivity<DetailTreeActivity>(TREE_DETAIL to it.itemKode) }
+            recylerviewMain.adapter = TreeDataGridAdapter(this, items, LIST_VIEW) {
+                startActivity<DetailTreeActivity>(
+                        TREE_DETAIL to it.itemKode,
+                        IS_FROM_SCANME to 0
+                )
+            }
             recylerviewMain.layoutManager = LinearLayoutManager(this)
             fab_changemode.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_list_view))
         }

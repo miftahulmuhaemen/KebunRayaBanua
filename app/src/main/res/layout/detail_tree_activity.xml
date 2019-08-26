@@ -1,78 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
-            android:layout_width="match_parent"
-            android:layout_height="256dp"
-            android:fitsSystemWindows="true">
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@android:color/white"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPagerDetailTree"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                app:contentScrim="@android:color/white"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                tools:background="@color/tw__blue_default" />
 
-            <ImageView android:id="@+id/header_img"
-                       android:layout_width="match_parent"
-                       tools:src="@drawable/header_1"
-                       android:scaleType="centerCrop"
-                       android:layout_height="match_parent"/>
+            <com.rd.PageIndicatorView
+                android:id="@+id/dots"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom|center_horizontal"
+                app:piv_dynamicCount="true"
+                app:piv_interactiveAnimation="true"
+                app:piv_viewPager="@id/viewPagerEvent" />
 
             <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:contentInsetStart="0dp"
-                    app:layout_scrollFlags="scroll"
-                    app:layout_collapseMode="pin">
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll">
 
                 <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-
-                    <ImageView android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:layout_alignRight="@id/backBtn"
-                               android:layout_alignParentLeft="true"
-                               android:layout_centerVertical="true"
-                               android:backgroundTint="@android:color/white"
-                               android:background="@drawable/btn_back"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
 
                     <ImageView
-                            android:id="@+id/backBtn"
-                            android:src="@drawable/ic_btnkembali"
-                            android:layout_centerVertical="true"
-                            android:paddingRight="16dp"
-                            android:paddingLeft="16dp"
-                            android:tint="@color/colorPrimary"
-                            android:layout_marginEnd="16dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/backBtn"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/btn_back"
+                        android:backgroundTint="@android:color/white" />
+
+                    <ImageView
+                        android:id="@+id/backBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:src="@drawable/ic_btnkembali"
+                        android:tint="@color/colorPrimary" />
 
                     <TextView
                         android:id="@+id/item_name"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@id/backBtn"
-                            android:text="POHON RAMBUTAN"
-                            android:lines="1"
-                            android:textAllCaps="true"
-                            android:paddingRight="16dp"
-                            android:textSize="24sp"
-                            android:textColor="@color/colorPrimary"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/backBtn"
+                        android:lines="1"
+                        android:paddingRight="16dp"
+                        android:text="POHON RAMBUTAN"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
             </androidx.appcompat.widget.Toolbar>
@@ -82,88 +92,90 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
-            android:layout_below="@id/appbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:behavior_overlapTop="40dp"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        app:behavior_overlapTop="40dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.cardview.widget.CardView
-                android:id="@+id/box_item"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="10dp">
+            android:id="@+id/box_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-            >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/item_latin_name"
-                        android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Pohon Rambutan"
-                          android:textAllCaps="true"
-                          android:textSize="24sp"
-                          android:textColor="@color/colorPrimary"
-                          android:textStyle="bold"
-                          android:layout_marginStart="32dp"
-                          android:layout_marginTop="24dp"
-                />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Pohon Rambutan"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-                <ImageView android:layout_width="match_parent"
-                           android:layout_height="5dp"
-                           android:src="@color/colorGray"
-                           android:layout_marginLeft="32dp"
-                           android:layout_marginRight="32dp"
-                           android:layout_marginTop="8dp"
-                           android:layout_marginBottom="8dp"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@color/colorGray" />
 
 
                 <TextView
                     android:id="@+id/item_family_name"
-                        android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Pohon Rambutan"
-                          android:textStyle="italic"
-                          android:layout_marginStart="32dp"
-                          android:layout_marginBottom="32dp"
-                />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:text="Pohon Rambutan"
+                    android:textStyle="italic" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorGray"
                     android:orientation="horizontal"
-                    android:weightSum="2"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:weightSum="2">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Lokasi"
-                            android:gravity="center_horizontal"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="Lokasi" />
+
+                        <TextView
+                            android:id="@+id/item_lokasi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
                             android:paddingTop="8dp"
-                            tools:text="8.13"
-                            android:gravity="center_horizontal"/>
+                            tools:text="-" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -173,17 +185,99 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Lokasi"
-                            android:gravity="center_horizontal"/>
+                            android:gravity="center_horizontal"
+                            android:text="Lokasi" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="8dp"
+                            tools:text="8.13" />
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout android:layout_width="match_parent"
-                              android:padding="32dp"
-                              android:background="@color/colorGray"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical"
-                              android:layout_height="wrap_content">
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="5"
+                        android:text="@string/tanggal_penanaman_pohon" />
+
+                    <TextView
+                        android:id="@+id/item_tanggal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:text="13 Januari 2018" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorGray"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="5"
+                        android:text="Asal Tanaman" />
+
+                    <TextView
+                        android:id="@+id/item_asal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:text="S. Kalimantan" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="5"
+                        android:text="@string/status_reservasi" />
+
+                    <TextView
+                        android:id="@+id/status_konservasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:text="-" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorGray"
+                    android:orientation="vertical"
+                    android:padding="32dp">
 
                     <TextView
                         android:id="@+id/item_desc"
@@ -202,7 +296,8 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="32dp">
@@ -212,11 +307,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxLines="5"
-                        android:text="@string/dummy_tree_text"
-                    />
+                        android:text="@string/dummy_tree_text" />
 
                     <TextView
-                        android:id="@+id/seeMore"
+                        android:id="@+id/info_seemore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="8dp"
@@ -224,43 +318,6 @@
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorGray"
-                    android:orientation="vertical"
-                    android:padding="32dp">
-
-                    <TextView
-                        android:id="@+id/item_origin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxLines="5"
-                        android:text="@string/dummy_tree_text" />
-
-                </LinearLayout>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:gravity="center"
-                    android:text="Jumlah pohon yang ditanam"
-                    android:textAllCaps="true" />
-
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:gravity="center"
-                          android:text="100"
-                          android:textAllCaps="true"
-                          android:paddingEnd="16dp"
-                          android:textSize="24sp"
-                          android:textColor="@color/colorPrimary"
-                          android:textStyle="bold"
-                          android:layout_marginBottom="32dp"
-                />
 
             </LinearLayout>
 

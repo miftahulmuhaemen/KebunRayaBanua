@@ -20,6 +20,7 @@
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
+
         <activity
             android:name=".main.main.detailEvent.DetailEventActivity"
             android:parentActivityName=".main.main.event.EventActivity">
@@ -27,12 +28,12 @@
         <activity
             android:name=".main.main.event.EventActivity"
             android:parentActivityName=".main.main.MainActivity">
+        </activity>
+        <activity android:name=".main.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity android:name=".main.main.MainActivity">
         </activity>
         <activity android:name=".main.main.profile.ProfileActivity">
         </activity>
@@ -55,6 +56,12 @@
             </intent-filter>
         </service>
 
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_logo" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
     </application>
 
 </manifest>

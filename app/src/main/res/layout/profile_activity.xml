@@ -20,8 +20,6 @@
             android:layout_gravity="end"
             app:itemHorizontalPadding="24dp"
             app:headerLayout="@layout/profile_nav_header"
-            app:itemIconTint="@color/drawer_tile"
-            app:itemTextColor="@color/drawer_tile"
             app:itemBackground="@android:color/transparent"
             app:menu="@menu/profile_activity_drawer"/>
 
