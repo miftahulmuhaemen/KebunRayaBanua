@@ -18,6 +18,7 @@ class TreeDataPresenter(private val view: TreeDataView,
 
     fun getItem(pageNumber: Int, find: String) {
         GlobalScope.launch(context.main) {
+            view.onLoad()
             if (!isOnline()) {
                 view.errorRequest()
             } else {
@@ -40,6 +41,7 @@ class TreeDataPresenter(private val view: TreeDataView,
                     info { e.message }
                 }
             }
+            view.finishLoad()
         }
     }
 

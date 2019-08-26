@@ -6,4 +6,6 @@ interface TreeDataView {
     fun showItems(item : List<DataTree>)
     fun errorRequest()
     fun closedRequest()
+    fun onLoad()
+    fun finishLoad()
 }

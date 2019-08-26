@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -135,7 +136,6 @@
                     android:layout_marginBottom="8dp"
                     android:src="@color/colorGray" />
 
-
                 <TextView
                     android:id="@+id/item_family_name"
                     android:layout_width="wrap_content"
@@ -189,6 +189,7 @@
                             android:text="Lokasi" />
 
                         <TextView
+                            android:id="@+id/item_register"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
@@ -318,10 +319,29 @@
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
                 </LinearLayout>
-
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-
     </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@id/appbar">
+        <ImageView
+            android:id="@+id/network_down"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:src="@drawable/ic_portable_wifi_off"/>
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:visibility="gone"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

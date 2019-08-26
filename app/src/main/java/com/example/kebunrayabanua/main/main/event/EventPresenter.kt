@@ -5,6 +5,7 @@ import android.system.ErrnoException
 import com.example.kebunrayabanua.main.api.RetrofitFactory
 import com.example.kebunrayabanua.main.api.RetrofitService
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
+import com.example.kebunrayabanua.main.util.RequestEventRange.FIVETEEN
 import com.example.kebunrayabanua.main.util.isOnline
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -17,11 +18,11 @@ class EventPresenter(private val view: EventView,
 
     fun getItem(pageNumber: Int) {
         GlobalScope.launch(context.main) {
-
+            view.onLoad()
             if (!isOnline()) {
                 view.errorRequest()
             } else {
-                val response = service.getEvents(pageNumber)
+                val response = service.getEvents(pageNumber, FIVETEEN)
                 try {
                     if (response.isSuccessful) {
                         if (response.body()!!.isEmpty())
@@ -36,6 +37,7 @@ class EventPresenter(private val view: EventView,
                     info (e.message)
                 }
             }
+            view.finishLoad()
         }
     }
 

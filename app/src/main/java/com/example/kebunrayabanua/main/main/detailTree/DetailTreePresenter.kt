@@ -27,12 +27,9 @@ class DetailTreePresenter (private val view: DetailTreeView,
                         isScanMe
                 )
                 try {
-                    if (response.isSuccessful) {
-                        if (response.body()?.data?.isEmpty()!!)
-                            view.closedRequest()
-                        else
+                    if (response.isSuccessful)
                             view.showItems(response.body()?.data?.get(0)!!)
-                    } else
+                    else
                         view.errorRequest()
                 } catch (e: Throwable) {
                     info { e.message }

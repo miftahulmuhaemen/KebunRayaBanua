@@ -6,6 +6,7 @@ import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.api.RetrofitFactory
 import com.example.kebunrayabanua.main.api.RetrofitService
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
+import com.example.kebunrayabanua.main.util.RequestEventRange.FIVE
 import com.example.kebunrayabanua.main.util.isOnline
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.main_activity.view.*
@@ -33,7 +34,7 @@ class MainPresenter(private val context: Context, private val view: MainView,
             if (!isOnline())
 
             else {
-                val response = service.getEvents(0)
+                val response = service.getEvents(0, FIVE)
                 try {
                     if (response.isSuccessful)
                         response.body()?.let { view.highlightItem(it) }

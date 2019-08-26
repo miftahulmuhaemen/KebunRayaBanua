@@ -65,6 +65,13 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView, AnkoLogger, View.OnC
         isRequestEnd = true
     }
 
+    override fun onLoad() {
+        progressbar.visible()
+    }
+
+    override fun finishLoad() {
+        progressbar.gone()
+    }
 
     private lateinit var treePresenter: TreeDataPresenter
     private var items: MutableList<DataTree> = mutableListOf()

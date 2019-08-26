@@ -1,6 +1,7 @@
 package com.example.kebunrayabanua.main.main.detailTree
 
 import android.os.Bundle
+import android.text.Html
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -8,11 +9,15 @@ import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.main.treeData.TreeDataView
 import com.example.kebunrayabanua.main.model.DataDetailTree
 import com.example.kebunrayabanua.main.model.DataTree
+import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter
+import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter.Type.DEFAULT
+import com.example.kebunrayabanua.main.util.getHtml
 import com.example.kebunrayabanua.main.util.gone
 import com.example.kebunrayabanua.main.util.visible
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.detail_tree_activity.*
 import org.jetbrains.anko.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppBarLayout.OnOffsetChangedListener, View.OnClickListener {
 
@@ -34,28 +39,32 @@ class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppB
             item_name.gone()
     }
 
-
     override fun showItems(item: DataDetailTree) {
         item_name.text = item.tanamNama
         item_latin_name.text = item.tanamNamaLatin
         item_family_name.text = item.famNama
-
+        item_lokasi.text = item.itemLokasi
+        item_register.text = item.itemNoRegister
+        item_tanggal.text = item.itemTglTanam
+        item_asal.text = item.itemAsal
+        status_konservasi.text = item.tanamStatusKonservasi
+        item_desc.text = item.tanamDeskripsiTeks
+        item_info.text = item.itemInfoTanamTeks
+        desc_seeMore.onClick { seeMoreAlert(item.tanamDeskripsiHtml.toString()) }
+        info_seemore.onClick { seeMoreAlert(item.itemInfoTanamHtml.toString()) }
+        viewPagerDetailTree.adapter = item.tanamFoto?.let { DetailViewpagerAdapter(DEFAULT,this, it) }
     }
 
     override fun errorRequest() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun closedRequest() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        network_down.visible()
     }
 
     override fun onLoad() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        progressbar.visible()
     }
 
     override fun finishLoad() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        progressbar.gone()
     }
 
     private lateinit var presenter: DetailTreePresenter
@@ -69,8 +78,6 @@ class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppB
         val kode = intent?.getStringExtra(TREE_DETAIL)
         presenter.getItem(kode.toString(),identifier)
 
-//        Glide.with(this).load(R.drawable.header_2).into(header_img)
-
         appbar.addOnOffsetChangedListener(this)
         backBtn.setOnClickListener(this)
         desc_seeMore.setOnClickListener(this)
@@ -82,7 +89,7 @@ class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppB
             customView {
                 verticalLayout {
                     padding = dip(32)
-                    textView(text)
+                    textView(getHtml(text))
                 }
             }
         }.show()

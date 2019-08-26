@@ -7,4 +7,6 @@ interface EventView {
     fun showItems(item: List<DataEvent>)
     fun errorRequest()
     fun closedRequest()
+    fun onLoad()
+    fun finishLoad()
 }

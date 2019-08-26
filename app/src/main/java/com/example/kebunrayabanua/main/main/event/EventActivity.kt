@@ -59,6 +59,13 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         }
     }
 
+    override fun onLoad() {
+        event_progressbar.visible()
+    }
+
+    override fun finishLoad() {
+        event_progressbar.gone()
+    }
 
     private lateinit var eventPresenter: EventPresenter
     private lateinit var gridAdapter: EventGridAdapter
