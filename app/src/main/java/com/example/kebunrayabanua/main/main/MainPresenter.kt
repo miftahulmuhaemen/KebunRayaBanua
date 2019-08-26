@@ -6,16 +6,12 @@ import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.api.RetrofitFactory
 import com.example.kebunrayabanua.main.api.RetrofitService
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
-import com.example.kebunrayabanua.main.util.RequestEventRange.FIVE
 import com.example.kebunrayabanua.main.util.isOnline
 import com.google.firebase.messaging.FirebaseMessaging
-import kotlinx.android.synthetic.main.main_activity.view.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
-import retrofit2.HttpException
 import java.util.*
 
 class MainPresenter(private val context: Context, private val view: MainView,
@@ -34,7 +30,7 @@ class MainPresenter(private val context: Context, private val view: MainView,
             if (!isOnline())
 
             else {
-                val response = service.getEvents(0, FIVE)
+                val response = service.getEvents(0, 5)
                 try {
                     if (response.isSuccessful)
                         response.body()?.let { view.highlightItem(it) }

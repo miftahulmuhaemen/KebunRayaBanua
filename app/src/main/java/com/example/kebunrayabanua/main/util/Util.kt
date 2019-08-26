@@ -19,11 +19,6 @@ object IntervalTime {
     const val FASTEST_INTERVAL: Long = 5000
 }
 
-object RequestEventRange {
-    const val FIVE = 5
-    const val FIVETEEN = 15
-}
-
 fun View.visible() {
     visibility = View.VISIBLE
 }
