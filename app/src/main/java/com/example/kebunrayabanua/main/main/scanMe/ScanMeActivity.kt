@@ -7,10 +7,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import com.example.kebunrayabanua.R
+import com.example.kebunrayabanua.main.main.detailTree.DetailTreeActivity
 import com.example.kebunrayabanua.main.util.Permission.SCAN
 import com.google.zxing.Result
 import kotlinx.android.synthetic.main.scan_me_activity.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, View.OnClickListener {
@@ -22,7 +24,10 @@ class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, View
     }
 
     override fun handleResult(rawResult: Result?) {
-        rawResult?.text?.let { toast(it) }
+        rawResult?.text?.let { startActivity<DetailTreeActivity>(
+                DetailTreeActivity.TREE_DETAIL to it,
+                DetailTreeActivity.IS_FROM_SCANME to 1
+        ) }
     }
 
     private lateinit var mScannerView: ZXingScannerView

@@ -43,14 +43,14 @@ class EventGridAdapter(
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charString = constraint.toString()
-                if (charString.isEmpty())
-                    items = originalItem
+                items = if (charString.isEmpty())
+                    originalItem
                 else {
                     val filteredList = ArrayList<DataEvent>()
                     for (row in items)
                         if (row.eventNama!!.toLowerCase().contains(charString.toLowerCase()))
                             filteredList.add(row)
-                    items = filteredList
+                    filteredList
                 }
                 val filterResults = FilterResults()
                 filterResults.values = items
@@ -75,7 +75,7 @@ class TeamViewGridHolder(override val containerView: View, private val context: 
         if(isExpired(item.eventSelesai.toString())){
             status_event_bg.backgroundTintList = ContextCompat.getColorStateList(context,R.color.tw__light_gray)
             status_event_text.text = context.getString(R.string.expired)
-            if (item.eventPoster?.isEmpty()!!)
+            if (item.eventPoster.isNullOrEmpty())
                 Glide.with(context)
                         .load(R.drawable.event_stock_image)
                         .transform(GrayscaleTransformation())

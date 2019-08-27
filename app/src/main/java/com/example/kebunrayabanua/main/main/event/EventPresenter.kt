@@ -24,7 +24,7 @@ class EventPresenter(private val view: EventView,
                 val response = service.getEvents(pageNumber, 15)
                 try {
                     if (response.isSuccessful) {
-                        if (response.body()!!.isEmpty())
+                        if (response.body().isNullOrEmpty())
                             view.closedRequest()
                         else
                             view.showItems(response.body()!!)

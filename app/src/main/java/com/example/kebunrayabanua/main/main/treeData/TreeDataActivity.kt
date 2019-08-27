@@ -40,25 +40,23 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView, AnkoLogger, View.OnC
         if (!swipe.isRefreshing or items.isEmpty()) {
             items.addAll(item)
             recylerviewMain.adapter?.notifyDataSetChanged()
-        } else {
+        } else
             if (items.first() != item.first()) {
                 isRequestEnd = false
                 items.clear()
                 items.addAll(item)
                 recylerviewMain.adapter?.notifyDataSetChanged()
             }
-        }
         network_down.gone()
         swipe.isRefreshing = false
     }
 
     override fun errorRequest() {
         swipe.isRefreshing = false
-        if (items.isEmpty()) {
+        if (items.isEmpty())
             network_down.visible()
-        } else {
+        else
             toast("Terjadi masalah.")
-        }
     }
 
     override fun closedRequest() {

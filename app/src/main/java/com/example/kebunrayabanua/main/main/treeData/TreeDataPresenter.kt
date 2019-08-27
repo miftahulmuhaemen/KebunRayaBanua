@@ -29,7 +29,7 @@ class TreeDataPresenter(private val view: TreeDataView,
                 )
                 try {
                     if (response.isSuccessful) {
-                        if (response.body()?.data?.isEmpty()!!)
+                        if (response.body()?.data.isNullOrEmpty())
                             view.closedRequest()
                         else
                             view.showItems(response.body()?.data!!)

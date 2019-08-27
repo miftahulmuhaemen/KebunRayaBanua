@@ -15,7 +15,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String","BASE_URL","\"http://103.81.100.228/kebunraya/\"")
+        buildConfigField("String","BASE_URL","\"http://kebunrayabanua.com/kebunraya/\"")
         buildConfigField("String","API_KEY","\"aad8d43db4ace8de270bd4a525df63df\"")
     }
     buildTypes {
@@ -37,7 +37,7 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.41")
     implementation("org.jetbrains.anko:anko-commons:0.10.8")
     implementation("org.jetbrains.anko:anko:0.10.8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0-M2")

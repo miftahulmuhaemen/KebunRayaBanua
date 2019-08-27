@@ -7,20 +7,16 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kebunrayabanua.R
-import com.example.kebunrayabanua.main.api.RetrofitFactory
-import com.example.kebunrayabanua.main.api.RetrofitService
 import com.example.kebunrayabanua.main.main.detailEvent.DetailEventActivity
 import com.example.kebunrayabanua.main.model.DataEvent
 import com.example.kebunrayabanua.main.util.gone
 import com.example.kebunrayabanua.main.util.visible
-import kotlinx.android.synthetic.main.detail_event_activity.backBtn
 import kotlinx.android.synthetic.main.event_activity.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.appcompat.v7.coroutines.onQueryTextListener
-import org.jetbrains.anko.info
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.toast
+import org.jetbrains.anko.startActivity
 
 class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, AnkoLogger {
 
@@ -34,14 +30,13 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         if (!swipe.isRefreshing or items.isEmpty()) {
             items.addAll(item)
             recylerviewMain.adapter?.notifyDataSetChanged()
-        } else {
+        } else
             if (items.first() != item.first()) {
                 isRequestEnd = false
                 items.clear()
                 items.addAll(item)
                 recylerviewMain.adapter?.notifyDataSetChanged()
             }
-        }
         network_down.gone()
         swipe.isRefreshing = false
     }
@@ -52,11 +47,10 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
 
     override fun errorRequest() {
         swipe.isRefreshing = false
-        if(items.isEmpty()){
+        if(items.isEmpty())
             network_down.visible()
-        } else {
+        else
             toast("Terjadi masalah.")
-        }
     }
 
     override fun onLoad() {

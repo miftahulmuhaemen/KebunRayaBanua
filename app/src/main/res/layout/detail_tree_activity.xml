@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="24dp"
-                    android:text="Pohon Rambutan"
+                    tools:text="Pohon Rambutan"
                     android:textAllCaps="true"
                     android:textColor="@color/colorPrimary"
                     android:textSize="24sp"
@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginBottom="32dp"
-                    android:text="Pohon Rambutan"
+                    tools:text="Pohon Rambutan"
                     android:textStyle="italic" />
 
 
@@ -285,7 +285,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxLines="5"
-                        android:text="@string/dummy_tree_text" />
+                        tools:text="@string/dummy_tree_text" />
 
                     <TextView
                         android:id="@+id/desc_seeMore"
@@ -308,7 +308,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:maxLines="5"
-                        android:text="@string/dummy_tree_text" />
+                        tools:text="@string/dummy_tree_text" />
 
                     <TextView
                         android:id="@+id/info_seemore"

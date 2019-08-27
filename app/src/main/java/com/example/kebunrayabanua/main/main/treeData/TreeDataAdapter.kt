@@ -11,12 +11,9 @@ import com.example.kebunrayabanua.main.main.treeData.TreeDataGridAdapter.Compani
 import com.example.kebunrayabanua.main.model.DataTree
 import com.example.kebunrayabanua.main.util.getThumbnail
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.main_highlight_item.box_item
-import kotlinx.android.synthetic.main.main_highlight_item.img_item
 import kotlinx.android.synthetic.main.tree_data_grid_item.*
-import kotlinx.android.synthetic.main.tree_data_grid_item.item_latin_name
-import kotlinx.android.synthetic.main.tree_data_grid_item.item_name
-import kotlinx.android.synthetic.main.tree_data_list_item.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 
 
 class TreeDataGridAdapter(
@@ -25,7 +22,7 @@ class TreeDataGridAdapter(
         private val type: Int,
         private val listener: (DataTree) -> Unit
 ) :
-        RecyclerView.Adapter<TeamViewGridHolder>() {
+        RecyclerView.Adapter<TeamViewGridHolder>()  {
 
     companion object {
         const val GRID_VIEW = 1
@@ -54,12 +51,13 @@ class TreeDataGridAdapter(
 }
 
 class TeamViewGridHolder(override val containerView: View, private val context: Context) :
-        RecyclerView.ViewHolder(containerView),
+        RecyclerView.ViewHolder(containerView), AnkoLogger,
         LayoutContainer {
 
     fun bindItem(type: Int, item: DataTree, listener: (DataTree) -> Unit) {
+        info(item)
         if (type == GRID_VIEW) {
-            if (item.tanamFoto?.isEmpty()!!)
+            if (item.tanamFoto.isNullOrEmpty())
                 Glide.with(context)
                         .load(R.drawable.tree_stock_image)
                         .into(img_item)
@@ -67,15 +65,14 @@ class TeamViewGridHolder(override val containerView: View, private val context: 
                 Glide.with(context)
                         .load(getThumbnail(item.tanamFoto))
                         .into(img_item)
-            item_asal.text = item.itemAsal
-            item_tanggal.text = item.itemTglPenanaman
-            item_latin_name.text = item.tanamNamaLatin
-            item_family_name.text = item.famNama
-            item_origin.text = item.itemLokasi
-        } else
-            item_desc.text = item.famNama
-        item_name.text = item.tanamNama
+        }
+
+        item_asal.text = item.itemAsal
+        item_origin.text = item.itemLokasi
+        item_tanggal.text = item.itemTglPenanaman
         item_latin_name.text = item.tanamNamaLatin
+        item_family_name.text = item.famNama
+        item_name.text = item.tanamNama
         box_item.setOnClickListener { listener(item) }
     }
 
