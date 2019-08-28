@@ -18,9 +18,9 @@ class EventPresenter(private val view: EventView,
     fun getItem(pageNumber: Int) {
         GlobalScope.launch(context.main) {
             view.onLoad()
-            if (!isOnline()) {
+            if (!isOnline())
                 view.errorRequest()
-            } else {
+            else {
                 val response = service.getEvents(pageNumber, 15)
                 try {
                     if (response.isSuccessful) {

@@ -51,7 +51,7 @@ fun getThumbnail(name: String?): String {
 
 fun getHtml(text: String?): String {
     return (if(Build.VERSION.SDK_INT >= 24)
-        Html.fromHtml(text,Html.FROM_HTML_MODE_COMPACT)
+        Html.fromHtml(text,Html.FROM_HTML_MODE_LEGACY)
     else
         Html.fromHtml(text)).toString()
 

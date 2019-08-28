@@ -1,14 +1,10 @@
 package com.example.kebunrayabanua.main.main.detailTree
 
 import android.os.Bundle
-import android.text.Html
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
 import com.example.kebunrayabanua.R
-import com.example.kebunrayabanua.main.main.treeData.TreeDataView
 import com.example.kebunrayabanua.main.model.DataDetailTree
-import com.example.kebunrayabanua.main.model.DataTree
 import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter
 import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter.Type.DEFAULT
 import com.example.kebunrayabanua.main.util.getHtml
@@ -33,7 +29,7 @@ class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppB
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        if(verticalOffset <= -55)
+        if (verticalOffset <= -55)
             item_name.visible()
         else
             item_name.gone()
@@ -52,7 +48,7 @@ class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppB
         item_info.text = item.itemInfoTanamTeks
         desc_seeMore.onClick { seeMoreAlert(item.tanamDeskripsiHtml.toString()) }
         info_seemore.onClick { seeMoreAlert(item.itemInfoTanamHtml.toString()) }
-        viewPagerDetailTree.adapter = item.tanamFoto?.let { DetailViewpagerAdapter(DEFAULT,this, it) }
+        viewPagerDetailTree.adapter = item.tanamFoto?.let { DetailViewpagerAdapter(DEFAULT, this, it) }
     }
 
     override fun errorRequest() {
@@ -76,7 +72,7 @@ class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppB
 
         val identifier = intent.getIntExtra(IS_FROM_SCANME, 0)
         val kode = intent?.getStringExtra(TREE_DETAIL)
-        presenter.getItem(kode.toString(),identifier)
+        presenter.getItem(kode.toString(), identifier)
 
         appbar.addOnOffsetChangedListener(this)
         backBtn.setOnClickListener(this)

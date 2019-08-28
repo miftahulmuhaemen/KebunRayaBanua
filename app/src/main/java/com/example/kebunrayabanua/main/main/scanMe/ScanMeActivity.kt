@@ -41,8 +41,9 @@ class ScanMeActivity : AppCompatActivity(), ZXingScannerView.ResultHandler, View
     }
 
     override fun onResume() {
-        mScannerView.startCamera()
         super.onResume()
+        mScannerView.setResultHandler(this)
+        mScannerView.startCamera()
     }
 
     override fun onPause() {

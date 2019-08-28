@@ -23,11 +23,19 @@
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/event_stock_image"
+                android:background="@android:color/white"
+                android:scaleType="centerCrop"
+                />
+
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPagerEvent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:background="@color/tw__blue_default" />
+                />
 
             <com.rd.PageIndicatorView
                 android:id="@+id/dots"

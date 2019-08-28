@@ -14,19 +14,19 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.*
 
-class MainPresenter(private val context: Context, private val view: MainView,
+class MainPresenter(private val view: MainView,
                     private val service: RetrofitService = RetrofitFactory.makeRetrofitService(),
-                    private val context_: CoroutineContextProvider = CoroutineContextProvider()) : AnkoLogger {
+                    private val context: CoroutineContextProvider = CoroutineContextProvider()) : AnkoLogger {
 
     fun headerImage() {
-        GlobalScope.launch(context_.main) {
+        GlobalScope.launch(context.main) {
             val images = intArrayOf(R.drawable.header_0, R.drawable.header_3)
             view.headerImages(images)
         }
     }
 
     fun highlightItem() {
-        GlobalScope.launch(context_.main) {
+        GlobalScope.launch(context.main) {
             if (!isOnline())
 
             else {
@@ -44,7 +44,7 @@ class MainPresenter(private val context: Context, private val view: MainView,
     }
 
     fun viewPagerAutoScroll(imageCount: Int, viewPager: ViewPager) {
-        GlobalScope.launch(context_.main) {
+        GlobalScope.launch(context.main) {
             Timer().schedule(object : TimerTask() {
                 override fun run() {
                     if (viewPager.currentItem == imageCount - 1)

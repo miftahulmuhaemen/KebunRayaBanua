@@ -58,6 +58,8 @@
     <string name="expired">Expired</string>
     <string name="tanggal_penanaman_pohon">Tanggal Penanaman Pohon</string>
     <string name="status_reservasi">Status Reservasi</string>
+    <string name="register">Register</string>
+    <string name="lokasi">Lokasi</string>
 
 
 </resources>

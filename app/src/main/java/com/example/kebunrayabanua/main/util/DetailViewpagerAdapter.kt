@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter.Type.DEFAULT
 import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter.Type.DIALOG
@@ -13,7 +14,7 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.viewPager
 
-class DetailViewpagerAdapter (private val type: Int, private val context: Context, private val images: List<String>) : PagerAdapter(), AnkoLogger {
+class DetailViewpagerAdapter(private val type: Int, private val context: Context, private val images: List<String>) : PagerAdapter(), AnkoLogger {
 
     object Type {
         const val DEFAULT = 0
@@ -26,6 +27,10 @@ class DetailViewpagerAdapter (private val type: Int, private val context: Contex
 
     override fun getCount(): Int {
         return images.count()
+    }
+
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        (container as ViewPager).removeView(`object` as View)
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
@@ -51,7 +56,6 @@ class DetailViewpagerAdapter (private val type: Int, private val context: Contex
                 }.show()
             }
         }
-
         Glide.with(context).load(getThumbnail(images[position])).into(imageView)
         container.addView(imageView)
 
