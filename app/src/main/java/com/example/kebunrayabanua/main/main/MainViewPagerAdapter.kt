@@ -8,7 +8,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import org.jetbrains.anko.AnkoLogger
 
-class MainViewPagerAdapter(private val context: Context, private val images: IntArray) : PagerAdapter(), AnkoLogger {
+class MainViewPagerAdapter(private val context: Context, private val images: List<String>) : PagerAdapter(), AnkoLogger {
 
     override fun isViewFromObject(p0: View, p1: Any): Boolean {
         return p0 == p1

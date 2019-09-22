@@ -14,6 +14,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
         >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/stockImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@android:color/white"
+                android:scaleType="centerCrop"
+                />
+
             <androidx.viewpager.widget.ViewPager
                     android:id="@+id/viewPagerMain"
                     android:layout_width="match_parent"

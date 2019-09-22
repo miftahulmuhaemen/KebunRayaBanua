@@ -7,6 +7,7 @@ import com.example.kebunrayabanua.main.api.RetrofitFactory
 import com.example.kebunrayabanua.main.api.RetrofitService
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
 import com.example.kebunrayabanua.main.util.isOnline
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,22 +19,26 @@ class MainPresenter(private val view: MainView,
                     private val service: RetrofitService = RetrofitFactory.makeRetrofitService(),
                     private val context: CoroutineContextProvider = CoroutineContextProvider()) : AnkoLogger {
 
-    fun headerImage() {
+    fun getHeaderHighlight() {
         GlobalScope.launch(context.main) {
-            val images = intArrayOf(R.drawable.header_0, R.drawable.header_3)
-            view.headerImages(images)
-        }
-    }
 
-    fun highlightItem() {
-        GlobalScope.launch(context.main) {
             if (!isOnline())
 
             else {
-                val response = service.getEvents(0, 5)
+                val response = service.getHeaderHighlight(
+                    FirebaseAuth.getInstance().currentUser?.email.toString(),
+                    FirebaseAuth.getInstance().currentUser?.displayName.toString(),
+                    FirebaseAuth.getInstance().currentUser?.displayName.toString(),
+                    FirebaseAuth.getInstance().currentUser?.displayName.toString(),
+                    FirebaseAuth.getInstance().currentUser?.displayName.toString(),
+                    FirebaseAuth.getInstance().currentUser?.providerId.toString()
+                )
                 try {
                     if (response.isSuccessful)
-                        response.body()?.let { view.highlightItem(it) }
+                        response.body()?.let {
+                            it.galeri?.let { it1 -> view.headerImages(it1) }
+                            it.event?.let { it1 -> view.highlightItem(it1) }
+                        }
                     else
                     {}
                 } catch (e: Throwable) {

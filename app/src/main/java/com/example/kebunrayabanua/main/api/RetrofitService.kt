@@ -29,4 +29,17 @@ interface RetrofitService {
             @Field("scanme") scanme: Number,
             @Field("key") key: String = API_KEY
     ): Response<ResponseDetaiTree>
+
+    @FormUrlEncoded
+    @POST("menu/data/all/0/5")
+    suspend fun getHeaderHighlight(
+        @Field("email") email: String,
+        @Field("firstName") firstName: String,
+        @Field("lastName") lastName: String,
+        @Field("fullName") fullName: String,
+        @Field("displayName") displayName: String,
+        @Field("providerId") providerId: String,
+        @Field("key") key: String = API_KEY
+    ): Response<ResponseHeaderHighlight>
+
 }

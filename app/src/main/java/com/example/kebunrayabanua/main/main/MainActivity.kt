@@ -3,6 +3,7 @@ package com.example.kebunrayabanua.main.main
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.login.LoginActivity
 import com.example.kebunrayabanua.main.main.detailEvent.DetailEventActivity
@@ -40,7 +41,8 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
         mAdapter.notifyDataSetChanged()
     }
 
-    override fun headerImages(images: IntArray) {
+    override fun headerImages(images: List<String>) {
+        Glide.with(this).load(R.drawable.header_0).into(stockImage)
         viewPagerMain.adapter = MainViewPagerAdapter(this, images)
         mainPresenter.viewPagerAutoScroll(images.count(), viewPagerMain)
     }
@@ -57,9 +59,8 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
             startActivity<DetailEventActivity>(DetailEventActivity.DETAIL_EVENT to it)
         }
         recylerviewMain.adapter = mAdapter
-        mainPresenter = MainPresenter(this, this)
-        mainPresenter.headerImage()
-        mainPresenter.highlightItem()
+        mainPresenter = MainPresenter(this)
+        mainPresenter.getHeaderHighlight()
         mainPresenter.firebaseSubscribeTopic()
 
         logout.setOnClickListener(this)
