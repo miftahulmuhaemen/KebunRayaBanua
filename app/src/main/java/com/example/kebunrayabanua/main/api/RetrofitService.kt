@@ -16,7 +16,7 @@ interface RetrofitService {
     @POST("tanaman/data/all/{pageNumber}/15")
     suspend fun getTrees(
             @Path("pageNumber") pageNumber: Int,
-            @Field("email") email: String,
+            @Field("email") email: String?,
             @Field("find") find: String,
             @Field("key") key: String = API_KEY
     ): Response<ResponseTree>
@@ -25,7 +25,7 @@ interface RetrofitService {
     @POST("tanaman/data/{treeNumber}/0/5")
     suspend fun getTree(
             @Path("treeNumber") treeNumber: String,
-            @Field("email") email: String,
+            @Field("email") email: String?,
             @Field("scanme") scanme: Number,
             @Field("key") key: String = API_KEY
     ): Response<ResponseDetaiTree>
@@ -33,12 +33,12 @@ interface RetrofitService {
     @FormUrlEncoded
     @POST("menu/data/all/0/5")
     suspend fun getHeaderHighlight(
-        @Field("email") email: String,
-        @Field("firstName") firstName: String,
-        @Field("lastName") lastName: String,
-        @Field("fullName") fullName: String,
-        @Field("displayName") displayName: String,
-        @Field("providerId") providerId: String,
+        @Field("email") email: String?,
+        @Field("firstName") firstName: String?,
+        @Field("lastName") lastName: String?,
+        @Field("fullName") fullName: String?,
+        @Field("displayName") displayName: String?,
+        @Field("providerId") providerId: String?,
         @Field("key") key: String = API_KEY
     ): Response<ResponseHeaderHighlight>
 

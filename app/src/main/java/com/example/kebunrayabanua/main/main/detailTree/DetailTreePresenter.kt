@@ -23,7 +23,7 @@ class DetailTreePresenter (private val view: DetailTreeView,
             } else {
                 val response = service.getTree(
                         treeNumber,
-                        FirebaseAuth.getInstance().currentUser?.email.toString(),
+                        FirebaseAuth.getInstance().currentUser?.email,
                         isScanMe
                 )
                 try {

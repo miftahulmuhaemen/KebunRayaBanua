@@ -21,7 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.*
 
 /*
 
@@ -35,25 +35,27 @@ object Login {
     val TWITTER_PROVIDER = arrayListOf(AuthUI.IdpConfig.TwitterBuilder().build())
 }
 
-class LoginActivity : AppCompatActivity(), View.OnClickListener {
+class LoginActivity : AppCompatActivity(), View.OnClickListener, FirebaseAuth.AuthStateListener, AnkoLogger {
 
     override fun onClick(v: View?) {
         when(v){
             google_signIn -> startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(GOOGLE_PROVIDER)
+                .setIsSmartLockEnabled(false)
                 .build(), RC_SIGN_IN
             )
             twitter_signIn -> startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(TWITTER_PROVIDER)
+                .setIsSmartLockEnabled(false)
                 .build(), RC_SIGN_IN
             )
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        if(FirebaseAuth.getInstance().currentUser != null){
-            startActivity<MainActivity>()
+    override fun onAuthStateChanged(state: FirebaseAuth) {
+        if(state.currentUser != null){
+            startActivity(intentFor<MainActivity>().singleTop())
+            state.removeAuthStateListener(this)
             finish()
         }
     }
@@ -61,6 +63,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(login_activity)
+
+        google_signIn.setOnClickListener(this)
+        twitter_signIn.setOnClickListener(this)
+        FirebaseAuth.getInstance().addAuthStateListener(this)
 
         Glide.with(this).load(bg_spouse).into(background)
         Glide.with(this).load(ic_logo).into(img_logo)
@@ -73,20 +79,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             buttons.visible()
         }
 
-        google_signIn.setOnClickListener(this)
-        twitter_signIn.setOnClickListener(this)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            RC_SIGN_IN -> {
-                if(FirebaseAuth.getInstance().currentUser != null){
-                    startActivity<MainActivity>()
-                    finish()
-                }
-            }
-        }
     }
 
 }

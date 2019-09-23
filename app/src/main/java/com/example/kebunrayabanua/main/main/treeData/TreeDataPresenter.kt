@@ -24,7 +24,7 @@ class TreeDataPresenter(private val view: TreeDataView,
             } else {
                 val response = service.getTrees(
                         pageNumber,
-                        FirebaseAuth.getInstance().currentUser?.email.toString(),
+                        FirebaseAuth.getInstance().currentUser?.email,
                         find
                 )
                 try {

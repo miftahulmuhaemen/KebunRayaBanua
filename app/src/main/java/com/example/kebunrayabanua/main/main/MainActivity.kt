@@ -14,6 +14,7 @@ import com.example.kebunrayabanua.main.main.treeData.TreeDataActivity
 import com.example.kebunrayabanua.main.main.whereIam.WhereIamActivity
 import com.example.kebunrayabanua.main.model.DataEvent
 import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.startActivity
 
@@ -52,7 +53,6 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
     private lateinit var mAdapter: MainListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         mAdapter = MainListAdapter(this, mainItem) {
