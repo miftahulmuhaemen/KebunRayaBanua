@@ -13,8 +13,9 @@ import com.example.kebunrayabanua.main.main.scanMe.ScanMeActivity
 import com.example.kebunrayabanua.main.main.treeData.TreeDataActivity
 import com.example.kebunrayabanua.main.main.whereIam.WhereIamActivity
 import com.example.kebunrayabanua.main.model.DataEvent
+import com.example.kebunrayabanua.main.util.ViewpagerAdapter
+import com.example.kebunrayabanua.main.util.ViewpagerAdapter.Type.HEADER
 import com.firebase.ui.auth.AuthUI
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.startActivity
 
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
 
     override fun headerImages(images: List<String>) {
         Glide.with(this).load(R.drawable.header_0).into(stockImage)
-        viewPagerMain.adapter = MainViewPagerAdapter(this, images)
+        viewPagerMain.adapter = ViewpagerAdapter(HEADER, this, images)
         mainPresenter.viewPagerAutoScroll(images.count(), viewPagerMain)
     }
 

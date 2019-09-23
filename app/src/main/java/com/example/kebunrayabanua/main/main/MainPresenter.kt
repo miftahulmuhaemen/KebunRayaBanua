@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.*
+import kotlin.concurrent.schedule
 
 class MainPresenter(
     private val view: MainView,
@@ -43,15 +44,13 @@ class MainPresenter(
     }
 
     fun viewPagerAutoScroll(imageCount: Int, viewPager: ViewPager) {
-        GlobalScope.launch(context.main) {
-            Timer().schedule(object : TimerTask() {
-                override fun run() {
+        Timer("autoScroll", false).schedule(3000, 3000) {
+            GlobalScope.launch(context.main) {
                     if (viewPager.currentItem == imageCount - 1)
                         viewPager.currentItem = 0
                     else
                         viewPager.currentItem++
                 }
-            }, 3000, 3000)
         }
     }
 

@@ -5,8 +5,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.model.DataDetailTree
-import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter
-import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter.Type.DEFAULT
+import com.example.kebunrayabanua.main.util.ViewpagerAdapter
+import com.example.kebunrayabanua.main.util.ViewpagerAdapter.Type.DEFAULT
 import com.example.kebunrayabanua.main.util.getHtml
 import com.example.kebunrayabanua.main.util.gone
 import com.example.kebunrayabanua.main.util.visible
@@ -48,7 +48,7 @@ class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppB
         item_info.text = item.itemInfoTanamTeks
         desc_seeMore.onClick { seeMoreAlert(item.tanamDeskripsiHtml.toString()) }
         info_seemore.onClick { seeMoreAlert(item.itemInfoTanamHtml.toString()) }
-        viewPagerDetailTree.adapter = item.tanamFoto?.let { DetailViewpagerAdapter(DEFAULT, this, it) }
+        viewPagerDetailTree.adapter = item.tanamFoto?.let { ViewpagerAdapter(DEFAULT, this, it) }
     }
 
     override fun errorRequest() {

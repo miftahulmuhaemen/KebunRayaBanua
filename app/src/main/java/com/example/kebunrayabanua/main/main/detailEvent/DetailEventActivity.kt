@@ -5,8 +5,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.model.DataEvent
-import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter
-import com.example.kebunrayabanua.main.util.DetailViewpagerAdapter.Type.DEFAULT
+import com.example.kebunrayabanua.main.util.ViewpagerAdapter
+import com.example.kebunrayabanua.main.util.ViewpagerAdapter.Type.DEFAULT
 import com.example.kebunrayabanua.main.util.getHtml
 import com.example.kebunrayabanua.main.util.gone
 import com.example.kebunrayabanua.main.util.visible
@@ -44,7 +44,7 @@ class DetailEventActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedLis
         item_title.text = data.eventNama
         item_duration.text = "${data.eventMulai} - ${data.eventSelesai}"
         item_desc.text = getHtml(data.eventDeskripsi.toString())
-        viewPagerEvent.adapter = data.eventPoster?.let { DetailViewpagerAdapter(DEFAULT, this, it) }
+        viewPagerEvent.adapter = data.eventPoster?.let { ViewpagerAdapter(DEFAULT, this, it) }
 
 
         appbar.addOnOffsetChangedListener(this)
