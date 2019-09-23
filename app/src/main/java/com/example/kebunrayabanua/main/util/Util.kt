@@ -4,6 +4,7 @@ import android.os.Build
 import android.text.Html
 import android.view.View
 import com.example.kebunrayabanua.BuildConfig
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.IOException
@@ -54,6 +55,20 @@ fun getHtml(text: String?): String {
         Html.fromHtml(text,Html.FROM_HTML_MODE_LEGACY)
     else
         Html.fromHtml(text)).toString()
+}
 
+fun getFirebaseEmail(): String? {
+    return if (FirebaseAuth.getInstance().currentUser?.providerData?.last()?.email.isNullOrEmpty())
+        FirebaseAuth.getInstance().currentUser?.uid + "@" + getFirebaseProviderId()
+    else
+        FirebaseAuth.getInstance().currentUser?.providerData?.last()?.email
+}
+
+fun getFirebaseDisplayName(): String?{
+    return FirebaseAuth.getInstance().currentUser?.displayName
+}
+
+fun getFirebaseProviderId(): String?{
+    return FirebaseAuth.getInstance().currentUser?.providerData?.last()?.providerId
 }
 

@@ -3,6 +3,7 @@ package com.example.kebunrayabanua.main.main.treeData
 import com.example.kebunrayabanua.main.api.RetrofitFactory
 import com.example.kebunrayabanua.main.api.RetrofitService
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
+import com.example.kebunrayabanua.main.util.getFirebaseEmail
 import com.example.kebunrayabanua.main.util.isOnline
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.GlobalScope
@@ -24,7 +25,7 @@ class TreeDataPresenter(private val view: TreeDataView,
             } else {
                 val response = service.getTrees(
                         pageNumber,
-                        FirebaseAuth.getInstance().currentUser?.email,
+                        getFirebaseEmail(),
                         find
                 )
                 try {

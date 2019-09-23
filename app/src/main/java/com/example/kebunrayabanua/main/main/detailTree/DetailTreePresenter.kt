@@ -3,6 +3,7 @@ package com.example.kebunrayabanua.main.main.detailTree
 import com.example.kebunrayabanua.main.api.RetrofitFactory
 import com.example.kebunrayabanua.main.api.RetrofitService
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
+import com.example.kebunrayabanua.main.util.getFirebaseEmail
 import com.example.kebunrayabanua.main.util.isOnline
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.GlobalScope
@@ -23,7 +24,7 @@ class DetailTreePresenter (private val view: DetailTreeView,
             } else {
                 val response = service.getTree(
                         treeNumber,
-                        FirebaseAuth.getInstance().currentUser?.email,
+                        getFirebaseEmail(),
                         isScanMe
                 )
                 try {

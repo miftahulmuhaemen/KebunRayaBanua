@@ -3,9 +3,7 @@ package com.example.kebunrayabanua.main.main
 import androidx.viewpager.widget.ViewPager
 import com.example.kebunrayabanua.main.api.RetrofitFactory
 import com.example.kebunrayabanua.main.api.RetrofitService
-import com.example.kebunrayabanua.main.util.CoroutineContextProvider
-import com.example.kebunrayabanua.main.util.isOnline
-import com.google.firebase.auth.FirebaseAuth
+import com.example.kebunrayabanua.main.util.*
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -23,16 +21,11 @@ class MainPresenter(
         GlobalScope.launch(context.main) {
             if (!isOnline())
             else {
-                val email =
-                    if (FirebaseAuth.getInstance().currentUser?.providerData?.last()?.email.isNullOrEmpty())
-                        ""
-                    else
-                        FirebaseAuth.getInstance().currentUser?.providerData?.last()?.email
                 val response = service.getHeaderHighlight(
-                    email, null, null, null,
-                    FirebaseAuth.getInstance().currentUser?.displayName,
-                    FirebaseAuth.getInstance().currentUser?.providerData?.last()?.providerId
-                )
+                    getFirebaseEmail(), null, null, null,
+                    getFirebaseDisplayName(),
+                    getFirebaseProviderId())
+
                 try {
                     if (response.isSuccessful)
                         response.body()?.let {
