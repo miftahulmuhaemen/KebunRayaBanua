@@ -60,6 +60,7 @@ dependencies {
 
     //Extras
     implementation("org.osmdroid:osmdroid-android:6.1.0")
+    implementation("com.github.MKergall:osmbonuspack:6.6.0")
     implementation("de.hdodenhof:circleimageview:3.0.0")
     implementation("com.github.chrisbanes:PhotoView:2.3.0")
     implementation("com.github.bumptech.glide:glide:4.9.0")

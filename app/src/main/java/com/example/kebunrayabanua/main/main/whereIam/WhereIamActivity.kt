@@ -29,7 +29,7 @@ class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView
     }
 
     override fun onClick(v: View?) {
-        when(v){
+        when (v) {
             backBtn -> finish()
         }
     }
@@ -49,17 +49,26 @@ class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView
                     Manifest.permission.ACCESS_FINE_LOCATION
                 ) != PackageManager.PERMISSION_GRANTED
             )
-                requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION), WHEREIAM)
+                requestPermissions(
+                    arrayOf(
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                    ), WHEREIAM
+                )
         super.onStart()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Configuration.getInstance().load(applicationContext, PreferenceManager.getDefaultSharedPreferences(applicationContext))
+        Configuration.getInstance().load(
+            applicationContext,
+            PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        )
         setContentView(R.layout.where_iam_activity)
 
         presenter = WhereIamPresenter(this,this)
         presenter.connectingToGoogleAPI()
+        presenter.kmlOverlaying(map)
 
         map.setTileSource(TileSourceFactory.MAPNIK)
         map.setMultiTouchControls(true)
@@ -83,7 +92,11 @@ class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView
         map.onPause()
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         when (requestCode) {
             WHEREIAM -> {
                 map.onResume()

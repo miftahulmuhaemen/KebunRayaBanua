@@ -10,6 +10,7 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 import kotlin.coroutines.CoroutineContext
 
+
 object Permission {
     const val SCAN = 100
     const val WHEREIAM = 100
@@ -71,4 +72,3 @@ fun getFirebaseDisplayName(): String?{
 fun getFirebaseProviderId(): String?{
     return FirebaseAuth.getInstance().currentUser?.providerData?.last()?.providerId
 }
-

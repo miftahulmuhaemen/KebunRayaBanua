@@ -1,6 +1,5 @@
 package com.example.kebunrayabanua.main.login
 
-import android.content.Intent
 import android.os.Bundle
 import android.transition.TransitionManager
 import android.view.View
@@ -21,7 +20,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.singleTop
 
 /*
 
@@ -64,10 +65,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, FirebaseAuth.Au
         super.onCreate(savedInstanceState)
         setContentView(login_activity)
 
-        google_signIn.setOnClickListener(this)
-        twitter_signIn.setOnClickListener(this)
-        FirebaseAuth.getInstance().addAuthStateListener(this)
-
         Glide.with(this).load(bg_spouse).into(background)
         Glide.with(this).load(ic_logo).into(img_logo)
         Glide.with(this).load(ic_labirin).into(mazeView)
@@ -79,6 +76,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, FirebaseAuth.Au
             buttons.visible()
         }
 
+        google_signIn.setOnClickListener(this)
+        twitter_signIn.setOnClickListener(this)
+        FirebaseAuth.getInstance().addAuthStateListener(this)
     }
 
 }
