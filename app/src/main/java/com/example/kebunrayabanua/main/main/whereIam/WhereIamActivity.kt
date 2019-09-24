@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.example.kebunrayabanua.main.main.whereIam
 
 import android.Manifest
@@ -67,17 +69,15 @@ class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView
         setContentView(R.layout.where_iam_activity)
 
         presenter = WhereIamPresenter(this,this)
-        presenter.connectingToGoogleAPI()
         presenter.kmlOverlaying(map)
-
-        map.setTileSource(TileSourceFactory.MAPNIK)
-        map.setMultiTouchControls(true)
-        map.controller.setZoom(19.0)
-        map.controller.setCenter(startPoint)
+        presenter.connectingToGoogleAPI()
 
         val overlay = MyLocationNewOverlay(GpsMyLocationProvider(this), map)
         overlay.enableMyLocation()
         map.overlays.add(overlay)
+        map.setTileSource(TileSourceFactory.MAPNIK)
+        map.setMultiTouchControls(true)
+        map.controller.setZoom(19.0)
 
         backBtn.setOnClickListener(this)
     }
