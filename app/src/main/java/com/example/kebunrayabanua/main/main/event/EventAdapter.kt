@@ -10,7 +10,6 @@ import android.widget.Filterable
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.kebunrayabanua.BuildConfig
 import com.example.kebunrayabanua.R
 import com.example.kebunrayabanua.main.model.DataEvent
 import com.example.kebunrayabanua.main.util.getThumbnail

@@ -5,11 +5,9 @@ import com.example.kebunrayabanua.main.api.RetrofitService
 import com.example.kebunrayabanua.main.util.CoroutineContextProvider
 import com.example.kebunrayabanua.main.util.getFirebaseEmail
 import com.example.kebunrayabanua.main.util.isOnline
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import retrofit2.HttpException
 
 
@@ -37,9 +35,9 @@ class TreeDataPresenter(private val view: TreeDataView,
                     } else
                         view.errorRequest()
                 } catch (e: Throwable) {
-                    info { e.message }
+                    error { e.message }
                 } catch (e: HttpException) {
-                    info { e.message }
+                    error { e.message }
                 }
             }
             view.finishLoad()
