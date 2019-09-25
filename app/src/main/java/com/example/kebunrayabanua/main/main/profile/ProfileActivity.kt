@@ -43,7 +43,10 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         webview.settings.setAppCacheEnabled(true)
         webview.scrollBarSize = View.SCROLLBARS_INSIDE_OVERLAY
         webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/profil")
+    }
 
+    override fun onStart() {
+        super.onStart()
         nav_view.setNavigationItemSelectedListener(this)
         backBtn.setOnClickListener(this)
         overflowMenu.setOnClickListener(this)

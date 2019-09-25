@@ -14,9 +14,9 @@ import com.example.kebunrayabanua.main.util.visible
 import kotlinx.android.synthetic.main.event_activity.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.appcompat.v7.coroutines.onQueryTextListener
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.toast
-import org.jetbrains.anko.startActivity
 
 class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, AnkoLogger {
 
@@ -70,14 +70,16 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.event_activity)
-
-        eventPresenter = EventPresenter(this)
-
         gridAdapter = EventGridAdapter(this, items) { startActivity<DetailEventActivity>(DetailEventActivity.DETAIL_EVENT to it) }
         recylerviewMain.adapter = gridAdapter
         recylerviewMain.layoutManager = GridLayoutManager(this, 1)
+        eventPresenter = EventPresenter(this)
         eventPresenter.getItem(pageNumber)
 
+    }
+
+    override fun onStart() {
+        super.onStart()
         backBtn.setOnClickListener(this)
         searchView.setOnSearchClickListener {
             titleText.gone()

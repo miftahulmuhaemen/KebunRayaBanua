@@ -39,27 +39,6 @@ class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView
     private val startPoint = GeoPoint(-3.4844549, 114.8316283)
     private lateinit var presenter: WhereIamPresenter
 
-    override fun onStart() {
-        Configuration.getInstance().userAgentValue = BuildConfig.APPLICATION_ID
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ) != PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-            )
-                requestPermissions(
-                    arrayOf(
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    ), WHEREIAM
-                )
-        super.onStart()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Configuration.getInstance().load(
@@ -78,8 +57,28 @@ class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView
         map.setTileSource(TileSourceFactory.MAPNIK)
         map.setMultiTouchControls(true)
         map.controller.setZoom(19.0)
+    }
 
+    override fun onStart() {
+        Configuration.getInstance().userAgentValue = BuildConfig.APPLICATION_ID
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+            )
+                requestPermissions(
+                    arrayOf(
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                    ), WHEREIAM
+                )
         backBtn.setOnClickListener(this)
+        super.onStart()
     }
 
     override fun onResume() {
@@ -102,9 +101,7 @@ class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView
                 map.onResume()
                 presenter.startLocationUpdates()
             }
-            else -> {
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-            }
+            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
     }
 

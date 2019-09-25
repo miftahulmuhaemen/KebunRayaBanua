@@ -68,12 +68,14 @@ class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppB
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detail_tree_activity)
-        presenter = DetailTreePresenter(this)
-
         val identifier = intent.getIntExtra(IS_FROM_SCANME, 0)
-        val kode = intent?.getStringExtra(TREE_DETAIL)
-        presenter.getItem(kode.toString(), identifier)
+        val code = intent?.getStringExtra(TREE_DETAIL)
+        presenter = DetailTreePresenter(this)
+        presenter.getItem(code.toString(), identifier)
+    }
 
+    override fun onStart() {
+        super.onStart()
         appbar.addOnOffsetChangedListener(this)
         backBtn.setOnClickListener(this)
         desc_seeMore.setOnClickListener(this)

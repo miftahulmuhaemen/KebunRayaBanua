@@ -80,11 +80,13 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView, AnkoLogger, View.OnC
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tree_data_activity)
-
         changeAdapterLayout()
         treePresenter = TreeDataPresenter(this)
         treePresenter.getItem(pageNumber, findAll)
+    }
 
+    override fun onStart() {
+        super.onStart()
         backBtn.setOnClickListener(this)
         fab_changemode.setOnClickListener(this)
         searchView.setOnSearchClickListener {
@@ -121,21 +123,31 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView, AnkoLogger, View.OnC
         if (!isGridViewAttach) {
             recylerviewMain.adapter = TreeDataGridAdapter(this, items, GRID_VIEW) {
                 startActivity<DetailTreeActivity>(
-                        TREE_DETAIL to it.itemKode,
-                        IS_FROM_SCANME to 0
+                    TREE_DETAIL to it.itemKode,
+                    IS_FROM_SCANME to 0
                 )
             }
             recylerviewMain.layoutManager = GridLayoutManager(this, 2)
-            fab_changemode.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_grid_view))
+            fab_changemode.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_grid_view
+                )
+            )
         } else {
             recylerviewMain.adapter = TreeDataGridAdapter(this, items, LIST_VIEW) {
                 startActivity<DetailTreeActivity>(
-                        TREE_DETAIL to it.itemKode,
-                        IS_FROM_SCANME to 0
+                    TREE_DETAIL to it.itemKode,
+                    IS_FROM_SCANME to 0
                 )
             }
             recylerviewMain.layoutManager = LinearLayoutManager(this)
-            fab_changemode.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_list_view))
+            fab_changemode.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_list_view
+                )
+            )
         }
         isGridViewAttach = !isGridViewAttach
     }

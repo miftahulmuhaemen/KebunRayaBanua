@@ -63,7 +63,10 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
         mainPresenter = MainPresenter(this)
         mainPresenter.getHeaderHighlight()
         mainPresenter.firebaseSubscribeTopic()
+    }
 
+    override fun onStart() {
+        super.onStart()
         logout.setOnClickListener(this)
         scan.setOnClickListener(this)
         location.setOnClickListener(this)

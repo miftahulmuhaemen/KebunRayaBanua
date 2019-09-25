@@ -39,14 +39,15 @@ class DetailEventActivity : AppCompatActivity(), AppBarLayout.OnOffsetChangedLis
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detail_event_activity)
-
         data = intent.getParcelableExtra(DETAIL_EVENT)
         item_title.text = data.eventNama
         item_duration.text = "${data.eventMulai} - ${data.eventSelesai}"
         item_desc.text = getHtml(data.eventDeskripsi.toString())
         viewPagerEvent.adapter = data.eventPoster?.let { ViewpagerAdapter(DEFAULT, this, it) }
+    }
 
-
+    override fun onStart() {
+        super.onStart()
         appbar.addOnOffsetChangedListener(this)
         backBtn.setOnClickListener(this)
     }

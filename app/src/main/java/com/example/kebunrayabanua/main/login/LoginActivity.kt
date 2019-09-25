@@ -75,10 +75,14 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, FirebaseAuth.Au
             mazeView.gone()
             buttons.visible()
         }
+    }
 
+    override fun onStart() {
+        super.onStart()
         google_signIn.setOnClickListener(this)
         twitter_signIn.setOnClickListener(this)
         FirebaseAuth.getInstance().addAuthStateListener(this)
+        onAuthStateChanged(FirebaseAuth.getInstance())
     }
 
 }
