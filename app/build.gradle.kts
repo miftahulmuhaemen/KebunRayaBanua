@@ -47,9 +47,9 @@ dependencies {
     implementation("com.firebaseui:firebase-ui-auth:4.1.0")
     implementation("com.twitter.sdk.android:twitter-core:3.3.0")
     implementation("com.google.android.gms:play-services-auth:17.0.0")
-    implementation("com.google.firebase:firebase-auth:18.0.0")
+    implementation("com.google.firebase:firebase-auth:19.0.0")
     implementation("com.google.android.gms:play-services-location:17.0.0")
-    implementation("com.google.firebase:firebase-messaging:19.0.1")
+    implementation("com.google.firebase:firebase-messaging:20.0.0")
 
     //network
     implementation("com.google.code.gson:gson:2.8.5")
@@ -72,7 +72,7 @@ dependencies {
     }
 
     //noinspection GradleCompatible
-    implementation("androidx.appcompat:appcompat:1.0.2")
+    implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("com.google.android.material:material:1.0.0")
     implementation("androidx.recyclerview:recyclerview:1.0.0")
     implementation("androidx.legacy:legacy-support-core-ui:1.0.0")
