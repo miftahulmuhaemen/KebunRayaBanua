@@ -85,9 +85,11 @@ class DetailTreeActivity : AppCompatActivity(), DetailTreeView, AnkoLogger, AppB
     private fun seeMoreAlert(text: String) {
         alert {
             customView {
-                verticalLayout {
-                    padding = dip(32)
-                    textView(getHtml(text))
+                scrollView {
+                    verticalLayout {
+                        padding = dip(32)
+                        textView(getHtml(text))
+                    }
                 }
             }
         }.show()

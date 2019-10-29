@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
     }
 
     override fun headerImages(images: List<String>) {
-        Glide.with(this).load(R.drawable.header_0).into(stockImage)
         viewPagerMain.adapter = ViewpagerAdapter(HEADER, this, images)
         mainPresenter.viewPagerAutoScroll(images.count(), viewPagerMain)
     }
@@ -56,6 +55,7 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        Glide.with(this).load(R.drawable.header_0).into(stockImage)
         mAdapter = MainListAdapter(this, mainItem) {
             startActivity<DetailEventActivity>(DetailEventActivity.DETAIL_EVENT to it)
         }

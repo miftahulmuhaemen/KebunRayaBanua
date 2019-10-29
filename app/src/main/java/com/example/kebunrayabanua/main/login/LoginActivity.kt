@@ -21,8 +21,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.clearTop
 import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.singleTop
 
 /*
 
@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, FirebaseAuth.Au
 
     override fun onAuthStateChanged(state: FirebaseAuth) {
         if(state.currentUser != null){
-            startActivity(intentFor<MainActivity>().singleTop())
+            startActivity(intentFor<MainActivity>().clearTop())
             state.removeAuthStateListener(this)
             finish()
         }

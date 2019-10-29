@@ -19,7 +19,6 @@ import com.example.kebunrayabanua.main.service.FirebaseMessagingService.Firebase
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 
 
 class FirebaseMessagingService : FirebaseMessagingService(), AnkoLogger {
@@ -30,10 +29,10 @@ class FirebaseMessagingService : FirebaseMessagingService(), AnkoLogger {
         var CHANNEL_NAME: CharSequence = "event"
     }
 
-    override fun onMessageReceived(remoteMessage: RemoteMessage?) {
+    override fun onMessageReceived(remoteMessage: RemoteMessage) {
 
         val resultIntent = Intent(this, DetailEventActivity::class.java)
-            resultIntent.putExtra(DETAIL_EVENT, onDataEvent(remoteMessage?.data))
+        resultIntent.putExtra(DETAIL_EVENT, onDataEvent(remoteMessage.data))
         val resultPendingIntent: PendingIntent? = TaskStackBuilder.create(this).run {
             addNextIntentWithParentStack(resultIntent)
             getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -45,8 +44,8 @@ class FirebaseMessagingService : FirebaseMessagingService(), AnkoLogger {
         val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val mBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_logo)
-                .setContentTitle(remoteMessage?.notification?.title)
-                .setContentText(remoteMessage?.notification?.body)
+            .setContentTitle(remoteMessage.notification?.title)
+            .setContentText(remoteMessage.notification?.body)
                 .setContentIntent(resultPendingIntent)
                 .setStyle(bigPictureStyle)
                 .setAutoCancel(true)
