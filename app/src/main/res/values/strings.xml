@@ -26,12 +26,94 @@
         <item>German Bundesliga</item>
     </string-array>
 
-    <array name="dummy_array">
-        <item><b>What</b> <i>the</i> <u>Html</u></item>
-        <item>@string/dummy_tree_text</item>
-        <item>@string/dummy_tree_text</item>
-        <item>@string/dummy_tree_text</item>
-    </array>
+    /* Markers Array */
+    <string-array name="markersTitle">
+        <item>Kantor Pembibitan</item>
+        <item>Gedung Aromatik</item>
+        <item>Gazebo Bank Kalsel</item>
+        <item>Gedung Konservatorium</item>
+        <item>Rumah Kaca</item>
+        <item>Gedung Herbarium</item>
+        <item>Rumah Hobbit</item>
+        <item>Gazebo 1</item>
+        <item>Gazebo 2</item>
+        <item>Mess Kebun</item>
+        <item>Paranet/Pembibitan</item>
+        <item>Pos Satpam Pintu Utara</item>
+        <item>Gerbang Utama</item>
+        <item>Parkiran</item>
+        <item>Plaza Utama</item>
+        <item>Visitor Centre</item>
+        <item>Gerbang Taman Buah</item>
+        <item>Labirin</item>
+        <item>Pintu Utara</item>
+    </string-array>
+
+    <string-array name="markersLat">
+        <item>-3.48574777107152</item>
+        <item>-3.48318180766509</item>
+        <item>-3.48389275601169</item>
+        <item>-3.488278538336</item>
+        <item>-3.48869424789376</item>
+        <item>-3.48846784022608</item>
+        <item>-3.48846784022608</item>
+        <item>-3.4851051295784</item>
+        <item>-3.48484879614881</item>
+        <item>-3.48591794745202</item>
+        <item>-3.48617120369147</item>
+        <item>-3.48711431336327</item>
+        <item>-3.48971039832888</item>
+        <item>-3.48970857295095</item>
+        <item>-3.49044620812243</item>
+        <item>-3.4907425227243</item>
+        <item>-3.4892610819977</item>
+        <item>-3.48386732947139</item>
+        <item>-3.48716857661499</item>
+    </string-array>
+
+    <string-array name="markersLong">
+        <item>114.819496481473</item>
+        <item>114.820150157263</item>
+        <item>114.818754023024</item>
+        <item>114.815379115775</item>
+        <item>114.815315178011</item>
+        <item>114.815144762248</item>
+        <item>114.814955183404</item>
+        <item>114.819165081339</item>
+        <item>114.817789167003</item>
+        <item>114.818812334282</item>
+        <item>114.818865731259</item>
+        <item>114.820114111295</item>
+        <item>114.816869275811</item>
+        <item>114.816086558594</item>
+        <item>114.814510414767</item>
+        <item>114.813646037409</item>
+        <item>114.814153283343</item>
+        <item>114.819482819003</item>
+        <item>114.820122983063</item>
+    </string-array>
+
+    <integer-array name="markersIcon">
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_gazebo</item>
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_gazebo</item>
+        <item>@drawable/ic_gazebo</item>
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_area</item>
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_gerbang</item>
+        <item>@drawable/ic_area</item>
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_gedung</item>
+        <item>@drawable/ic_gerbang</item>
+        <item>@drawable/ic_area</item>
+        <item>@drawable/ic_gerbang</item>
+    </integer-array>
 
     /* Drawer Navbar */
     <string name="navigation_drawer_open">/</string>
@@ -54,6 +136,8 @@
     <string name="status_reservasi">Status Reservasi</string>
     <string name="register">Register</string>
     <string name="lokasi">Lokasi</string>
+
+    <string name="problem_occur">Terjadi Masalah</string>
 
 
 </resources>

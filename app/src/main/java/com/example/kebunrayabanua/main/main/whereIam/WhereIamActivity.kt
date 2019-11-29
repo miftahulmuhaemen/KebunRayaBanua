@@ -17,17 +17,14 @@ import com.example.kebunrayabanua.main.util.Permission.WHEREIAM
 import kotlinx.android.synthetic.main.where_iam_activity.*
 import org.jetbrains.anko.AnkoLogger
 import org.osmdroid.config.Configuration
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
-import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
-import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
 
 class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView, AnkoLogger {
 
     override fun onLocationChanged(location: Location?) {
-        val point = location?.latitude?.let { GeoPoint(it, location.longitude) }
-        map.controller.setCenter(point)
+//        val point = location?.latitude?.let { GeoPoint(it, location.longitude) }
+//        map.controller.setCenter(point)
     }
 
     override fun onClick(v: View?) {
@@ -46,17 +43,9 @@ class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView
             PreferenceManager.getDefaultSharedPreferences(applicationContext)
         )
         setContentView(R.layout.where_iam_activity)
-
         presenter = WhereIamPresenter(this,this)
-        presenter.kmlOverlaying(map)
-        presenter.connectingToGoogleAPI()
+        presenter.mapSetup(map)
 
-        val overlay = MyLocationNewOverlay(GpsMyLocationProvider(this), map)
-        overlay.enableMyLocation()
-        map.overlays.add(overlay)
-        map.setTileSource(TileSourceFactory.MAPNIK)
-        map.setMultiTouchControls(true)
-        map.controller.setZoom(19.0)
     }
 
     override fun onStart() {

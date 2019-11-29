@@ -21,6 +21,10 @@ import org.jetbrains.anko.AnkoLogger
 class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener,
     AnkoLogger {
 
+    companion object {
+        const val EXTENDED_URL = "${BuildConfig.BASE_URL}index.php/profil/organisasi/"
+    }
+
     override fun onClick(view: View?) {
         when (view) {
             overflowMenu -> drawer_layout.openDrawer(drawerPosition)
@@ -42,7 +46,7 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         webview.settings.allowFileAccess = true
         webview.settings.setAppCacheEnabled(true)
         webview.scrollBarSize = View.SCROLLBARS_INSIDE_OVERLAY
-        webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/profil")
+        webview.loadUrl("${EXTENDED_URL}profil")
     }
 
     override fun onStart() {
@@ -63,19 +67,19 @@ class ProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         when (item.itemId) {
             R.id.profile -> {
-                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/profil")
+                webview.loadUrl("${EXTENDED_URL}profil")
             }
             R.id.visionmission -> {
-                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/visimisi")
+                webview.loadUrl("${EXTENDED_URL}visimisi")
             }
             R.id.goal -> {
-                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/tujuan")
+                webview.loadUrl("${EXTENDED_URL}tujuan")
             }
             R.id.structure -> {
-                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/struktur")
+                webview.loadUrl("${EXTENDED_URL}struktur")
             }
             R.id.headprofile -> {
-                webview.loadUrl("${BuildConfig.BASE_URL}index.php/profil/organisasi/pimpinan")
+                webview.loadUrl("${EXTENDED_URL}pimpinan")
             }
         }
         drawer_layout.closeDrawer(drawerPosition)

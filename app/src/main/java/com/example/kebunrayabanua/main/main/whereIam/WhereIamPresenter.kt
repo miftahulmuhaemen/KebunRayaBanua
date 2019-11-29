@@ -18,8 +18,14 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.AnkoLogger
 import org.osmdroid.bonuspack.kml.KmlDocument
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.FolderOverlay
+import org.osmdroid.views.overlay.Marker
+import org.osmdroid.views.overlay.Overlay
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 import java.io.IOException
 
 class WhereIamPresenter(
@@ -33,11 +39,8 @@ class WhereIamPresenter(
         startLocationUpdates()
     }
 
-    override fun onConnectionSuspended(p0: Int) {
-    }
-
-    override fun onConnectionFailed(p0: ConnectionResult) {
-    }
+    override fun onConnectionSuspended(p0: Int) {}
+    override fun onConnectionFailed(p0: ConnectionResult) {}
 
     private var googleApiClient: GoogleApiClient? = null
 
@@ -50,6 +53,29 @@ class WhereIamPresenter(
             .addApi(LocationServices.API)
             .build()
         googleApiClient?.connect()
+    }
+
+
+    fun mapSetup(map: MapView) {
+        connectingToGoogleAPI()
+        kmlOverlaying(map, R.raw.kml_batas_krb)
+        map.overlays.add(myLocationOverlay(map))
+        map.setTileSource(TileSourceFactory.MAPNIK)
+        map.setMultiTouchControls(true)
+        map.controller.setZoom(19.0)
+
+        val markerLat = context.resources.getStringArray(R.array.markersLat)
+        val markerLong = context.resources.getStringArray(R.array.markersLong)
+        val markerIcon = context.resources.obtainTypedArray(R.array.markersIcon)
+        for ((index, markerTitle) in context.resources.getStringArray(R.array.markersTitle).withIndex())
+            addMarker(
+                map,
+                GeoPoint(markerLat[index].toDouble(), markerLong[index].toDouble()),
+                markerIcon.getResourceId(index, 0),
+                markerTitle
+            )
+
+        markerIcon.recycle()
     }
 
     fun startLocationUpdates() {
@@ -75,12 +101,12 @@ class WhereIamPresenter(
             )
     }
 
-    fun kmlOverlaying(map: MapView) {
+    private fun kmlOverlaying(map: MapView, marker: Int) {
         GlobalScope.launch(contextCoroutine.main) {
             try {
                 val kmlDocument = KmlDocument()
                 kmlDocument.parseKMLStream(
-                    context.resources.openRawResource(R.raw.kml_batas_krb),
+                    context.resources.openRawResource(marker),
                     null
                 )
                 val boundingBox = kmlDocument.mKmlRoot.boundingBox
@@ -94,4 +120,27 @@ class WhereIamPresenter(
             }
         }
     }
+
+    private fun myLocationOverlay(map: MapView): Overlay {
+        val overlay = MyLocationNewOverlay(GpsMyLocationProvider(context), map)
+        overlay.enableMyLocation()
+        return overlay
+    }
+
+    private fun addMarker(map: MapView, geoPoint: GeoPoint, icon: Int, title: String) {
+        GlobalScope.launch(contextCoroutine.main) {
+            try {
+                val marker = Marker(map)
+                marker.position = geoPoint
+                marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+                marker.icon = context.resources.getDrawable(icon, null)
+                marker.title = title
+                map.overlays.add(marker)
+                map.invalidate()
+            } catch (e: IOException) {
+                error(e)
+            }
+        }
+    }
 }
+

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="area" id="area">
+	<SimpleField name="field_1" type="string"></SimpleField>
+	<SimpleField name="field_2" type="string"></SimpleField>
+	<SimpleField name="field_3" type="int"></SimpleField>
+	<SimpleField name="field_4" type="int"></SimpleField>
+</Schema>
+<Folder><name>area</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Kantor Pembibitan</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257752</SimpleData>
+		<SimpleData name="field_4">9614435</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.819496481473,-3.48574777107152</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Gedung Aromatik</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257824</SimpleData>
+		<SimpleData name="field_4">9614719</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.820150157263,-3.48318180766509</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Gazebo Bank Kalsel</SimpleData>
+		<SimpleData name="field_2">Gazebo</SimpleData>
+		<SimpleData name="field_3">257669</SimpleData>
+		<SimpleData name="field_4">9614640</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.818754023024,-3.48389275601169</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Gedung Konservatorium</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257295</SimpleData>
+		<SimpleData name="field_4">9614154</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.815379115775,-3.488278538336</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Rumah Kaca</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257288</SimpleData>
+		<SimpleData name="field_4">9614108</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.815315178011,-3.48869424789376</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Gedung Herbarium</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257269</SimpleData>
+		<SimpleData name="field_4">9614133</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.815144762248,-3.48846784022608</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Rumah Hobbit</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257248</SimpleData>
+		<SimpleData name="field_4">9614102</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.814955183404,-3.48874765049918</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Gazebo 1</SimpleData>
+		<SimpleData name="field_2">Gazebo</SimpleData>
+		<SimpleData name="field_3">257715</SimpleData>
+		<SimpleData name="field_4">9614506</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.819165081339,-3.4851051295784</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Gazebo 2</SimpleData>
+		<SimpleData name="field_2">Gazebo</SimpleData>
+		<SimpleData name="field_3">257562</SimpleData>
+		<SimpleData name="field_4">9614534</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.817789167003,-3.48484879614881</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Mess Kebun</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257676</SimpleData>
+		<SimpleData name="field_4">9614416</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.818812334282,-3.48591794745202</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Paranet/Pembibitan</SimpleData>
+		<SimpleData name="field_2">Area</SimpleData>
+		<SimpleData name="field_3">257682</SimpleData>
+		<SimpleData name="field_4">9614388</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.818865731259,-3.48617120369147</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Pos Satpam Pintu Utara</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257821</SimpleData>
+		<SimpleData name="field_4">9614284</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.820114111295,-3.48711431336327</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Gerbang Utama</SimpleData>
+		<SimpleData name="field_2">Pintu</SimpleData>
+		<SimpleData name="field_3">257461</SimpleData>
+		<SimpleData name="field_4">9613996</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.816869275811,-3.48971039832888</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Parkiran</SimpleData>
+		<SimpleData name="field_2">Area</SimpleData>
+		<SimpleData name="field_3">257374</SimpleData>
+		<SimpleData name="field_4">9613996</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.816086558594,-3.48970857295095</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Plaza Utama</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257199</SimpleData>
+		<SimpleData name="field_4">9613914</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.814510414767,-3.49044620812243</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Visitor Centre</SimpleData>
+		<SimpleData name="field_2">Gedung</SimpleData>
+		<SimpleData name="field_3">257103</SimpleData>
+		<SimpleData name="field_4">9613881</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.813646037409,-3.4907425227243</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Gerbang Taman Buah</SimpleData>
+		<SimpleData name="field_2">Pintu</SimpleData>
+		<SimpleData name="field_3">257159</SimpleData>
+		<SimpleData name="field_4">9614045</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.814153283343,-3.4892610819977</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Labirin</SimpleData>
+		<SimpleData name="field_2">Area</SimpleData>
+		<SimpleData name="field_3">257750</SimpleData>
+		<SimpleData name="field_4">9614643</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.819482819003,-3.48386732947139</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#area">
+		<SimpleData name="field_1">Pintu Utara</SimpleData>
+		<SimpleData name="field_2">Pintu</SimpleData>
+		<SimpleData name="field_3">257822</SimpleData>
+		<SimpleData name="field_4">9614278</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>114.820122983063,-3.48716857661499</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

@@ -50,7 +50,7 @@ class EventActivity : AppCompatActivity(), View.OnClickListener, EventView, Anko
         if(items.isEmpty())
             network_down.visible()
         else
-            toast("Terjadi masalah.")
+            toast(R.string.problem_occur)
     }
 
     override fun onLoad() {

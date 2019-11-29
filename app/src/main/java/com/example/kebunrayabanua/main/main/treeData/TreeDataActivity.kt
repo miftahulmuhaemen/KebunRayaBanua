@@ -56,7 +56,7 @@ class TreeDataActivity : AppCompatActivity(), TreeDataView, AnkoLogger, View.OnC
         if (items.isEmpty())
             network_down.visible()
         else
-            toast("Terjadi masalah.")
+            toast(R.string.problem_occur)
     }
 
     override fun closedRequest() {
