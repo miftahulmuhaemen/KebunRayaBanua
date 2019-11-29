@@ -23,8 +23,8 @@ import org.osmdroid.util.GeoPoint
 class WhereIamActivity : AppCompatActivity(), View.OnClickListener, WhereIamView, AnkoLogger {
 
     override fun onLocationChanged(location: Location?) {
-//        val point = location?.latitude?.let { GeoPoint(it, location.longitude) }
-//        map.controller.setCenter(point)
+        val point = location?.latitude?.let { GeoPoint(it, location.longitude) }
+        map.controller.setCenter(point)
     }
 
     override fun onClick(v: View?) {
